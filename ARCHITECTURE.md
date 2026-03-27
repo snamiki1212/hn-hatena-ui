@@ -26,21 +26,10 @@
 
 コンテンツ生成を担うSSG。ビルド時にHN APIからデータ取得し、静的ページを出力する。
 
-**候補 (要選定):**
-
-| SSG | 特徴 | ha-ui適性 |
-|-----|------|-----------|
-| **Astro** | Islands Architecture、部分的hydration、複数FW混在可 | ◎ 静的メイン+部分的にインタラクティブ |
-| **Next.js (Static Export)** | React、SSG対応、エコシステム豊富 | ○ Reactに統一したい場合 |
-| **Vite + React/Vue** | 軽量、高速ビルド、SPA寄り | ○ シンプルなSPA構成 |
-| **Eleventy (11ty)** | テンプレート駆動、JS少なめ、軽量 | ○ 最小構成を目指す場合 |
-| **SvelteKit** | Svelte、SSG対応、バンドル小 | △ 学習コスト考慮 |
-
-**選定観点:**
-- GitHub Pages との相性 (静的出力のしやすさ)
-- ha風UIのインタラクティブ要素の量 (コメント展開等)
-- ビルド速度・DX
-- コンポーネントの再利用性
+**採用: Astro** (Islands Architecture + React)
+- 静的部分は `.astro`、インタラクティブ部分は React (`.tsx`) で実装
+- Islands Architecture により必要箇所のみ hydration → JS最小化
+- 選定詳細: [ADR-001](docs/adr/001-select-ssg-framework.md)
 
 ### 3. UI Layer — ha風コンポーネント
 
