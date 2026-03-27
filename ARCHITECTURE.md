@@ -47,9 +47,10 @@
 はてなブックマーク風のデザインを再現するUI層。
 
 **UIデザインツール: Pencil**
-- ワイヤーフレーム・モックアップは [Pencil](https://pencil.evolus.vn/) で作成
+- [Pencil](https://www.pencil.dev/) — IDE統合型のデザインツール (Design as Code)
+- `.pen` 形式: テキストベースでGit差分・ブランチ運用可能
 - デザインファイルはコンポーネントと同一ディレクトリにコロケーション配置
-- 例: `src/components/ha/HaHeader/HaHeader.epgz` + `HaHeader.tsx`
+- 例: `src/components/ha/HaHeader/HaHeader.pen` + `HaHeader.tsx`
 
 **主要画面:**
 
@@ -149,12 +150,12 @@ hn-hatena-ui/
 │   │   └── types.ts             # HnStory, HnComment 等
 │   ├── components/ha/           # はてブ風UIコンポーネント
 │   │   ├── HaHeader/            #   コンポーネント単位のディレクトリ
-│   │   │   ├── HaHeader.epgz    #   Pencil デザインファイル
+│   │   │   ├── HaHeader.pen    #   Pencil デザインファイル
 │   │   │   ├── HaHeader.tsx     #   コンポーネント実装
 │   │   │   ├── HaHeader.css     #   スタイル
 │   │   │   └── index.ts         #   re-export
 │   │   ├── HaEntryCard/
-│   │   │   ├── HaEntryCard.epgz
+│   │   │   ├── HaEntryCard.pen
 │   │   │   ├── HaEntryCard.tsx
 │   │   │   ├── HaEntryCard.css
 │   │   │   └── index.ts
@@ -177,7 +178,7 @@ hn-hatena-ui/
 
 **コロケーション原則:**
 - 各コンポーネントはディレクトリ単位で管理
-- Pencilデザイン (`.epgz`) とコード (`.tsx`, `.css`) を同一ディレクトリに配置
+- Pencilデザイン (`.pen`) とコード (`.tsx`, `.css`) を同一ディレクトリに配置 — `.pen` はテキスト形式なのでGit管理に最適
 - デザインとコードの対応関係が一目で分かる
 - コンポーネント削除時にデザインファイルも一緒に削除される
 
