@@ -1,0 +1,81 @@
+name: Extract Hatena Design
+
+on:
+  workflow_dispatch:
+    inputs:
+      source:
+        description: "Data source"
+        required: true
+        default: "archive"
+        type: choice
+        options:
+          - archive
+          - direct
+      screenshot:
+        description: "Take screenshots (slower)"
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Chromium は ubuntu-latest に google-chrome-stable がプリインストール済み
+      - name: Extract design data
+        run: |
+          ARGS=""
+          if [ "${{ inputs.source }}" = "archive" ]; then
+            ARGS="$ARGS --archive"
+          fi
+          if [ "${{ inputs.screenshot }}" = "true" ]; then
+            ARGS="$ARGS --screenshot"
+          fi
+          node scripts/extract-hatena-design.mjs $ARGS
+        env:
+          CHROME_PATH: /usr/bin/google-chrome-stable
+
+      - name: Update design.md from extracted data
+        run: node scripts/update-design-doc.mjs
+
+      - name: Upload raw HTML as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hatena-raw-html
+          path: docs/design/raw/
+          retention-days: 30
+
+      - name: Upload screenshots as artifact
+        if: inputs.screenshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: hatena-screenshots
+          path: docs/design/screenshots/
+          retention-days: 90
+
+      - name: Commit updated design docs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add docs/design/tokens.json docs/design/structure.json docs/design/design.md
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "docs: update design tokens & docs from hatena (${{ inputs.source }})"
+            git push
+          fi
