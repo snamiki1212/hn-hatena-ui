@@ -1,0 +1,25 @@
+{
+  "name": "hn-hatena-ui",
+  "version": "1.0.0",
+  "description": "Hacker News APIのデータを、はてなブックマーク風のUIで表示するWebアプリケーション。",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "extract-design": "node scripts/extract-hatena-design.mjs",
+    "extract-design:screenshot": "node scripts/extract-hatena-design.mjs --screenshot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://local_proxy@127.0.0.1:35713/git/snamiki1212/hn-hatena-ui"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cheerio": "^1.2.0",
+    "puppeteer-core": "^24.40.0"
+  }
+}
