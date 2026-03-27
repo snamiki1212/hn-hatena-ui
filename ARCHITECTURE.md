@@ -4,13 +4,15 @@
 
 ```
 ┌─────────────┐     ┌──────────────────┐     ┌─────────────────┐
-│  HN API     │────▶│  Static Site Gen  │────▶│  GitHub Pages   │
-│  (データ)    │     │  (ビルド・生成)    │     │  (ホスティング)   │
+│  HN API     │────▶│  Astro (SSG)     │────▶│  GitHub Pages   │
+│  (データ)    │     │  ビルド時 fetch   │     │  (ホスティング)   │
 └─────────────┘     └──────────────────┘     └─────────────────┘
                            │
                     ┌──────┴──────┐
                     │  ha風 UI    │
-                    │  Components │
+                    │  .astro     │ 静的レイアウト
+                    │  .tsx       │ React Islands
+                    │  .pen       │ Pencil デザイン
                     └─────────────┘
 ```
 
@@ -22,14 +24,23 @@
 - Base URL: `https://hacker-news.firebaseio.com/v0/`
 - ビルド時にデータをfetch → 静的HTMLとして生成
 
-### 2. Build Layer — Static Site Generator
+### 2. Build Layer — Astro
 
-コンテンツ生成を担うSSG。ビルド時にHN APIからデータ取得し、静的ページを出力する。
+[Astro](https://astro.build/) で SSG ビルド。選定詳細: [ADR-001](docs/adr/001-select-ssg-framework.md)
 
-**採用: Astro** (Islands Architecture + React)
-- 静的部分は `.astro`、インタラクティブ部分は React (`.tsx`) で実装
-- Islands Architecture により必要箇所のみ hydration → JS最小化
-- 選定詳細: [ADR-001](docs/adr/001-select-ssg-framework.md)
+- **Islands Architecture**: 静的部分は `.astro`、インタラクティブ部分は React (`.tsx`) Islands
+- **hydration制御**: `client:load` (即時), `client:visible` (表示時), `client:idle` (アイドル時)
+- **ビルド時データ取得**: `getStaticPaths` + `fetch` で HN API からページ生成
+- **出力**: 静的HTML (デフォルトJS 0KB、Islands部分のみJS配信)
+- **依存**: `astro`, `@astrojs/react`, `react`, `react-dom`
+
+**ファイル種別の使い分け:**
+
+| ファイル | 用途 | hydration |
+|----------|------|-----------|
+| `.astro` | ページ、レイアウト、静的コンポーネント | なし (HTML only) |
+| `.tsx`   | インタラクティブ部分 (React Islands) | `client:*` で制御 |
+| `.pen`   | Pencil デザインファイル | — |
 
 ### 3. UI Layer — ha風コンポーネント
 
@@ -66,23 +77,23 @@
 **コンポーネントツリー:**
 
 ```
-HaLayout
-├── HaHeader
-│   ├── HaLogo
-│   ├── HaNav
-│   └── HaSearchBar
-├── HaCategoryTabs
-├── HaEntryList
-│   └── HaEntryCard (per story)
-│       ├── HaBookmarkCount (hn score をはてブ数風に表示)
-│       ├── HaEntryTitle
-│       ├── HaEntryMeta (domain, time, hn user)
-│       └── HaEntryTags
-├── HaCommentSection (詳細ページ)
-│   └── HaCommentItem (per comment)
-│       ├── HaUserIcon
-│       └── HaCommentBody
-└── HaFooter
+HaLayout.astro                          ← 静的レイアウト
+├── HaHeader.astro                      ← 静的
+│   ├── HaLogo.astro
+│   ├── HaNav.astro
+│   └── HaSearchBar.tsx [client:load]   ← React Island (入力操作)
+├── HaCategoryTabs.tsx [client:load]    ← React Island (タブ切替)
+├── HaEntryList.astro                   ← 静的
+│   └── HaEntryCard.astro              ← 静的
+│       ├── HaBookmarkCount.astro       ← 静的 (hn score をはてブ数風に表示)
+│       ├── HaEntryTitle.astro
+│       ├── HaEntryMeta.astro           ← 静的 (domain, time, hn user)
+│       └── HaEntryTags.astro
+├── HaCommentSection.tsx [client:visible] ← React Island (コメント展開)
+│   └── HaCommentItem.tsx
+│       ├── HaUserIcon.tsx
+│       └── HaCommentBody.tsx
+└── HaFooter.astro                      ← 静的
 ```
 
 ### 4. Hosting Layer — GitHub Pages
@@ -102,9 +113,10 @@ jobs:
   build-deploy:
     steps:
       - Checkout
-      - Install dependencies
-      - Build (HN API fetch + Static generation)
-      - Deploy to GitHub Pages
+      - Setup Node.js
+      - npm ci
+      - npx astro build        # HN API fetch + 静的HTML生成
+      - Deploy dist/ to GitHub Pages
 ```
 
 ## Data Flow
@@ -121,48 +133,57 @@ jobs:
        │  hn.score → ha.bookmarkCount
        │  hn.descendants → ha.commentCount
        │
-4. Generate static pages
-       │  / (トップ: HaEntryList)
-       │  /story/{id} (詳細: HaCommentSection)
+4. Astro generate static pages
+       │  src/pages/index.astro      → /index.html (HaEntryList)
+       │  src/pages/story/[id].astro → /story/{id}/index.html (HaCommentSection)
+       │  Islands (.tsx) は client:* で部分 hydration
        │
-5. Deploy to GitHub Pages
+5. Deploy dist/ to GitHub Pages
 ```
 
 ## Directory Structure (予定)
 
 ```
 hn-hatena-ui/
+├── astro.config.mjs             # Astro設定 (@astrojs/react 等)
+├── tsconfig.json
 ├── ARCHITECTURE.md              # 本ファイル
+├── CLAUDE.md
+├── README.md
+├── package.json
+├── docs/adr/                    # Architecture Decision Records
 ├── src/
 │   ├── api/hn/                  # HN APIクライアント
 │   │   ├── client.ts            # fetch ロジック
 │   │   └── types.ts             # HnStory, HnComment 等
-│   ├── components/ha/           # はてブ風UIコンポーネント
-│   │   ├── HaHeader/            #   コンポーネント単位のディレクトリ
-│   │   │   ├── HaHeader.pen    #   Pencil デザインファイル
-│   │   │   ├── HaHeader.tsx     #   コンポーネント実装
-│   │   │   ├── HaHeader.css     #   スタイル
-│   │   │   └── index.ts         #   re-export
+│   ├── components/ha/           # はてブ風UIコンポーネント (コロケーション)
+│   │   ├── HaHeader/            #   静的コンポーネント
+│   │   │   ├── HaHeader.pen     #   Pencil デザイン
+│   │   │   └── HaHeader.astro   #   Astro (静的)
 │   │   ├── HaEntryCard/
 │   │   │   ├── HaEntryCard.pen
-│   │   │   ├── HaEntryCard.tsx
-│   │   │   ├── HaEntryCard.css
-│   │   │   └── index.ts
+│   │   │   └── HaEntryCard.astro
+│   │   ├── HaCommentSection/    #   React Island (インタラクティブ)
+│   │   │   ├── HaCommentSection.pen
+│   │   │   └── HaCommentSection.tsx
+│   │   ├── HaCategoryTabs/
+│   │   │   ├── HaCategoryTabs.pen
+│   │   │   └── HaCategoryTabs.tsx
 │   │   ├── HaEntryList/
 │   │   ├── HaBookmarkCount/
-│   │   ├── HaCommentSection/
 │   │   ├── HaCommentItem/
-│   │   ├── HaCategoryTabs/
-│   │   ├── HaLayout/
+│   │   ├── HaSearchBar/
 │   │   └── HaFooter/
-│   ├── layouts/                 # ページレイアウト
-│   ├── pages/                   # ルーティング・ページ
+│   ├── layouts/
+│   │   └── HaLayout.astro       # ベースレイアウト
+│   ├── pages/                   # Astro ファイルベースルーティング
+│   │   ├── index.astro          # / トップページ
+│   │   └── story/
+│   │       └── [id].astro       # /story/:id 詳細ページ
 │   └── styles/                  # グローバルスタイル (はてブカラー等)
-├── public/                      # 静的アセット
-├── .github/workflows/           # GitHub Actions
-├── CLAUDE.md
-├── README.md
-└── package.json
+├── public/                      # 静的アセット (favicon等)
+└── .github/workflows/
+    └── deploy.yml               # GitHub Pages デプロイ
 ```
 
 **コロケーション原則:**
@@ -173,9 +194,10 @@ hn-hatena-ui/
 
 ## TODO
 
-- [ ] FW選定: SSG比較・PoC実施
+- [x] FW選定: Astro 採用 ([ADR-001](docs/adr/001-select-ssg-framework.md))
+- [ ] Astro プロジェクト初期セットアップ (`astro.config.mjs`, `@astrojs/react`)
 - [ ] Pencilでワイヤーフレーム作成
 - [ ] HN APIクライアント実装
-- [ ] ha風UIコンポーネント実装
+- [ ] ha風UIコンポーネント実装 (`.astro` 静的 + `.tsx` Islands)
 - [ ] GitHub Pages デプロイパイプライン構築
-- [ ] 定期ビルド設定
+- [ ] 定期ビルド設定 (GitHub Actions cron)
