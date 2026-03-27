@@ -48,7 +48,8 @@
 
 **UIデザインツール: Pencil**
 - ワイヤーフレーム・モックアップは [Pencil](https://pencil.evolus.vn/) で作成
-- デザインファイルは `docs/wireframes/` に配置
+- デザインファイルはコンポーネントと同一ディレクトリにコロケーション配置
+- 例: `src/components/ha/HaHeader/HaHeader.epgz` + `HaHeader.tsx`
 
 **主要画面:**
 
@@ -142,28 +143,44 @@ jobs:
 ```
 hn-hatena-ui/
 ├── docs/
-│   ├── ARCHITECTURE.md      # 本ファイル
-│   └── wireframes/          # Pencilデザインファイル
+│   └── ARCHITECTURE.md          # 本ファイル
 ├── src/
-│   ├── api/hn/              # HN APIクライアント
-│   │   ├── client.ts        # fetch ロジック
-│   │   └── types.ts         # HnStory, HnComment 等
-│   ├── components/ha/       # はてブ風UIコンポーネント
-│   │   ├── HaHeader.*
-│   │   ├── HaEntryCard.*
-│   │   ├── HaEntryList.*
-│   │   ├── HaBookmarkCount.*
-│   │   ├── HaCommentSection.*
-│   │   └── HaFooter.*
-│   ├── layouts/             # ページレイアウト
-│   ├── pages/               # ルーティング・ページ
-│   └── styles/              # ha風スタイル (はてブカラー等)
-├── public/                  # 静的アセット
-├── .github/workflows/       # GitHub Actions
+│   ├── api/hn/                  # HN APIクライアント
+│   │   ├── client.ts            # fetch ロジック
+│   │   └── types.ts             # HnStory, HnComment 等
+│   ├── components/ha/           # はてブ風UIコンポーネント
+│   │   ├── HaHeader/            #   コンポーネント単位のディレクトリ
+│   │   │   ├── HaHeader.epgz    #   Pencil デザインファイル
+│   │   │   ├── HaHeader.tsx     #   コンポーネント実装
+│   │   │   ├── HaHeader.css     #   スタイル
+│   │   │   └── index.ts         #   re-export
+│   │   ├── HaEntryCard/
+│   │   │   ├── HaEntryCard.epgz
+│   │   │   ├── HaEntryCard.tsx
+│   │   │   ├── HaEntryCard.css
+│   │   │   └── index.ts
+│   │   ├── HaEntryList/
+│   │   ├── HaBookmarkCount/
+│   │   ├── HaCommentSection/
+│   │   ├── HaCommentItem/
+│   │   ├── HaCategoryTabs/
+│   │   ├── HaLayout/
+│   │   └── HaFooter/
+│   ├── layouts/                 # ページレイアウト
+│   ├── pages/                   # ルーティング・ページ
+│   └── styles/                  # グローバルスタイル (はてブカラー等)
+├── public/                      # 静的アセット
+├── .github/workflows/           # GitHub Actions
 ├── CLAUDE.md
 ├── README.md
 └── package.json
 ```
+
+**コロケーション原則:**
+- 各コンポーネントはディレクトリ単位で管理
+- Pencilデザイン (`.epgz`) とコード (`.tsx`, `.css`) を同一ディレクトリに配置
+- デザインとコードの対応関係が一目で分かる
+- コンポーネント削除時にデザインファイルも一緒に削除される
 
 ## TODO
 
