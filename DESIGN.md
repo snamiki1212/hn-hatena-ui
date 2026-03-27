@@ -7,7 +7,7 @@
 
 ## スクリーンショット
 
-手動で取得し `docs/design/screenshots/` に保存する。
+手動で取得し `docs/screenshots/` に保存する。
 
 | ファイル名 | 内容 |
 |---|---|
