@@ -142,8 +142,7 @@ jobs:
 
 ```
 hn-hatena-ui/
-├── docs/
-│   └── ARCHITECTURE.md          # 本ファイル
+├── ARCHITECTURE.md              # 本ファイル
 ├── src/
 │   ├── api/hn/                  # HN APIクライアント
 │   │   ├── client.ts            # fetch ロジック
