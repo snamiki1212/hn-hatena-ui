@@ -3,25 +3,28 @@
 /**
  * はてなブックマークのデザイン情報を自動抽出するスクリプト
  *
- * 機能:
- * 1. HTML取得 + 構造解析 (cheerio)
- * 2. インラインCSS・style要素からカラー・フォント抽出
- * 3. スクリーンショット取得 (Puppeteer / ローカル環境のみ)
- * 4. デザイントークン (tokens.json) 生成
- *
  * Usage:
- *   node scripts/extract-hatena-design.mjs                  # HTML解析のみ
- *   node scripts/extract-hatena-design.mjs --screenshot     # スクリーンショットも取得
+ *   node scripts/extract-hatena-design.mjs                    # 直接取得 (ローカル向け)
+ *   node scripts/extract-hatena-design.mjs --archive          # Wayback Machine 経由
+ *   node scripts/extract-hatena-design.mjs --screenshot       # スクリーンショットも取得
+ *   node scripts/extract-hatena-design.mjs --archive --screenshot
+ *
+ * 出力:
+ *   docs/design/tokens.json       - デザイントークン
+ *   docs/design/structure.json    - UI構造データ
+ *   docs/design/raw/              - 取得したHTML (キャッシュ)
+ *   docs/design/screenshots/      - スクリーンショット (--screenshot時)
  */
 
 import * as cheerio from "cheerio";
-import { writeFile, mkdir } from "node:fs/promises";
+import { writeFile, readFile, mkdir, access } from "node:fs/promises";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 const DESIGN_DIR = join(ROOT, "docs", "design");
+const RAW_DIR = join(DESIGN_DIR, "raw");
 const SCREENSHOTS_DIR = join(DESIGN_DIR, "screenshots");
 const TOKENS_PATH = join(DESIGN_DIR, "tokens.json");
 const STRUCTURE_PATH = join(DESIGN_DIR, "structure.json");
@@ -35,14 +38,53 @@ const TARGETS = [
 const UA =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
 
+// ─── CLI引数パース ───────────────────────────────────────
+
+const args = process.argv.slice(2);
+const useArchive = args.includes("--archive");
+const doScreenshots = args.includes("--screenshot");
+
 // ─── HTML取得 ────────────────────────────────────────────
 
-async function fetchHTML(url) {
+async function fetchDirect(url) {
   const res = await fetch(url, {
     headers: { "User-Agent": UA, Accept: "text/html" },
+    redirect: "follow",
   });
   if (!res.ok) throw new Error(`${res.status} ${res.statusText}: ${url}`);
   return res.text();
+}
+
+async function fetchFromArchive(url) {
+  // Wayback Machine の最新スナップショットURLを取得
+  const apiUrl = `https://archive.org/wayback/available?url=${encodeURIComponent(url)}`;
+  const res = await fetch(apiUrl, {
+    headers: { "User-Agent": UA },
+  });
+  if (!res.ok) throw new Error(`Wayback API error: ${res.status}`);
+
+  const data = await res.json();
+  const snapshot = data?.archived_snapshots?.closest;
+  if (!snapshot?.available) {
+    throw new Error(`No Wayback snapshot found for: ${url}`);
+  }
+
+  console.log(`   archive: ${snapshot.timestamp} (${snapshot.url})`);
+  const html = await fetchDirect(snapshot.url);
+  return html;
+}
+
+async function fetchHTML(url) {
+  return useArchive ? fetchFromArchive(url) : fetchDirect(url);
+}
+
+async function fileExists(path) {
+  try {
+    await access(path);
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 // ─── 構造解析 ────────────────────────────────────────────
@@ -86,12 +128,10 @@ function extractStructure($) {
       structure.categories.push({ text, href });
     }
   });
-  // 重複排除
   const seen = new Set();
   structure.categories = structure.categories.filter((c) => {
-    const key = c.text;
-    if (seen.has(key)) return false;
-    seen.add(key);
+    if (seen.has(c.text)) return false;
+    seen.add(c.text);
     return true;
   });
 
@@ -104,8 +144,10 @@ function extractStructure($) {
       $el.find("a").first().text().trim() ||
       $el.find('[class*="title" i]').text().trim();
     const href = $el.find("a").first().attr("href") || "";
-    const bookmarkCount =
-      $el.find('[class*="bookmark" i], [class*="count" i], [class*="user" i]').text().trim();
+    const bookmarkCount = $el
+      .find('[class*="bookmark" i], [class*="count" i], [class*="user" i]')
+      .text()
+      .trim();
 
     if (title && title.length > 5 && title.length < 200) {
       structure.entries.push({
@@ -121,7 +163,6 @@ function extractStructure($) {
       });
     }
   });
-  // 最大20件に絞る
   structure.entries = structure.entries.slice(0, 20);
 
   // フッター
@@ -151,12 +192,10 @@ function extractStructure($) {
 
 function extractColors($) {
   const colors = new Map();
+  const colorRegex = /#[0-9a-fA-F]{3,8}\b|rgba?\([^)]+\)|hsla?\([^)]+\)/g;
 
-  // style要素からカラー値を抽出
   $("style").each((_, el) => {
     const css = $(el).text();
-    const colorRegex =
-      /#[0-9a-fA-F]{3,8}\b|rgba?\([^)]+\)|hsla?\([^)]+\)/g;
     let match;
     while ((match = colorRegex.exec(css)) !== null) {
       const color = match[0].toLowerCase();
@@ -164,11 +203,8 @@ function extractColors($) {
     }
   });
 
-  // インラインstyleからも抽出
   $("[style]").each((_, el) => {
     const style = $(el).attr("style") || "";
-    const colorRegex =
-      /#[0-9a-fA-F]{3,8}\b|rgba?\([^)]+\)|hsla?\([^)]+\)/g;
     let match;
     while ((match = colorRegex.exec(style)) !== null) {
       const color = match[0].toLowerCase();
@@ -176,7 +212,6 @@ function extractColors($) {
     }
   });
 
-  // 出現頻度順にソート
   return [...colors.entries()]
     .sort((a, b) => b[1] - a[1])
     .map(([color, count]) => ({ color, count }));
@@ -184,21 +219,18 @@ function extractColors($) {
 
 function extractFonts($) {
   const fonts = new Set();
+  const fontRegex = /font-family:\s*([^;}{]+)/g;
 
   $("style").each((_, el) => {
-    const css = $(el).text();
-    const fontRegex = /font-family:\s*([^;}{]+)/g;
     let match;
-    while ((match = fontRegex.exec(css)) !== null) {
+    while ((match = fontRegex.exec($(el).text())) !== null) {
       fonts.add(match[1].trim());
     }
   });
 
   $("[style]").each((_, el) => {
-    const style = $(el).attr("style") || "";
-    const fontRegex = /font-family:\s*([^;]+)/g;
     let match;
-    while ((match = fontRegex.exec(style)) !== null) {
+    while ((match = fontRegex.exec($(el).attr("style") || "")) !== null) {
       fonts.add(match[1].trim());
     }
   });
@@ -208,12 +240,11 @@ function extractFonts($) {
 
 function extractFontSizes($) {
   const sizes = new Map();
+  const sizeRegex = /font-size:\s*([^;}{]+)/g;
 
   $("style").each((_, el) => {
-    const css = $(el).text();
-    const sizeRegex = /font-size:\s*([^;}{]+)/g;
     let match;
-    while ((match = sizeRegex.exec(css)) !== null) {
+    while ((match = sizeRegex.exec($(el).text())) !== null) {
       const size = match[1].trim();
       sizes.set(size, (sizes.get(size) || 0) + 1);
     }
@@ -226,13 +257,12 @@ function extractFontSizes($) {
 
 function extractSpacing($) {
   const spacings = new Map();
+  const spacingRegex =
+    /(?:margin|padding|gap)(?:-(?:top|right|bottom|left))?:\s*([^;}{]+)/g;
 
   $("style").each((_, el) => {
-    const css = $(el).text();
-    const spacingRegex =
-      /(?:margin|padding|gap)(?:-(?:top|right|bottom|left))?:\s*([^;}{]+)/g;
     let match;
-    while ((match = spacingRegex.exec(css)) !== null) {
+    while ((match = spacingRegex.exec($(el).text())) !== null) {
       const value = match[1].trim();
       spacings.set(value, (spacings.get(value) || 0) + 1);
     }
@@ -254,19 +284,18 @@ async function takeScreenshots(targets) {
     try {
       puppeteer = await import("puppeteer");
     } catch {
-      console.warn("⚠ puppeteer not available, skipping screenshots");
+      console.warn("  puppeteer not available, skipping screenshots");
       return false;
     }
   }
 
-  // ブラウザパスを検出
   const browserPaths = [
-    "/usr/bin/google-chrome",
+    process.env.CHROME_PATH,
     "/usr/bin/google-chrome-stable",
+    "/usr/bin/google-chrome",
     "/usr/bin/chromium-browser",
     "/usr/bin/chromium",
     "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
-    process.env.CHROME_PATH,
   ].filter(Boolean);
 
   let browser;
@@ -284,9 +313,9 @@ async function takeScreenshots(targets) {
   }
 
   if (!browser) {
-    console.warn("⚠ No browser found, skipping screenshots");
+    console.warn("  No browser found, skipping screenshots");
     console.warn(
-      "  Set CHROME_PATH env var or install Chrome/Chromium to enable screenshots"
+      "  Set CHROME_PATH env var or install Chrome/Chromium to enable"
     );
     return false;
   }
@@ -294,13 +323,14 @@ async function takeScreenshots(targets) {
   await mkdir(SCREENSHOTS_DIR, { recursive: true });
 
   for (const target of targets) {
-    console.log(`📸 Screenshot: ${target.name} (${target.url})`);
+    const url = useArchive ? await getArchiveUrl(target.url) : target.url;
+    console.log(`  screenshot: ${target.name}`);
     const page = await browser.newPage();
     await page.setUserAgent(UA);
 
     // デスクトップ
     await page.setViewport({ width: 1280, height: 900 });
-    await page.goto(target.url, { waitUntil: "networkidle2", timeout: 30000 });
+    await page.goto(url, { waitUntil: "networkidle2", timeout: 30000 });
     await page.screenshot({
       path: join(SCREENSHOTS_DIR, `${target.name}-desktop.png`),
       fullPage: true,
@@ -314,79 +344,61 @@ async function takeScreenshots(targets) {
     });
 
     // エントリーカード拡大
-    const card = await page.$('[class*="entry" i], article, [class*="item" i]');
+    const card = await page.$(
+      '[class*="entry" i], article, [class*="item" i]'
+    );
     if (card) {
       await card.screenshot({
         path: join(SCREENSHOTS_DIR, `${target.name}-card.png`),
       });
     }
 
-    // Computed styles 抽出 (Puppeteerでしかできない)
-    const computedTokens = await page.evaluate(() => {
-      const result = {};
-
-      const body = document.body;
-      const bodyStyle = getComputedStyle(body);
-      result.body = {
-        fontFamily: bodyStyle.fontFamily,
-        fontSize: bodyStyle.fontSize,
-        color: bodyStyle.color,
-        backgroundColor: bodyStyle.backgroundColor,
+    // Computed styles (ブラウザでしか取れない値)
+    const computed = await page.evaluate(() => {
+      const get = (sel) => {
+        const el = document.querySelector(sel);
+        return el ? getComputedStyle(el) : null;
       };
 
-      // ヘッダー
-      const header = document.querySelector(
-        'header, [class*="header" i]'
-      );
-      if (header) {
-        const s = getComputedStyle(header);
-        result.header = {
-          backgroundColor: s.backgroundColor,
-          height: s.height,
-          borderBottom: s.borderBottom,
-        };
-      }
+      const pick = (style, props) =>
+        style
+          ? Object.fromEntries(props.map((p) => [p, style[p]]))
+          : null;
 
-      // 最初のエントリーカード
-      const entry = document.querySelector(
-        '[class*="entry" i], article, [class*="item" i]'
-      );
-      if (entry) {
-        const s = getComputedStyle(entry);
-        result.entryCard = {
-          backgroundColor: s.backgroundColor,
-          padding: s.padding,
-          margin: s.margin,
-          border: s.border,
-          fontSize: s.fontSize,
-        };
-
-        const title = entry.querySelector("a, [class*='title' i]");
-        if (title) {
-          const ts = getComputedStyle(title);
-          result.entryTitle = {
-            color: ts.color,
-            fontSize: ts.fontSize,
-            fontWeight: ts.fontWeight,
-            lineHeight: ts.lineHeight,
-          };
-        }
-      }
-
-      // リンク
-      const link = document.querySelector("a");
-      if (link) {
-        result.link = {
-          color: getComputedStyle(link).color,
-        };
-      }
-
-      return result;
+      return {
+        body: pick(get("body"), [
+          "fontFamily",
+          "fontSize",
+          "color",
+          "backgroundColor",
+          "lineHeight",
+        ]),
+        header: pick(get('header, [class*="header" i]'), [
+          "backgroundColor",
+          "height",
+          "borderBottom",
+          "padding",
+        ]),
+        entryCard: pick(get('[class*="entry" i], article'), [
+          "backgroundColor",
+          "padding",
+          "margin",
+          "border",
+          "borderBottom",
+        ]),
+        entryTitle: pick(
+          get(
+            '[class*="entry" i] a, article a, [class*="title" i] a'
+          ),
+          ["color", "fontSize", "fontWeight", "lineHeight", "textDecoration"]
+        ),
+        link: pick(get("a[href]"), ["color", "textDecoration"]),
+      };
     });
 
     await writeFile(
       join(DESIGN_DIR, `computed-${target.name}.json`),
-      JSON.stringify(computedTokens, null, 2)
+      JSON.stringify(computed, null, 2)
     );
 
     await page.close();
@@ -396,94 +408,130 @@ async function takeScreenshots(targets) {
   return true;
 }
 
+async function getArchiveUrl(url) {
+  const apiUrl = `https://archive.org/wayback/available?url=${encodeURIComponent(url)}`;
+  const res = await fetch(apiUrl, { headers: { "User-Agent": UA } });
+  const data = await res.json();
+  return data?.archived_snapshots?.closest?.url || url;
+}
+
+// ─── 集約ユーティリティ ──────────────────────────────────
+
+function mergeCountMap(items, keyField) {
+  const map = new Map();
+  for (const item of items) {
+    const key = item[keyField];
+    map.set(key, (map.get(key) || 0) + item.count);
+  }
+  return [...map.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .map(([value, count]) => ({ [keyField]: value, count }));
+}
+
 // ─── デザイントークン生成 ─────────────────────────────────
 
-function generateTokens(allColors, allFonts, allFontSizes, allSpacing) {
-  // 出現頻度が高い色をトークン候補に
-  const topColors = allColors.slice(0, 20);
+function generateTokens(colors, fonts, fontSizes, spacing, prevTokens) {
+  // 前回の semantic 値を保持 (手動修正を上書きしない)
+  const prevSemantic = prevTokens?.color?.semantic || {};
+  const prevFontSemantic = prevTokens?.fontSize?.semantic || {};
+
+  const defaultSemantic = {
+    "hatena-blue": "#1d7ab3",
+    "hatena-blue-hover": "#166a9e",
+    "bg-primary": "#ffffff",
+    "bg-secondary": "#f5f5f5",
+    border: "#e8e8e8",
+    "text-primary": "#333333",
+    "text-secondary": "#666666",
+    "text-muted": "#999999",
+    "bookmark-cold": "#f0f0f0",
+    "bookmark-warm": "#ff9900",
+    "bookmark-hot": "#ff6666",
+    "bookmark-fire": "#ff3333",
+  };
+
+  const defaultFontSemantic = {
+    xs: "11px",
+    sm: "12px",
+    base: "14px",
+    md: "15px",
+    lg: "18px",
+  };
 
   return {
     _generated: new Date().toISOString(),
-    _source: "https://b.hatena.ne.jp/",
+    _source: useArchive
+      ? "https://web.archive.org/ (via b.hatena.ne.jp)"
+      : "https://b.hatena.ne.jp/",
     _note:
-      "Auto-extracted values. Verify with DevTools and update manually if needed.",
+      "Auto-extracted + semantic tokens. Edit semantic values freely; they are preserved across runs.",
     color: {
-      extracted: topColors,
-      // 手動マッピング用テンプレート (design.mdの値をデフォルトに)
-      semantic: {
-        "hatena-blue": "#1d7ab3",
-        "hatena-blue-hover": "#166a9e",
-        "bg-primary": "#ffffff",
-        "bg-secondary": "#f5f5f5",
-        border: "#e8e8e8",
-        "text-primary": "#333333",
-        "text-secondary": "#666666",
-        "text-muted": "#999999",
-        "bookmark-cold": "#f0f0f0",
-        "bookmark-warm": "#ff9900",
-        "bookmark-hot": "#ff6666",
-        "bookmark-fire": "#ff3333",
-      },
+      extracted: colors.slice(0, 30),
+      semantic: { ...defaultSemantic, ...prevSemantic },
     },
     font: {
-      extracted: allFonts,
+      extracted: fonts,
       family: {
-        base: '-apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif',
+        base:
+          prevTokens?.font?.family?.base ||
+          '-apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif',
       },
     },
     fontSize: {
-      extracted: allFontSizes.slice(0, 15),
-      semantic: {
-        xs: "11px",
-        sm: "12px",
-        base: "14px",
-        md: "15px",
-        lg: "18px",
-      },
+      extracted: fontSizes.slice(0, 15),
+      semantic: { ...defaultFontSemantic, ...prevFontSemantic },
     },
     spacing: {
-      extracted: allSpacing,
+      extracted: spacing,
     },
-    breakpoint: {
-      sm: "768px",
-      md: "1100px",
-    },
-    borderRadius: {
-      sm: "3px",
-      md: "6px",
-    },
+    breakpoint: prevTokens?.breakpoint || { sm: "768px", md: "1100px" },
+    borderRadius: prevTokens?.borderRadius || { sm: "3px", md: "6px" },
   };
 }
 
 // ─── メイン ──────────────────────────────────────────────
 
 async function main() {
-  const doScreenshots = process.argv.includes("--screenshot");
-
-  console.log("🔍 はてなブックマーク デザイン情報抽出\n");
+  const mode = useArchive ? "archive" : "direct";
+  console.log(`\n  hatena-bookmark design extractor (mode: ${mode})\n`);
 
   await mkdir(DESIGN_DIR, { recursive: true });
+  await mkdir(RAW_DIR, { recursive: true });
+
+  // 前回のトークンを読み込み (semantic値の保持用)
+  let prevTokens = null;
+  if (await fileExists(TOKENS_PATH)) {
+    try {
+      prevTokens = JSON.parse(await readFile(TOKENS_PATH, "utf-8"));
+      console.log(`  Previous tokens loaded (${prevTokens._generated})\n`);
+    } catch {
+      // ignore
+    }
+  }
 
   const allStructures = {};
-  const allColors = [];
-  const allFonts = [];
-  const allFontSizes = [];
-  const allSpacing = [];
+  let allColors = [];
+  let allFonts = [];
+  let allFontSizes = [];
+  let allSpacing = [];
 
   for (const target of TARGETS) {
-    console.log(`📄 Fetching: ${target.name} (${target.url})`);
+    console.log(`  fetch: ${target.name} (${target.url})`);
     try {
       const html = await fetchHTML(target.url);
-      const $ = cheerio.load(html);
 
-      // 構造解析
-      const structure = extractStructure($);
-      allStructures[target.name] = structure;
-      console.log(
-        `   → entries: ${structure.entries.length}, categories: ${structure.categories.length}`
+      // HTMLをキャッシュ保存
+      const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+      await writeFile(
+        join(RAW_DIR, `${target.name}_${timestamp}.html`),
+        html
       );
 
-      // CSS抽出
+      const $ = cheerio.load(html);
+
+      const structure = extractStructure($);
+      allStructures[target.name] = structure;
+
       const colors = extractColors($);
       const fonts = extractFonts($);
       const fontSizes = extractFontSizes($);
@@ -495,79 +543,80 @@ async function main() {
       allSpacing.push(...spacing);
 
       console.log(
-        `   → colors: ${colors.length}, fonts: ${fonts.length}, sizes: ${fontSizes.length}`
+        `    entries: ${structure.entries.length}, categories: ${structure.categories.length}, colors: ${colors.length}`
       );
     } catch (err) {
-      console.error(`   ✗ Failed: ${err.message}`);
+      console.error(`    FAILED: ${err.message}`);
+      // キャッシュ済みHTMLがあれば使う
+      const cached = await findLatestCache(target.name);
+      if (cached) {
+        console.log(`    using cached HTML: ${cached.file}`);
+        const $ = cheerio.load(cached.html);
+        allStructures[target.name] = extractStructure($);
+        allColors.push(...extractColors($));
+        allFonts.push(...extractFonts($));
+        allFontSizes.push(...extractFontSizes($));
+        allSpacing.push(...extractSpacing($));
+      }
     }
   }
 
-  // 色の集約・重複排除
-  const colorMap = new Map();
-  for (const { color, count } of allColors) {
-    colorMap.set(color, (colorMap.get(color) || 0) + count);
-  }
-  const mergedColors = [...colorMap.entries()]
-    .sort((a, b) => b[1] - a[1])
-    .map(([color, count]) => ({ color, count }));
-
-  // フォントの重複排除
+  // 集約
+  const mergedColors = mergeCountMap(allColors, "color");
   const mergedFonts = [...new Set(allFonts)];
+  const mergedSizes = mergeCountMap(allFontSizes, "size");
+  const mergedSpacing = mergeCountMap(allSpacing, "value").slice(0, 30);
 
-  // フォントサイズの集約
-  const sizeMap = new Map();
-  for (const { size, count } of allFontSizes) {
-    sizeMap.set(size, (sizeMap.get(size) || 0) + count);
-  }
-  const mergedSizes = [...sizeMap.entries()]
-    .sort((a, b) => b[1] - a[1])
-    .map(([size, count]) => ({ size, count }));
-
-  // スペーシングの集約
-  const spacingMap = new Map();
-  for (const { value, count } of allSpacing) {
-    spacingMap.set(value, (spacingMap.get(value) || 0) + count);
-  }
-  const mergedSpacing = [...spacingMap.entries()]
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 30)
-    .map(([value, count]) => ({ value, count }));
-
-  // 構造 JSON 保存
+  // 出力
   await writeFile(STRUCTURE_PATH, JSON.stringify(allStructures, null, 2));
-  console.log(`\n✅ Structure saved: ${STRUCTURE_PATH}`);
+  console.log(`\n  saved: ${STRUCTURE_PATH}`);
 
-  // デザイントークン生成・保存
   const tokens = generateTokens(
     mergedColors,
     mergedFonts,
     mergedSizes,
-    mergedSpacing
+    mergedSpacing,
+    prevTokens
   );
   await writeFile(TOKENS_PATH, JSON.stringify(tokens, null, 2));
-  console.log(`✅ Tokens saved: ${TOKENS_PATH}`);
+  console.log(`  saved: ${TOKENS_PATH}`);
 
   // スクリーンショット
   if (doScreenshots) {
-    console.log("\n📸 Taking screenshots...");
+    console.log(`\n  taking screenshots...`);
     const success = await takeScreenshots(TARGETS);
     if (success) {
-      console.log(`✅ Screenshots saved: ${SCREENSHOTS_DIR}`);
+      console.log(`  saved: ${SCREENSHOTS_DIR}`);
     }
-  } else {
-    console.log(
-      "\nℹ  Run with --screenshot to capture screenshots (requires Chrome/Chromium)"
-    );
   }
 
   // サマリー
-  console.log("\n── Summary ──────────────────────────");
-  console.log(`Colors extracted: ${mergedColors.length}`);
-  console.log(`Top colors: ${mergedColors.slice(0, 5).map((c) => c.color).join(", ")}`);
-  console.log(`Fonts: ${mergedFonts.length > 0 ? mergedFonts.join(" | ") : "(none in HTML)"}`);
-  console.log(`Font sizes: ${mergedSizes.slice(0, 5).map((s) => s.size).join(", ")}`);
-  console.log(`Entries found: ${Object.values(allStructures).reduce((sum, s) => sum + s.entries.length, 0)}`);
-  console.log("─────────────────────────────────────");
+  console.log("\n  ── summary ──────────────────────────");
+  console.log(`  colors:  ${mergedColors.length} (top: ${mergedColors.slice(0, 5).map((c) => c.color).join(", ") || "none"})`);
+  console.log(`  fonts:   ${mergedFonts.length > 0 ? mergedFonts.join(" | ") : "(none in HTML, see computed-*.json with --screenshot)"}`);
+  console.log(`  sizes:   ${mergedSizes.slice(0, 5).map((s) => s.size).join(", ") || "none"}`);
+  console.log(`  entries: ${Object.values(allStructures).reduce((sum, s) => sum + s.entries.length, 0)}`);
+  if (!doScreenshots) {
+    console.log(`\n  tip: run with --screenshot for computed styles & screenshots`);
+  }
+  console.log("");
+}
+
+async function findLatestCache(name) {
+  const { readdir } = await import("node:fs/promises");
+  try {
+    const files = await readdir(RAW_DIR);
+    const matching = files
+      .filter((f) => f.startsWith(name) && f.endsWith(".html"))
+      .sort()
+      .reverse();
+    if (matching.length === 0) return null;
+    const file = matching[0];
+    const html = await readFile(join(RAW_DIR, file), "utf-8");
+    return { file, html };
+  } catch {
+    return null;
+  }
 }
 
 main().catch((err) => {
