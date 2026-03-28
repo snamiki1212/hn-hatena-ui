@@ -1,0 +1,27 @@
+---
+import HaLayout from "../../layouts/HaLayout.astro";
+import { getStory, getTopStoryIds } from "../../api/hn/client";
+import type { GetStaticPaths } from "astro";
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const ids = await getTopStoryIds();
+  const top = ids.slice(0, 30);
+  return top.map((id) => ({ params: { id: String(id) } }));
+};
+
+const { id } = Astro.params;
+const story = await getStory(Number(id));
+---
+
+<HaLayout title={story.title}>
+  <article>
+    <h1>
+      <a href={story.url} target="_blank" rel="noopener">
+        {story.title}
+      </a>
+    </h1>
+    <p>{story.score} points by {story.by}</p>
+    <!-- TODO: HaCommentSection (React Island) -->
+    <p>{story.descendants} comments</p>
+  </article>
+</HaLayout>

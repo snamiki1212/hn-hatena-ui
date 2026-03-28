@@ -7,6 +7,10 @@
     "doc": "docs"
   },
   "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "lint": "astro check",
     "test": "echo \"Error: no test specified\" && exit 1",
     "extract-design": "node scripts/extract-hatena-design.mjs",
     "extract-design:archive": "node scripts/extract-hatena-design.mjs --archive",
@@ -22,7 +26,17 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@astrojs/check": "^0.9.8",
     "cheerio": "^1.2.0",
-    "puppeteer-core": "^24.40.0"
+    "puppeteer-core": "^24.40.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@astrojs/react": "^5.0.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "astro": "^6.1.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
   }
 }

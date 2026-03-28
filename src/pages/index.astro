@@ -1,0 +1,24 @@
+---
+import HaLayout from "../layouts/HaLayout.astro";
+import { getTopStoryIds, getStories } from "../api/hn/client";
+
+const ids = await getTopStoryIds();
+const stories = await getStories(ids, 30);
+---
+
+<HaLayout title="hn-hatena - トップ">
+  <h1>Top Stories</h1>
+  <ul>
+    {stories.map((story) => (
+      <li>
+        <a href={story.url} target="_blank" rel="noopener">
+          {story.title}
+        </a>
+        <span>({story.score} points by {story.by})</span>
+        <a href={`/hn-hatena-ui/story/${story.id}/`}>
+          {story.descendants} comments
+        </a>
+      </li>
+    ))}
+  </ul>
+</HaLayout>
