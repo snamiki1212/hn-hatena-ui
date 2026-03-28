@@ -11,7 +11,7 @@
  *   node scripts/update-design-doc.mjs
  */
 
-import { readFile, writeFile } from "node:fs/promises";
+import { readFile, readdir, writeFile } from "node:fs/promises";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -35,7 +35,7 @@ function formatDate(iso) {
   return iso.replace("T", " ").replace(/\.\d+Z$/, " UTC");
 }
 
-function generateDesignMd(tokens, structure) {
+function generateDesignMd(tokens, structure, computed) {
   const sem = tokens?.color?.semantic || {};
   const fontSem = tokens?.fontSize?.semantic || {};
   const fontFamily =
@@ -53,6 +53,11 @@ function generateDesignMd(tokens, structure) {
   const extractedColors = (tokens?.color?.extracted || []).slice(0, 10);
   // 抽出されたフォントサイズ
   const extractedSizes = (tokens?.fontSize?.extracted || []).slice(0, 10);
+
+  // computed styles (Puppeteer で取得した実測値)
+  const hasComputed = Object.keys(computed).length > 0;
+  // 代表的な computed を取得 (hotentry-it > top > any)
+  const comp = computed["hotentry-it"] || computed["top"] || Object.values(computed)[0] || {};
 
   return `# Design Reference: はてなブックマーク (Hatena Bookmark)
 
@@ -332,7 +337,52 @@ ${
 | エントリータイトル | story title |
 | 投稿者 | story author (\`by\`) |
 | 投稿時刻 | story time |
+${
+  hasComputed
+    ? `
+---
+
+## 12. Computed Styles (ブラウザ実測値)
+
+> Puppeteer の \`getComputedStyle\` で取得した実際の描画値。CSS抽出より信頼性が高い。
+
+### body
+${comp.body ? `| プロパティ | 値 |\n|---|---|\n` + Object.entries(comp.body).map(([k, v]) => `| ${k} | \`${v}\` |`).join("\n") : "_データなし_"}
+
+### header
+${comp.header ? `| プロパティ | 値 |\n|---|---|\n` + Object.entries(comp.header).map(([k, v]) => `| ${k} | \`${v}\` |`).join("\n") : "_データなし_"}
+
+### entryCard
+${comp.entryCard ? `| プロパティ | 値 |\n|---|---|\n` + Object.entries(comp.entryCard).map(([k, v]) => `| ${k} | \`${v}\` |`).join("\n") : "_データなし_"}
+
+### entryTitle
+${comp.entryTitle ? `| プロパティ | 値 |\n|---|---|\n` + Object.entries(comp.entryTitle).map(([k, v]) => `| ${k} | \`${v}\` |`).join("\n") : "_データなし_"}
+
+### link
+${comp.link ? `| プロパティ | 値 |\n|---|---|\n` + Object.entries(comp.link).map(([k, v]) => `| ${k} | \`${v}\` |`).join("\n") : "_データなし_"}
+
+${Object.keys(computed).length > 1 ? `> 他のページの実測値: ${Object.keys(computed).filter(k => k !== (comp === computed["hotentry-it"] ? "hotentry-it" : "top")).map(k => \`computed-\${k}.json\`).join(", ")}` : ""}
+`
+    : ""
+}
 `;
+}
+
+async function loadComputedFiles() {
+  const computed = {};
+  try {
+    const files = await readdir(DESIGN_DIR);
+    for (const file of files) {
+      const match = file.match(/^computed-(.+)\.json$/);
+      if (match) {
+        const data = await loadJSON(join(DESIGN_DIR, file));
+        if (data) computed[match[1]] = data;
+      }
+    }
+  } catch {
+    // no computed files
+  }
+  return computed;
 }
 
 async function main() {
@@ -340,6 +390,7 @@ async function main() {
 
   const tokens = await loadJSON(TOKENS_PATH);
   const structure = await loadJSON(STRUCTURE_PATH);
+  const computed = await loadComputedFiles();
 
   if (!tokens) {
     console.error(
@@ -350,8 +401,9 @@ async function main() {
 
   console.log(`  tokens: ${formatDate(tokens._generated)}`);
   console.log(`  structure: ${structure ? "loaded" : "not found (using defaults)"}`);
+  console.log(`  computed: ${Object.keys(computed).length} files`);
 
-  const md = generateDesignMd(tokens, structure);
+  const md = generateDesignMd(tokens, structure, computed);
   await writeFile(DESIGN_MD_PATH, md);
 
   console.log(`\n  saved: ${DESIGN_MD_PATH}`);

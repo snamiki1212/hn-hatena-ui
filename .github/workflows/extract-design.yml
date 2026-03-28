@@ -12,9 +12,9 @@ on:
           - archive
           - direct
       screenshot:
-        description: "Take screenshots (slower)"
+        description: "Take screenshots & extract computed styles"
         required: false
-        default: false
+        default: true
         type: boolean
 
 jobs:
@@ -73,7 +73,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add docs/design/tokens.json docs/design/structure.json docs/design/design.md
+          git add docs/design/tokens.json docs/design/structure.json docs/design/design.md docs/design/computed-*.json
 
           if git diff --cached --quiet; then
             echo "No changes detected, skipping PR creation"
