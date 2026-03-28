@@ -87,6 +87,93 @@ async function fileExists(path) {
   }
 }
 
+// ─── 外部CSS取得 ─────────────────────────────────────────
+
+function resolveUrl(base, href) {
+  try {
+    return new URL(href, base).href;
+  } catch {
+    return null;
+  }
+}
+
+async function fetchExternalCSS($, pageUrl) {
+  const cssTexts = [];
+  const linkHrefs = [];
+
+  $('link[rel="stylesheet"]').each((_, el) => {
+    const href = $(el).attr("href");
+    if (href) linkHrefs.push(href);
+  });
+
+  for (const href of linkHrefs) {
+    const cssUrl = resolveUrl(pageUrl, href);
+    if (!cssUrl) continue;
+
+    try {
+      const res = await fetch(cssUrl, {
+        headers: { "User-Agent": UA },
+        redirect: "follow",
+      });
+      if (res.ok) {
+        const text = await res.text();
+        cssTexts.push(text);
+        console.log(`    css: ${cssUrl.slice(0, 80)}... (${(text.length / 1024).toFixed(0)}KB)`);
+      }
+    } catch {
+      // skip unreachable CSS
+    }
+  }
+
+  return cssTexts;
+}
+
+// ─── CSSテキストからの抽出 ────────────────────────────────
+
+function extractColorsFromCSS(cssText) {
+  const colors = new Map();
+  const colorRegex = /#[0-9a-fA-F]{3,8}\b|rgba?\([^)]+\)|hsla?\([^)]+\)/g;
+  let match;
+  while ((match = colorRegex.exec(cssText)) !== null) {
+    const color = match[0].toLowerCase();
+    colors.set(color, (colors.get(color) || 0) + 1);
+  }
+  return colors;
+}
+
+function extractFontsFromCSS(cssText) {
+  const fonts = new Set();
+  const fontRegex = /font-family:\s*([^;}{]+)/g;
+  let match;
+  while ((match = fontRegex.exec(cssText)) !== null) {
+    fonts.add(match[1].trim());
+  }
+  return fonts;
+}
+
+function extractFontSizesFromCSS(cssText) {
+  const sizes = new Map();
+  const sizeRegex = /font-size:\s*([^;}{]+)/g;
+  let match;
+  while ((match = sizeRegex.exec(cssText)) !== null) {
+    const size = match[1].trim();
+    sizes.set(size, (sizes.get(size) || 0) + 1);
+  }
+  return sizes;
+}
+
+function extractSpacingFromCSS(cssText) {
+  const spacings = new Map();
+  const spacingRegex =
+    /(?:margin|padding|gap)(?:-(?:top|right|bottom|left))?:\s*([^;}{]+)/g;
+  let match;
+  while ((match = spacingRegex.exec(cssText)) !== null) {
+    const value = match[1].trim();
+    spacings.set(value, (spacings.get(value) || 0) + 1);
+  }
+  return spacings;
+}
+
 // ─── 構造解析 ────────────────────────────────────────────
 
 function extractStructure($) {
@@ -190,10 +277,11 @@ function extractStructure($) {
 
 // ─── CSS抽出 ─────────────────────────────────────────────
 
-function extractColors($) {
+function extractColors($, externalCSSTexts = []) {
   const colors = new Map();
   const colorRegex = /#[0-9a-fA-F]{3,8}\b|rgba?\([^)]+\)|hsla?\([^)]+\)/g;
 
+  // inline <style> tags
   $("style").each((_, el) => {
     const css = $(el).text();
     let match;
@@ -203,6 +291,7 @@ function extractColors($) {
     }
   });
 
+  // inline style attributes
   $("[style]").each((_, el) => {
     const style = $(el).attr("style") || "";
     let match;
@@ -212,12 +301,19 @@ function extractColors($) {
     }
   });
 
+  // external CSS files
+  for (const cssText of externalCSSTexts) {
+    for (const [color, count] of extractColorsFromCSS(cssText)) {
+      colors.set(color, (colors.get(color) || 0) + count);
+    }
+  }
+
   return [...colors.entries()]
     .sort((a, b) => b[1] - a[1])
     .map(([color, count]) => ({ color, count }));
 }
 
-function extractFonts($) {
+function extractFonts($, externalCSSTexts = []) {
   const fonts = new Set();
   const fontRegex = /font-family:\s*([^;}{]+)/g;
 
@@ -235,10 +331,16 @@ function extractFonts($) {
     }
   });
 
+  for (const cssText of externalCSSTexts) {
+    for (const f of extractFontsFromCSS(cssText)) {
+      fonts.add(f);
+    }
+  }
+
   return [...fonts];
 }
 
-function extractFontSizes($) {
+function extractFontSizes($, externalCSSTexts = []) {
   const sizes = new Map();
   const sizeRegex = /font-size:\s*([^;}{]+)/g;
 
@@ -250,12 +352,18 @@ function extractFontSizes($) {
     }
   });
 
+  for (const cssText of externalCSSTexts) {
+    for (const [size, count] of extractFontSizesFromCSS(cssText)) {
+      sizes.set(size, (sizes.get(size) || 0) + count);
+    }
+  }
+
   return [...sizes.entries()]
     .sort((a, b) => b[1] - a[1])
     .map(([size, count]) => ({ size, count }));
 }
 
-function extractSpacing($) {
+function extractSpacing($, externalCSSTexts = []) {
   const spacings = new Map();
   const spacingRegex =
     /(?:margin|padding|gap)(?:-(?:top|right|bottom|left))?:\s*([^;}{]+)/g;
@@ -267,6 +375,12 @@ function extractSpacing($) {
       spacings.set(value, (spacings.get(value) || 0) + 1);
     }
   });
+
+  for (const cssText of externalCSSTexts) {
+    for (const [value, count] of extractSpacingFromCSS(cssText)) {
+      spacings.set(value, (spacings.get(value) || 0) + count);
+    }
+  }
 
   return [...spacings.entries()]
     .sort((a, b) => b[1] - a[1])
@@ -529,13 +643,18 @@ async function main() {
 
       const $ = cheerio.load(html);
 
+      // 外部CSSファイルを取得
+      const sourceUrl = useArchive ? (await getArchiveUrl(target.url)) : target.url;
+      const externalCSS = await fetchExternalCSS($, sourceUrl);
+      console.log(`    external CSS files: ${externalCSS.length}`);
+
       const structure = extractStructure($);
       allStructures[target.name] = structure;
 
-      const colors = extractColors($);
-      const fonts = extractFonts($);
-      const fontSizes = extractFontSizes($);
-      const spacing = extractSpacing($);
+      const colors = extractColors($, externalCSS);
+      const fonts = extractFonts($, externalCSS);
+      const fontSizes = extractFontSizes($, externalCSS);
+      const spacing = extractSpacing($, externalCSS);
 
       allColors.push(...colors);
       allFonts.push(...fonts);
