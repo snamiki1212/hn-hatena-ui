@@ -7,6 +7,9 @@
     "doc": "docs"
   },
   "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
     "test": "echo \"Error: no test specified\" && exit 1",
     "extract-design": "node scripts/extract-hatena-design.mjs",
     "extract-design:archive": "node scripts/extract-hatena-design.mjs --archive",
@@ -24,5 +27,11 @@
   "devDependencies": {
     "cheerio": "^1.2.0",
     "puppeteer-core": "^24.40.0"
+  },
+  "dependencies": {
+    "@astrojs/react": "^5.0.2",
+    "astro": "^6.1.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
   }
 }
