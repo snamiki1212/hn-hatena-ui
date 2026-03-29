@@ -1,7 +1,7 @@
 # Design Reference: はてなブックマーク (Hatena Bookmark)
 
 参照元: `https://b.hatena.ne.jp/`
-最終抽出: 2026-03-27 23:58:00 UTC
+最終抽出: 2026-03-29 07:18:52 UTC
 ソース: https://web.archive.org/ (via b.hatena.ne.jp)
 
 > このドキュメントは、はてなブックマークのUIデザインを参考にした設計資料です。
@@ -254,3 +254,41 @@ font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku 
 | エントリータイトル | story title |
 | 投稿者 | story author (`by`) |
 | 投稿時刻 | story time |
+
+---
+
+## 12. Computed Styles (ブラウザ実測値)
+
+> Puppeteer の `getComputedStyle` で取得した実際の描画値。CSS抽出より信頼性が高い。
+
+### body
+| プロパティ | 値 |
+|---|---|
+| fontFamily | `"Hiragino Sans", sans-serif` |
+| fontSize | `14px` |
+| color | `rgb(51, 51, 51)` |
+| backgroundColor | `rgb(245, 245, 245)` |
+| lineHeight | `22.4px` |
+
+### header
+| プロパティ | 値 |
+|---|---|
+| backgroundColor | `rgb(255, 255, 255)` |
+| height | `50px` |
+| borderBottom | `1px solid rgb(232, 232, 232)` |
+| padding | `0px 16px` |
+
+### entryCard
+_データなし_
+
+### entryTitle
+_データなし_
+
+### link
+| プロパティ | 値 |
+|---|---|
+| color | `rgb(29, 122, 179)` |
+| textDecoration | `none` |
+
+
+
