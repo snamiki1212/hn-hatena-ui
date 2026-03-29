@@ -39,11 +39,14 @@ export async function getItem(id: number): Promise<HnItem> {
 export async function getStory(id: number): Promise<HnStory> {
   try {
     const item = await getItem(id);
+    const title = item.title ?? "";
+    const titleJa = (await translateToJa(title)) ?? undefined;
     return {
       id: item.id,
       by: item.by,
       time: item.time,
-      title: item.title ?? "",
+      title,
+      titleJa,
       url: item.url,
       score: item.score ?? 0,
       descendants: item.descendants ?? 0,

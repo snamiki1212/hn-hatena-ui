@@ -1,6 +1,7 @@
 ---
-status: Proposed
+status: Accepted
 proposed-at: 2026-03-30
+accepted-at: 2026-03-30
 ---
 
 # ADR-003: ビルド時の日本語翻訳機能

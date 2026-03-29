@@ -17,7 +17,8 @@ const story = await getStory(Number(id));
   <article>
     <h1>
       <a href={story.url} target="_blank" rel="noopener">
-        {story.title}
+        <span lang="ja">{story.titleJa ?? story.title}</span>
+        {story.titleJa && <small lang="en">{story.title}</small>}
       </a>
     </h1>
     <p>{story.score} points by {story.by}</p>

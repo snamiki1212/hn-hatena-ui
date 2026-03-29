@@ -12,7 +12,8 @@ const stories = await getStories(ids, 30);
     {stories.map((story) => (
       <li>
         <a href={story.url} target="_blank" rel="noopener">
-          {story.title}
+          <span lang="ja">{story.titleJa ?? story.title}</span>
+          {story.titleJa && <small lang="en">{story.title}</small>}
         </a>
         <span>({story.score} points by {story.by})</span>
         <a href={`/hn-hatena-ui/story/${story.id}/`}>
