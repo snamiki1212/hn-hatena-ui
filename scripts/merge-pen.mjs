@@ -17,7 +17,7 @@ import { resolve, join, basename, dirname, relative } from "node:path";
 
 const ROOT = resolve(import.meta.dirname, "..");
 const OUT_DIR = join(ROOT, "dist");
-const OUT_FILE = join(OUT_DIR, "design-preview.pen");
+const OUT_FILE = join(OUT_DIR, "overview.gen.pen");
 
 // ---------------------------------------------------------------------------
 // 1. Discover all .pen files

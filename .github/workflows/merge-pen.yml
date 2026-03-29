@@ -27,7 +27,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add dist/design-preview.pen
+          git add dist/overview.gen.pen
           git diff --cached --quiet && echo "No changes" && exit 0
           git commit -m "chore: rebuild design-preview.pen from .pen files"
           git push
