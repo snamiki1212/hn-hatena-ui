@@ -75,7 +75,20 @@ async function fetchFromArchive(url) {
 }
 
 async function fetchHTML(url) {
-  return useArchive ? fetchFromArchive(url) : fetchDirect(url);
+  if (useArchive) {
+    try {
+      return await fetchFromArchive(url);
+    } catch (archiveErr) {
+      console.log(`    archive failed: ${archiveErr.message}`);
+      console.log(`    falling back to direct fetch...`);
+      try {
+        return await fetchDirect(url);
+      } catch (directErr) {
+        throw new Error(`archive: ${archiveErr.message} / direct: ${directErr.message}`);
+      }
+    }
+  }
+  return fetchDirect(url);
 }
 
 async function fileExists(path) {
@@ -442,78 +455,98 @@ async function takeScreenshots(targets) {
     const page = await browser.newPage();
     await page.setUserAgent(UA);
 
-    // デスクトップ
-    await page.setViewport({ width: 1280, height: 900 });
-    await page.goto(url, { waitUntil: "networkidle2", timeout: 30000 });
-    await page.screenshot({
-      path: join(SCREENSHOTS_DIR, `${target.name}-desktop.png`),
-      fullPage: true,
-    });
-
-    // モバイル
-    await page.setViewport({ width: 375, height: 812 });
-    await page.screenshot({
-      path: join(SCREENSHOTS_DIR, `${target.name}-mobile.png`),
-      fullPage: true,
-    });
-
-    // エントリーカード拡大
-    const card = await page.$(
-      '[class*="entry" i], article, [class*="item" i]'
-    );
-    if (card) {
-      await card.screenshot({
-        path: join(SCREENSHOTS_DIR, `${target.name}-card.png`),
+    try {
+      // デスクトップ
+      await page.setViewport({ width: 1280, height: 900 });
+      const response = await page.goto(url, { waitUntil: "networkidle2", timeout: 30000 });
+      const status = response?.status();
+      if (status && status >= 400) {
+        console.log(`    page returned ${status}, screenshots may be of error page`);
+      }
+      await page.screenshot({
+        path: join(SCREENSHOTS_DIR, `${target.name}-desktop.png`),
+        fullPage: true,
       });
-    }
 
-    // Computed styles (ブラウザでしか取れない値)
-    const computed = await page.evaluate(() => {
-      const get = (sel) => {
-        const el = document.querySelector(sel);
-        return el ? getComputedStyle(el) : null;
-      };
+      // モバイル
+      await page.setViewport({ width: 375, height: 812 });
+      await page.screenshot({
+        path: join(SCREENSHOTS_DIR, `${target.name}-mobile.png`),
+        fullPage: true,
+      });
 
-      const pick = (style, props) =>
-        style
-          ? Object.fromEntries(props.map((p) => [p, style[p]]))
-          : null;
+      // エントリーカード拡大 (要素が可視の場合のみ)
+      try {
+        const card = await page.$(
+          '[class*="entry" i], article, [class*="item" i]'
+        );
+        if (card) {
+          const isVisible = await card.evaluate((el) => {
+            const rect = el.getBoundingClientRect();
+            return rect.width > 0 && rect.height > 0;
+          });
+          if (isVisible) {
+            await card.screenshot({
+              path: join(SCREENSHOTS_DIR, `${target.name}-card.png`),
+            });
+          } else {
+            console.log(`    card element not visible, skipping card screenshot`);
+          }
+        }
+      } catch (cardErr) {
+        console.log(`    card screenshot skipped: ${cardErr.message}`);
+      }
 
-      return {
-        body: pick(get("body"), [
-          "fontFamily",
-          "fontSize",
-          "color",
-          "backgroundColor",
-          "lineHeight",
-        ]),
-        header: pick(get('header, [class*="header" i]'), [
-          "backgroundColor",
-          "height",
-          "borderBottom",
-          "padding",
-        ]),
-        entryCard: pick(get('[class*="entry" i], article'), [
-          "backgroundColor",
-          "padding",
-          "margin",
-          "border",
-          "borderBottom",
-        ]),
-        entryTitle: pick(
-          get(
-            '[class*="entry" i] a, article a, [class*="title" i] a'
+      // Computed styles (ブラウザでしか取れない値)
+      const computed = await page.evaluate(() => {
+        const get = (sel) => {
+          const el = document.querySelector(sel);
+          return el ? getComputedStyle(el) : null;
+        };
+
+        const pick = (style, props) =>
+          style
+            ? Object.fromEntries(props.map((p) => [p, style[p]]))
+            : null;
+
+        return {
+          body: pick(get("body"), [
+            "fontFamily",
+            "fontSize",
+            "color",
+            "backgroundColor",
+            "lineHeight",
+          ]),
+          header: pick(get('header, [class*="header" i]'), [
+            "backgroundColor",
+            "height",
+            "borderBottom",
+            "padding",
+          ]),
+          entryCard: pick(get('[class*="entry" i], article'), [
+            "backgroundColor",
+            "padding",
+            "margin",
+            "border",
+            "borderBottom",
+          ]),
+          entryTitle: pick(
+            get(
+              '[class*="entry" i] a, article a, [class*="title" i] a'
+            ),
+            ["color", "fontSize", "fontWeight", "lineHeight", "textDecoration"]
           ),
-          ["color", "fontSize", "fontWeight", "lineHeight", "textDecoration"]
-        ),
-        link: pick(get("a[href]"), ["color", "textDecoration"]),
-      };
-    });
+          link: pick(get("a[href]"), ["color", "textDecoration"]),
+        };
+      });
 
-    await writeFile(
-      join(DESIGN_DIR, `computed-${target.name}.json`),
-      JSON.stringify(computed, null, 2)
-    );
+      await writeFile(
+        join(DESIGN_DIR, `computed-${target.name}.json`),
+        JSON.stringify(computed, null, 2)
+      );
+    } catch (pageErr) {
+      console.log(`    screenshot/computed failed for ${target.name}: ${pageErr.message}`);
+    }
 
     await page.close();
   }
