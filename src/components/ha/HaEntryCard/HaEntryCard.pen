@@ -1,6 +1,8 @@
 {
-  "version": "1.0",
-  "imports": ["../../../styles/tokens.pen"],
+  "version": "2.9",
+  "imports": {
+    "../../../styles/tokens.pen": "../../../styles/tokens.pen"
+  },
   "children": [
     {
       "id": "entry-card",
@@ -9,12 +11,18 @@
       "reusable": true,
       "width": 740,
       "height": 100,
-      "fill": [{ "type": "solid", "color": "$bg-primary" }],
-      "stroke": { "fills": [{ "type": "solid", "color": "$border" }], "thickness": 1, "align": "inside" },
+      "fill": "$bg-primary",
+      "stroke": {
+        "fill": "$border",
+        "thickness": 1
+      },
       "layout": "horizontal",
       "alignItems": "start",
       "gap": 12,
-      "padding": { "top": 12, "right": 16, "bottom": 12, "left": 16 },
+      "padding": [
+        12,
+        16
+      ],
       "children": [
         {
           "id": "thumbnail",
@@ -22,8 +30,13 @@
           "name": "Thumbnail",
           "width": 80,
           "height": 80,
-          "fill": [{ "type": "solid", "color": "#dddddd" }],
-          "cornerRadius": 3
+          "fill": "#dddddd",
+          "cornerRadius": [
+            3,
+            3,
+            3,
+            3
+          ]
         },
         {
           "id": "entry-body",
@@ -41,11 +54,11 @@
               "name": "HaEntryTitle",
               "width": 540,
               "height": 22,
-              "content": "記事タイトルがここに表示されます - Hacker News",
+              "text": "記事タイトルがここに表示されます - Hacker News",
               "fontSize": 15,
               "fontWeight": "bold",
               "lineHeight": 1.4,
-              "fill": [{ "type": "solid", "color": "$text-primary" }]
+              "fill": "$text-primary"
             },
             {
               "id": "entry-domain",
@@ -53,9 +66,9 @@
               "name": "Domain",
               "width": 200,
               "height": 16,
-              "content": "example.com",
+              "text": "example.com",
               "fontSize": 12,
-              "fill": [{ "type": "solid", "color": "$text-muted" }]
+              "fill": "$text-muted"
             },
             {
               "id": "entry-meta-row",
@@ -73,9 +86,9 @@
                   "name": "Author",
                   "width": 80,
                   "height": 16,
-                  "content": "username",
+                  "text": "username",
                   "fontSize": 12,
-                  "fill": [{ "type": "solid", "color": "$text-muted" }]
+                  "fill": "$text-muted"
                 },
                 {
                   "id": "meta-time",
@@ -83,9 +96,9 @@
                   "name": "Time",
                   "width": 60,
                   "height": 16,
-                  "content": "3時間前",
+                  "text": "3時間前",
                   "fontSize": 12,
-                  "fill": [{ "type": "solid", "color": "$text-muted" }]
+                  "fill": "$text-muted"
                 },
                 {
                   "id": "meta-comments",
@@ -93,9 +106,9 @@
                   "name": "Comments",
                   "width": 80,
                   "height": 16,
-                  "content": "45 comments",
+                  "text": "45 comments",
                   "fontSize": 12,
-                  "fill": [{ "type": "solid", "color": "$hatena-blue" }]
+                  "fill": "$hatena-blue"
                 }
               ]
             }
@@ -110,8 +123,13 @@
           "layout": "horizontal",
           "alignItems": "center",
           "justifyContent": "center",
-          "fill": [{ "type": "solid", "color": "$bookmark-hot" }],
-          "cornerRadius": 3,
+          "fill": "$bookmark-hot",
+          "cornerRadius": [
+            3,
+            3,
+            3,
+            3
+          ],
           "children": [
             {
               "id": "bookmark-count-text",
@@ -119,15 +137,17 @@
               "name": "Count",
               "width": 56,
               "height": 14,
-              "content": "128 users",
+              "text": "128 users",
               "fontSize": 11,
               "fontWeight": "bold",
               "textAlign": "center",
-              "fill": [{ "type": "solid", "color": "#ffffff" }]
+              "fill": "#ffffff"
             }
           ]
         }
-      ]
+      ],
+      "x": 0,
+      "y": 0
     }
   ]
 }

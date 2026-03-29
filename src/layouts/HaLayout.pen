@@ -1,6 +1,8 @@
 {
-  "version": "1.0",
-  "imports": ["../styles/tokens.pen"],
+  "version": "2.9",
+  "imports": {
+    "../styles/tokens.pen": "../styles/tokens.pen"
+  },
   "children": [
     {
       "id": "layout-root",
@@ -8,7 +10,7 @@
       "name": "HaLayout",
       "width": 1440,
       "height": 900,
-      "fill": [{ "type": "solid", "color": "$bg-secondary" }],
+      "fill": "$bg-secondary",
       "layout": "vertical",
       "alignItems": "center",
       "children": [
@@ -18,8 +20,11 @@
           "name": "Header Slot",
           "width": 1440,
           "height": 90,
-          "fill": [{ "type": "solid", "color": "$bg-primary" }],
-          "stroke": { "fills": [{ "type": "solid", "color": "$border" }], "thickness": 1, "align": "inside" },
+          "fill": "$bg-primary",
+          "stroke": {
+            "fill": "$border",
+            "thickness": 1
+          },
           "layout": "vertical",
           "children": [
             {
@@ -30,9 +35,9 @@
               "y": 16,
               "width": 200,
               "height": 20,
-              "content": "← HaHeader component",
+              "text": "← HaHeader component",
               "fontSize": 14,
-              "fill": [{ "type": "solid", "color": "$text-muted" }]
+              "fill": "$text-muted"
             }
           ]
         },
@@ -44,7 +49,10 @@
           "height": 760,
           "layout": "horizontal",
           "gap": 24,
-          "padding": { "top": 24, "right": 0, "bottom": 24, "left": 0 },
+          "padding": [
+            24,
+            0
+          ],
           "children": [
             {
               "id": "main-content",
@@ -52,8 +60,11 @@
               "name": "Main Content (70%)",
               "width": 740,
               "height": 712,
-              "fill": [{ "type": "solid", "color": "$bg-primary" }],
-              "stroke": { "fills": [{ "type": "solid", "color": "$border" }], "thickness": 1, "align": "inside" },
+              "fill": "$bg-primary",
+              "stroke": {
+                "fill": "$border",
+                "thickness": 1
+              },
               "layout": "vertical",
               "children": [
                 {
@@ -64,9 +75,9 @@
                   "y": 16,
                   "width": 300,
                   "height": 20,
-                  "content": "← HaEntryList (slot)",
+                  "text": "← HaEntryList (slot)",
                   "fontSize": 14,
-                  "fill": [{ "type": "solid", "color": "$text-muted" }]
+                  "fill": "$text-muted"
                 }
               ]
             },
@@ -76,8 +87,11 @@
               "name": "Sidebar (30%)",
               "width": 336,
               "height": 400,
-              "fill": [{ "type": "solid", "color": "$bg-primary" }],
-              "stroke": { "fills": [{ "type": "solid", "color": "$border" }], "thickness": 1, "align": "inside" },
+              "fill": "$bg-primary",
+              "stroke": {
+                "fill": "$border",
+                "thickness": 1
+              },
               "layout": "vertical",
               "children": [
                 {
@@ -86,8 +100,11 @@
                   "name": "Sidebar Section Heading",
                   "width": 336,
                   "height": 36,
-                  "fill": [{ "type": "solid", "color": "$bg-secondary" }],
-                  "padding": { "top": 8, "right": 12, "bottom": 8, "left": 12 },
+                  "fill": "$bg-secondary",
+                  "padding": [
+                    8,
+                    12
+                  ],
                   "children": [
                     {
                       "id": "sidebar-heading-text",
@@ -95,10 +112,10 @@
                       "name": "Heading Text",
                       "width": 200,
                       "height": 20,
-                      "content": "人気エントリー",
+                      "text": "人気エントリー",
                       "fontSize": 14,
                       "fontWeight": "bold",
-                      "fill": [{ "type": "solid", "color": "$text-primary" }]
+                      "fill": "$text-primary"
                     }
                   ]
                 }
@@ -112,8 +129,11 @@
           "name": "Footer Slot",
           "width": 1440,
           "height": 50,
-          "fill": [{ "type": "solid", "color": "$bg-primary" }],
-          "stroke": { "fills": [{ "type": "solid", "color": "$border" }], "thickness": 1, "align": "inside" },
+          "fill": "$bg-primary",
+          "stroke": {
+            "fill": "$border",
+            "thickness": 1
+          },
           "children": [
             {
               "id": "footer-placeholder",
@@ -123,13 +143,15 @@
               "y": 16,
               "width": 200,
               "height": 20,
-              "content": "← HaFooter component",
+              "text": "← HaFooter component",
               "fontSize": 14,
-              "fill": [{ "type": "solid", "color": "$text-muted" }]
+              "fill": "$text-muted"
             }
           ]
         }
-      ]
+      ],
+      "x": 0,
+      "y": 0
     }
   ]
 }

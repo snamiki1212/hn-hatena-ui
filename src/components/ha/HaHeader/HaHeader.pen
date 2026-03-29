@@ -1,6 +1,8 @@
 {
-  "version": "1.0",
-  "imports": ["../../../styles/tokens.pen"],
+  "version": "2.9",
+  "imports": {
+    "../../../styles/tokens.pen": "../../../styles/tokens.pen"
+  },
   "children": [
     {
       "id": "header",
@@ -8,7 +10,7 @@
       "name": "HaHeader",
       "width": 1440,
       "height": 90,
-      "fill": [{ "type": "solid", "color": "$bg-primary" }],
+      "fill": "$bg-primary",
       "layout": "vertical",
       "children": [
         {
@@ -30,7 +32,10 @@
               "layout": "horizontal",
               "alignItems": "center",
               "justifyContent": "space_between",
-              "padding": { "top": 0, "right": 16, "bottom": 0, "left": 16 },
+              "padding": [
+                0,
+                16
+              ],
               "children": [
                 {
                   "id": "logo-area",
@@ -48,8 +53,13 @@
                       "name": "B! Icon",
                       "width": 28,
                       "height": 28,
-                      "fill": [{ "type": "solid", "color": "$hatena-blue" }],
-                      "cornerRadius": 4
+                      "fill": "$hatena-blue",
+                      "cornerRadius": [
+                        4,
+                        4,
+                        4,
+                        4
+                      ]
                     },
                     {
                       "id": "logo-text",
@@ -57,10 +67,10 @@
                       "name": "Logo Text",
                       "width": 80,
                       "height": 20,
-                      "content": "HN Hatena",
+                      "text": "HN Hatena",
                       "fontSize": 16,
                       "fontWeight": "bold",
-                      "fill": [{ "type": "solid", "color": "$hatena-blue" }]
+                      "fill": "$hatena-blue"
                     }
                   ]
                 },
@@ -70,12 +80,23 @@
                   "name": "HaSearchBar",
                   "width": 500,
                   "height": 32,
-                  "fill": [{ "type": "solid", "color": "$bg-primary" }],
-                  "stroke": { "fills": [{ "type": "solid", "color": "$border" }], "thickness": 1, "align": "inside" },
-                  "cornerRadius": 4,
+                  "fill": "$bg-primary",
+                  "stroke": {
+                    "fill": "$border",
+                    "thickness": 1
+                  },
+                  "cornerRadius": [
+                    4,
+                    4,
+                    4,
+                    4
+                  ],
                   "layout": "horizontal",
                   "alignItems": "center",
-                  "padding": { "top": 0, "right": 12, "bottom": 0, "left": 12 },
+                  "padding": [
+                    0,
+                    12
+                  ],
                   "children": [
                     {
                       "id": "search-placeholder",
@@ -83,9 +104,9 @@
                       "name": "Search Placeholder",
                       "width": 200,
                       "height": 16,
-                      "content": "Search stories...",
+                      "text": "Search stories...",
                       "fontSize": 13,
-                      "fill": [{ "type": "solid", "color": "$text-muted" }]
+                      "fill": "$text-muted"
                     }
                   ]
                 },
@@ -105,9 +126,9 @@
                       "name": "Login",
                       "width": 60,
                       "height": 16,
-                      "content": "ログイン",
+                      "text": "ログイン",
                       "fontSize": 12,
-                      "fill": [{ "type": "solid", "color": "$hatena-blue" }]
+                      "fill": "$hatena-blue"
                     }
                   ]
                 }
@@ -121,8 +142,11 @@
           "name": "Category Tabs Bar",
           "width": 1440,
           "height": 40,
-          "fill": [{ "type": "solid", "color": "$bg-primary" }],
-          "stroke": { "fills": [{ "type": "solid", "color": "$border" }], "thickness": 1, "align": "inside" },
+          "fill": "$bg-primary",
+          "stroke": {
+            "fill": "$border",
+            "thickness": 1
+          },
           "layout": "horizontal",
           "alignItems": "center",
           "justifyContent": "center",
@@ -136,7 +160,10 @@
               "layout": "horizontal",
               "alignItems": "center",
               "gap": 16,
-              "padding": { "top": 0, "right": 16, "bottom": 0, "left": 16 },
+              "padding": [
+                0,
+                16
+              ],
               "children": [
                 {
                   "id": "tab-top",
@@ -147,7 +174,10 @@
                   "layout": "vertical",
                   "alignItems": "center",
                   "justifyContent": "center",
-                  "stroke": { "fills": [{ "type": "solid", "color": "$hatena-blue" }], "thickness": 2, "align": "inside" },
+                  "stroke": {
+                    "fill": "$hatena-blue",
+                    "thickness": 2
+                  },
                   "children": [
                     {
                       "id": "tab-top-text",
@@ -155,11 +185,11 @@
                       "name": "Top",
                       "width": 48,
                       "height": 16,
-                      "content": "Top",
+                      "text": "Top",
                       "fontSize": 13,
                       "fontWeight": "bold",
                       "textAlign": "center",
-                      "fill": [{ "type": "solid", "color": "$hatena-blue" }]
+                      "fill": "$hatena-blue"
                     }
                   ]
                 },
@@ -179,10 +209,10 @@
                       "name": "New",
                       "width": 48,
                       "height": 16,
-                      "content": "New",
+                      "text": "New",
                       "fontSize": 13,
                       "textAlign": "center",
-                      "fill": [{ "type": "solid", "color": "$text-secondary" }]
+                      "fill": "$text-secondary"
                     }
                   ]
                 },
@@ -202,10 +232,10 @@
                       "name": "Best",
                       "width": 48,
                       "height": 16,
-                      "content": "Best",
+                      "text": "Best",
                       "fontSize": 13,
                       "textAlign": "center",
-                      "fill": [{ "type": "solid", "color": "$text-secondary" }]
+                      "fill": "$text-secondary"
                     }
                   ]
                 }
@@ -213,7 +243,9 @@
             }
           ]
         }
-      ]
+      ],
+      "x": 0,
+      "y": 0
     }
   ]
 }

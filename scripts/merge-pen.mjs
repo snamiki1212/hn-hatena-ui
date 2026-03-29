@@ -3,17 +3,18 @@
 /**
  * merge-pen.mjs
  *
- * 全 .pen ファイルを1つの design-preview.pen に統合する。
+ * 全 .pen ファイルを1つの overview.gen.pen に統合する。
  * - tokens.pen の変数を全てインライン展開
- * - type: "ref" を実体コンポーネントに展開 (overrides 適用)
+ * - type: "ref" を実体コンポーネントに展開 (descendants 適用)
  * - 各コンポーネントをラベル付きでキャンバスに配置
+ * - 出力は pencil.dev v2.9 フォーマット準拠
  *
  * Usage: node scripts/merge-pen.mjs
- * Output: dist/design-preview.pen
+ * Output: dist/overview.gen.pen
  */
 
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync } from "node:fs";
-import { resolve, join, basename, dirname, relative } from "node:path";
+import { readFileSync, writeFileSync, mkdirSync, readdirSync } from "node:fs";
+import { resolve, join, relative } from "node:path";
 
 const ROOT = resolve(import.meta.dirname, "..");
 const OUT_DIR = join(ROOT, "dist");
@@ -74,26 +75,6 @@ function resolveVars(node, vars) {
 }
 
 // ---------------------------------------------------------------------------
-// 3b. Convert padding objects to arrays [top, right, bottom, left]
-// ---------------------------------------------------------------------------
-function normalizePadding(node) {
-  if (Array.isArray(node)) {
-    node.forEach(normalizePadding);
-    return node;
-  }
-  if (node && typeof node === "object") {
-    if (node.padding && typeof node.padding === "object" && !Array.isArray(node.padding)) {
-      const p = node.padding;
-      node.padding = [p.top ?? 0, p.right ?? 0, p.bottom ?? 0, p.left ?? 0];
-    }
-    if (node.children) {
-      normalizePadding(node.children);
-    }
-  }
-  return node;
-}
-
-// ---------------------------------------------------------------------------
 // 4. Build reusable component registry (id → node)
 // ---------------------------------------------------------------------------
 function collectReusables(children, registry) {
@@ -108,22 +89,22 @@ function collectReusables(children, registry) {
 }
 
 // ---------------------------------------------------------------------------
-// 5. Apply overrides to a deep-cloned component tree
+// 5. Apply descendants overrides to a deep-cloned component tree
 // ---------------------------------------------------------------------------
-function applyOverrides(node, overrides) {
-  if (!overrides) return node;
+function applyDescendants(node, descendants) {
+  if (!descendants) return node;
   const clone = JSON.parse(JSON.stringify(node));
-  applyOverridesRecursive(clone, overrides);
+  applyDescendantsRecursive(clone, descendants);
   return clone;
 }
 
-function applyOverridesRecursive(node, overrides) {
-  if (node.id && overrides[node.id]) {
-    Object.assign(node, overrides[node.id]);
+function applyDescendantsRecursive(node, descendants) {
+  if (node.id && descendants[node.id]) {
+    Object.assign(node, descendants[node.id]);
   }
   if (node.children) {
     for (const child of node.children) {
-      applyOverridesRecursive(child, overrides);
+      applyDescendantsRecursive(child, descendants);
     }
   }
 }
@@ -133,9 +114,9 @@ function applyOverridesRecursive(node, overrides) {
 // ---------------------------------------------------------------------------
 function expandRefs(children, registry) {
   return children.map((child) => {
-    if (child.type === "ref" && child.refId && registry[child.refId]) {
-      const base = JSON.parse(JSON.stringify(registry[child.refId]));
-      const expanded = applyOverrides(base, child.overrides);
+    if (child.type === "ref" && child.ref && registry[child.ref]) {
+      const base = JSON.parse(JSON.stringify(registry[child.ref]));
+      const expanded = applyDescendants(base, child.descendants);
       expanded.id = child.id;
       expanded.name = child.name || expanded.name;
       delete expanded.reusable;
@@ -213,10 +194,10 @@ function main() {
       y: yOffset,
       width: 600,
       height: LABEL_HEIGHT,
-      content: `── ${comp.path}`,
+      text: `── ${comp.path}`,
       fontSize: 14,
       fontWeight: "bold",
-      fill: [{ type: "solid", color: "#666666" }],
+      fill: "#666666",
     });
     yOffset += LABEL_HEIGHT;
 
@@ -224,14 +205,11 @@ function main() {
     let children = resolveVars(comp.data.children, vars);
     // Expand refs
     children = expandRefs(children, registry);
-    // Normalize padding objects → arrays
-    normalizePadding(children);
 
     // Position children
     for (const child of children) {
       child.x = 0;
       child.y = yOffset;
-      // Remove reusable flag in preview
       delete child.reusable;
       canvasChildren.push(child);
       const h = child.height || 100;
@@ -241,21 +219,16 @@ function main() {
     yOffset += SECTION_GAP;
   }
 
-  // Build output
+  // Build output (v2.9 format)
   const output = {
-    version: "1.0",
-    name: "HN Hatena UI - Design Preview",
-    width: 1440,
-    height: yOffset,
-    fill: [{ type: "solid", color: "#f8f8f8" }],
+    version: "2.9",
     children: canvasChildren,
   };
 
   mkdirSync(OUT_DIR, { recursive: true });
-  writeFileSync(OUT_FILE, JSON.stringify(output, null, 2));
+  writeFileSync(OUT_FILE, JSON.stringify(output, null, 2) + "\n");
 
   console.log(`Merged ${sorted.length} .pen files → ${relative(ROOT, OUT_FILE)}`);
-  console.log(`Canvas: ${output.width} x ${output.height}`);
   console.log(`Components: ${canvasChildren.length} nodes`);
 }
 

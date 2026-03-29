@@ -1,6 +1,9 @@
 {
-  "version": "1.0",
-  "imports": ["../../../styles/tokens.pen", "../HaEntryCard/HaEntryCard.pen"],
+  "version": "2.9",
+  "imports": {
+    "../../../styles/tokens.pen": "../../../styles/tokens.pen",
+    "../HaEntryCard/HaEntryCard.pen": "../HaEntryCard/HaEntryCard.pen"
+  },
   "children": [
     {
       "id": "entry-list",
@@ -9,8 +12,11 @@
       "reusable": true,
       "width": 740,
       "height": 600,
-      "fill": [{ "type": "solid", "color": "$bg-primary" }],
-      "stroke": { "fills": [{ "type": "solid", "color": "$border" }], "thickness": 1, "align": "inside" },
+      "fill": "$bg-primary",
+      "stroke": {
+        "fill": "$border",
+        "thickness": 1
+      },
       "layout": "vertical",
       "gap": 0,
       "children": [
@@ -18,47 +24,91 @@
           "id": "card-1",
           "type": "ref",
           "name": "Entry Card 1",
-          "refId": "entry-card",
-          "overrides": {
-            "entry-title": { "content": "TypeScript 5.7 Released with New Performance Features" },
-            "entry-domain": { "content": "devblogs.microsoft.com" },
-            "meta-author": { "content": "msdev" },
-            "meta-time": { "content": "2時間前" },
-            "meta-comments": { "content": "128 comments" },
-            "bookmark-count-text": { "content": "256 users" }
+          "ref": "entry-card",
+          "descendants": {
+            "entry-title": {
+              "text": "TypeScript 5.7 Released with New Performance Features"
+            },
+            "entry-domain": {
+              "text": "devblogs.microsoft.com"
+            },
+            "meta-author": {
+              "text": "msdev"
+            },
+            "meta-time": {
+              "text": "2時間前"
+            },
+            "meta-comments": {
+              "text": "128 comments"
+            },
+            "bookmark-count-text": {
+              "text": "256 users"
+            }
           }
         },
         {
           "id": "card-2",
           "type": "ref",
           "name": "Entry Card 2",
-          "refId": "entry-card",
-          "overrides": {
-            "entry-title": { "content": "Show HN: I built a real-time collaborative editor" },
-            "entry-domain": { "content": "github.com" },
-            "meta-author": { "content": "builder42" },
-            "meta-time": { "content": "5時間前" },
-            "meta-comments": { "content": "67 comments" },
-            "bookmark-count": { "fill": [{ "type": "solid", "color": "#ffe0e0" }] },
-            "bookmark-count-text": { "content": "89 users", "fill": [{ "type": "solid", "color": "#ff6666" }] }
+          "ref": "entry-card",
+          "descendants": {
+            "entry-title": {
+              "text": "Show HN: I built a real-time collaborative editor"
+            },
+            "entry-domain": {
+              "text": "github.com"
+            },
+            "meta-author": {
+              "text": "builder42"
+            },
+            "meta-time": {
+              "text": "5時間前"
+            },
+            "meta-comments": {
+              "text": "67 comments"
+            },
+            "bookmark-count": {
+              "fill": "#ffe0e0"
+            },
+            "bookmark-count-text": {
+              "text": "89 users",
+              "fill": "#ff6666"
+            }
           }
         },
         {
           "id": "card-3",
           "type": "ref",
           "name": "Entry Card 3",
-          "refId": "entry-card",
-          "overrides": {
-            "entry-title": { "content": "Understanding CPU Cache Lines and Memory Performance" },
-            "entry-domain": { "content": "blog.example.com" },
-            "meta-author": { "content": "cpuguru" },
-            "meta-time": { "content": "8時間前" },
-            "meta-comments": { "content": "23 comments" },
-            "bookmark-count": { "fill": [{ "type": "solid", "color": "#fff2e0" }] },
-            "bookmark-count-text": { "content": "31 users", "fill": [{ "type": "solid", "color": "#ff9900" }] }
+          "ref": "entry-card",
+          "descendants": {
+            "entry-title": {
+              "text": "Understanding CPU Cache Lines and Memory Performance"
+            },
+            "entry-domain": {
+              "text": "blog.example.com"
+            },
+            "meta-author": {
+              "text": "cpuguru"
+            },
+            "meta-time": {
+              "text": "8時間前"
+            },
+            "meta-comments": {
+              "text": "23 comments"
+            },
+            "bookmark-count": {
+              "fill": "#fff2e0"
+            },
+            "bookmark-count-text": {
+              "text": "31 users",
+              "fill": "#ff9900"
+            }
           }
         }
-      ]
+      ],
+      "x": 0,
+      "y": 0
     }
   ]
 }

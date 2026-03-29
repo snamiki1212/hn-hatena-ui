@@ -1,14 +1,5 @@
 {
-  "version": "1.0",
-  "name": "HN Hatena UI - Design Preview",
-  "width": 1440,
-  "height": 2550,
-  "fill": [
-    {
-      "type": "solid",
-      "color": "#f8f8f8"
-    }
-  ],
+  "version": "2.9",
   "children": [
     {
       "id": "label-src-layouts-HaLayout-pen",
@@ -18,15 +9,10 @@
       "y": 0,
       "width": 600,
       "height": 30,
-      "content": "── src/layouts/HaLayout.pen",
+      "text": "── src/layouts/HaLayout.pen",
       "fontSize": 14,
       "fontWeight": "bold",
-      "fill": [
-        {
-          "type": "solid",
-          "color": "#666666"
-        }
-      ]
+      "fill": "#666666"
     },
     {
       "id": "layout-root",
@@ -34,12 +20,7 @@
       "name": "HaLayout",
       "width": 1440,
       "height": 900,
-      "fill": [
-        {
-          "type": "solid",
-          "color": "#f5f5f5"
-        }
-      ],
+      "fill": "#f5f5f5",
       "layout": "vertical",
       "alignItems": "center",
       "children": [
@@ -49,21 +30,10 @@
           "name": "Header Slot",
           "width": 1440,
           "height": 90,
-          "fill": [
-            {
-              "type": "solid",
-              "color": "#ffffff"
-            }
-          ],
+          "fill": "#ffffff",
           "stroke": {
-            "fills": [
-              {
-                "type": "solid",
-                "color": "#e8e8e8"
-              }
-            ],
-            "thickness": 1,
-            "align": "inside"
+            "fill": "#e8e8e8",
+            "thickness": 1
           },
           "layout": "vertical",
           "children": [
@@ -75,14 +45,9 @@
               "y": 16,
               "width": 200,
               "height": 20,
-              "content": "← HaHeader component",
+              "text": "← HaHeader component",
               "fontSize": 14,
-              "fill": [
-                {
-                  "type": "solid",
-                  "color": "#999999"
-                }
-              ]
+              "fill": "#999999"
             }
           ]
         },
@@ -96,8 +61,6 @@
           "gap": 24,
           "padding": [
             24,
-            0,
-            24,
             0
           ],
           "children": [
@@ -107,21 +70,10 @@
               "name": "Main Content (70%)",
               "width": 740,
               "height": 712,
-              "fill": [
-                {
-                  "type": "solid",
-                  "color": "#ffffff"
-                }
-              ],
+              "fill": "#ffffff",
               "stroke": {
-                "fills": [
-                  {
-                    "type": "solid",
-                    "color": "#e8e8e8"
-                  }
-                ],
-                "thickness": 1,
-                "align": "inside"
+                "fill": "#e8e8e8",
+                "thickness": 1
               },
               "layout": "vertical",
               "children": [
@@ -133,14 +85,9 @@
                   "y": 16,
                   "width": 300,
                   "height": 20,
-                  "content": "← HaEntryList (slot)",
+                  "text": "← HaEntryList (slot)",
                   "fontSize": 14,
-                  "fill": [
-                    {
-                      "type": "solid",
-                      "color": "#999999"
-                    }
-                  ]
+                  "fill": "#999999"
                 }
               ]
             },
@@ -150,21 +97,10 @@
               "name": "Sidebar (30%)",
               "width": 336,
               "height": 400,
-              "fill": [
-                {
-                  "type": "solid",
-                  "color": "#ffffff"
-                }
-              ],
+              "fill": "#ffffff",
               "stroke": {
-                "fills": [
-                  {
-                    "type": "solid",
-                    "color": "#e8e8e8"
-                  }
-                ],
-                "thickness": 1,
-                "align": "inside"
+                "fill": "#e8e8e8",
+                "thickness": 1
               },
               "layout": "vertical",
               "children": [
@@ -174,15 +110,8 @@
                   "name": "Sidebar Section Heading",
                   "width": 336,
                   "height": 36,
-                  "fill": [
-                    {
-                      "type": "solid",
-                      "color": "#f5f5f5"
-                    }
-                  ],
+                  "fill": "#f5f5f5",
                   "padding": [
-                    8,
-                    12,
                     8,
                     12
                   ],
@@ -193,15 +122,10 @@
                       "name": "Heading Text",
                       "width": 200,
                       "height": 20,
-                      "content": "人気エントリー",
+                      "text": "人気エントリー",
                       "fontSize": 14,
                       "fontWeight": "bold",
-                      "fill": [
-                        {
-                          "type": "solid",
-                          "color": "#333333"
-                        }
-                      ]
+                      "fill": "#333333"
                     }
                   ]
                 }
@@ -215,21 +139,10 @@
           "name": "Footer Slot",
           "width": 1440,
           "height": 50,
-          "fill": [
-            {
-              "type": "solid",
-              "color": "#ffffff"
-            }
-          ],
+          "fill": "#ffffff",
           "stroke": {
-            "fills": [
-              {
-                "type": "solid",
-                "color": "#e8e8e8"
-              }
-            ],
-            "thickness": 1,
-            "align": "inside"
+            "fill": "#e8e8e8",
+            "thickness": 1
           },
           "children": [
             {
@@ -240,14 +153,9 @@
               "y": 16,
               "width": 200,
               "height": 20,
-              "content": "← HaFooter component",
+              "text": "← HaFooter component",
               "fontSize": 14,
-              "fill": [
-                {
-                  "type": "solid",
-                  "color": "#999999"
-                }
-              ]
+              "fill": "#999999"
             }
           ]
         }
@@ -263,15 +171,10 @@
       "y": 1006,
       "width": 600,
       "height": 30,
-      "content": "── src/components/ha/HaHeader/HaHeader.pen",
+      "text": "── src/components/ha/HaHeader/HaHeader.pen",
       "fontSize": 14,
       "fontWeight": "bold",
-      "fill": [
-        {
-          "type": "solid",
-          "color": "#666666"
-        }
-      ]
+      "fill": "#666666"
     },
     {
       "id": "header",
@@ -279,12 +182,7 @@
       "name": "HaHeader",
       "width": 1440,
       "height": 90,
-      "fill": [
-        {
-          "type": "solid",
-          "color": "#ffffff"
-        }
-      ],
+      "fill": "#ffffff",
       "layout": "vertical",
       "children": [
         {
@@ -308,8 +206,6 @@
               "justifyContent": "space_between",
               "padding": [
                 0,
-                16,
-                0,
                 16
               ],
               "children": [
@@ -329,13 +225,13 @@
                       "name": "B! Icon",
                       "width": 28,
                       "height": 28,
-                      "fill": [
-                        {
-                          "type": "solid",
-                          "color": "#1d7ab3"
-                        }
-                      ],
-                      "cornerRadius": 4
+                      "fill": "#1d7ab3",
+                      "cornerRadius": [
+                        4,
+                        4,
+                        4,
+                        4
+                      ]
                     },
                     {
                       "id": "logo-text",
@@ -343,15 +239,10 @@
                       "name": "Logo Text",
                       "width": 80,
                       "height": 20,
-                      "content": "HN Hatena",
+                      "text": "HN Hatena",
                       "fontSize": 16,
                       "fontWeight": "bold",
-                      "fill": [
-                        {
-                          "type": "solid",
-                          "color": "#1d7ab3"
-                        }
-                      ]
+                      "fill": "#1d7ab3"
                     }
                   ]
                 },
@@ -361,28 +252,20 @@
                   "name": "HaSearchBar",
                   "width": 500,
                   "height": 32,
-                  "fill": [
-                    {
-                      "type": "solid",
-                      "color": "#ffffff"
-                    }
-                  ],
+                  "fill": "#ffffff",
                   "stroke": {
-                    "fills": [
-                      {
-                        "type": "solid",
-                        "color": "#e8e8e8"
-                      }
-                    ],
-                    "thickness": 1,
-                    "align": "inside"
+                    "fill": "#e8e8e8",
+                    "thickness": 1
                   },
-                  "cornerRadius": 4,
+                  "cornerRadius": [
+                    4,
+                    4,
+                    4,
+                    4
+                  ],
                   "layout": "horizontal",
                   "alignItems": "center",
                   "padding": [
-                    0,
-                    12,
                     0,
                     12
                   ],
@@ -393,14 +276,9 @@
                       "name": "Search Placeholder",
                       "width": 200,
                       "height": 16,
-                      "content": "Search stories...",
+                      "text": "Search stories...",
                       "fontSize": 13,
-                      "fill": [
-                        {
-                          "type": "solid",
-                          "color": "#999999"
-                        }
-                      ]
+                      "fill": "#999999"
                     }
                   ]
                 },
@@ -420,14 +298,9 @@
                       "name": "Login",
                       "width": 60,
                       "height": 16,
-                      "content": "ログイン",
+                      "text": "ログイン",
                       "fontSize": 12,
-                      "fill": [
-                        {
-                          "type": "solid",
-                          "color": "#1d7ab3"
-                        }
-                      ]
+                      "fill": "#1d7ab3"
                     }
                   ]
                 }
@@ -441,21 +314,10 @@
           "name": "Category Tabs Bar",
           "width": 1440,
           "height": 40,
-          "fill": [
-            {
-              "type": "solid",
-              "color": "#ffffff"
-            }
-          ],
+          "fill": "#ffffff",
           "stroke": {
-            "fills": [
-              {
-                "type": "solid",
-                "color": "#e8e8e8"
-              }
-            ],
-            "thickness": 1,
-            "align": "inside"
+            "fill": "#e8e8e8",
+            "thickness": 1
           },
           "layout": "horizontal",
           "alignItems": "center",
@@ -472,8 +334,6 @@
               "gap": 16,
               "padding": [
                 0,
-                16,
-                0,
                 16
               ],
               "children": [
@@ -487,14 +347,8 @@
                   "alignItems": "center",
                   "justifyContent": "center",
                   "stroke": {
-                    "fills": [
-                      {
-                        "type": "solid",
-                        "color": "#1d7ab3"
-                      }
-                    ],
-                    "thickness": 2,
-                    "align": "inside"
+                    "fill": "#1d7ab3",
+                    "thickness": 2
                   },
                   "children": [
                     {
@@ -503,16 +357,11 @@
                       "name": "Top",
                       "width": 48,
                       "height": 16,
-                      "content": "Top",
+                      "text": "Top",
                       "fontSize": 13,
                       "fontWeight": "bold",
                       "textAlign": "center",
-                      "fill": [
-                        {
-                          "type": "solid",
-                          "color": "#1d7ab3"
-                        }
-                      ]
+                      "fill": "#1d7ab3"
                     }
                   ]
                 },
@@ -532,15 +381,10 @@
                       "name": "New",
                       "width": 48,
                       "height": 16,
-                      "content": "New",
+                      "text": "New",
                       "fontSize": 13,
                       "textAlign": "center",
-                      "fill": [
-                        {
-                          "type": "solid",
-                          "color": "#666666"
-                        }
-                      ]
+                      "fill": "#666666"
                     }
                   ]
                 },
@@ -560,15 +404,10 @@
                       "name": "Best",
                       "width": 48,
                       "height": 16,
-                      "content": "Best",
+                      "text": "Best",
                       "fontSize": 13,
                       "textAlign": "center",
-                      "fill": [
-                        {
-                          "type": "solid",
-                          "color": "#666666"
-                        }
-                      ]
+                      "fill": "#666666"
                     }
                   ]
                 }
@@ -588,15 +427,10 @@
       "y": 1202,
       "width": 600,
       "height": 30,
-      "content": "── src/components/ha/HaEntryList/HaEntryList.pen",
+      "text": "── src/components/ha/HaEntryList/HaEntryList.pen",
       "fontSize": 14,
       "fontWeight": "bold",
-      "fill": [
-        {
-          "type": "solid",
-          "color": "#666666"
-        }
-      ]
+      "fill": "#666666"
     },
     {
       "id": "entry-list",
@@ -604,21 +438,10 @@
       "name": "HaEntryList",
       "width": 740,
       "height": 600,
-      "fill": [
-        {
-          "type": "solid",
-          "color": "#ffffff"
-        }
-      ],
+      "fill": "#ffffff",
       "stroke": {
-        "fills": [
-          {
-            "type": "solid",
-            "color": "#e8e8e8"
-          }
-        ],
-        "thickness": 1,
-        "align": "inside"
+        "fill": "#e8e8e8",
+        "thickness": 1
       },
       "layout": "vertical",
       "gap": 0,
@@ -629,28 +452,15 @@
           "name": "Entry Card 1",
           "width": 740,
           "height": 100,
-          "fill": [
-            {
-              "type": "solid",
-              "color": "$bg-primary"
-            }
-          ],
+          "fill": "$bg-primary",
           "stroke": {
-            "fills": [
-              {
-                "type": "solid",
-                "color": "$border"
-              }
-            ],
-            "thickness": 1,
-            "align": "inside"
+            "fill": "$border",
+            "thickness": 1
           },
           "layout": "horizontal",
           "alignItems": "start",
           "gap": 12,
           "padding": [
-            12,
-            16,
             12,
             16
           ],
@@ -661,13 +471,13 @@
               "name": "Thumbnail",
               "width": 80,
               "height": 80,
-              "fill": [
-                {
-                  "type": "solid",
-                  "color": "#dddddd"
-                }
-              ],
-              "cornerRadius": 3
+              "fill": "#dddddd",
+              "cornerRadius": [
+                3,
+                3,
+                3,
+                3
+              ]
             },
             {
               "id": "entry-body",
@@ -685,16 +495,11 @@
                   "name": "HaEntryTitle",
                   "width": 540,
                   "height": 22,
-                  "content": "TypeScript 5.7 Released with New Performance Features",
+                  "text": "TypeScript 5.7 Released with New Performance Features",
                   "fontSize": 15,
                   "fontWeight": "bold",
                   "lineHeight": 1.4,
-                  "fill": [
-                    {
-                      "type": "solid",
-                      "color": "$text-primary"
-                    }
-                  ]
+                  "fill": "$text-primary"
                 },
                 {
                   "id": "entry-domain",
@@ -702,14 +507,9 @@
                   "name": "Domain",
                   "width": 200,
                   "height": 16,
-                  "content": "devblogs.microsoft.com",
+                  "text": "devblogs.microsoft.com",
                   "fontSize": 12,
-                  "fill": [
-                    {
-                      "type": "solid",
-                      "color": "$text-muted"
-                    }
-                  ]
+                  "fill": "$text-muted"
                 },
                 {
                   "id": "entry-meta-row",
@@ -727,14 +527,9 @@
                       "name": "Author",
                       "width": 80,
                       "height": 16,
-                      "content": "msdev",
+                      "text": "msdev",
                       "fontSize": 12,
-                      "fill": [
-                        {
-                          "type": "solid",
-                          "color": "$text-muted"
-                        }
-                      ]
+                      "fill": "$text-muted"
                     },
                     {
                       "id": "meta-time",
@@ -742,14 +537,9 @@
                       "name": "Time",
                       "width": 60,
                       "height": 16,
-                      "content": "2時間前",
+                      "text": "2時間前",
                       "fontSize": 12,
-                      "fill": [
-                        {
-                          "type": "solid",
-                          "color": "$text-muted"
-                        }
-                      ]
+                      "fill": "$text-muted"
                     },
                     {
                       "id": "meta-comments",
@@ -757,14 +547,9 @@
                       "name": "Comments",
                       "width": 80,
                       "height": 16,
-                      "content": "128 comments",
+                      "text": "128 comments",
                       "fontSize": 12,
-                      "fill": [
-                        {
-                          "type": "solid",
-                          "color": "$hatena-blue"
-                        }
-                      ]
+                      "fill": "$hatena-blue"
                     }
                   ]
                 }
@@ -779,13 +564,13 @@
               "layout": "horizontal",
               "alignItems": "center",
               "justifyContent": "center",
-              "fill": [
-                {
-                  "type": "solid",
-                  "color": "$bookmark-hot"
-                }
+              "fill": "$bookmark-hot",
+              "cornerRadius": [
+                3,
+                3,
+                3,
+                3
               ],
-              "cornerRadius": 3,
               "children": [
                 {
                   "id": "bookmark-count-text",
@@ -793,20 +578,17 @@
                   "name": "Count",
                   "width": 56,
                   "height": 14,
-                  "content": "256 users",
+                  "text": "256 users",
                   "fontSize": 11,
                   "fontWeight": "bold",
                   "textAlign": "center",
-                  "fill": [
-                    {
-                      "type": "solid",
-                      "color": "#ffffff"
-                    }
-                  ]
+                  "fill": "#ffffff"
                 }
               ]
             }
-          ]
+          ],
+          "x": 0,
+          "y": 0
         },
         {
           "id": "card-2",
@@ -814,28 +596,15 @@
           "name": "Entry Card 2",
           "width": 740,
           "height": 100,
-          "fill": [
-            {
-              "type": "solid",
-              "color": "$bg-primary"
-            }
-          ],
+          "fill": "$bg-primary",
           "stroke": {
-            "fills": [
-              {
-                "type": "solid",
-                "color": "$border"
-              }
-            ],
-            "thickness": 1,
-            "align": "inside"
+            "fill": "$border",
+            "thickness": 1
           },
           "layout": "horizontal",
           "alignItems": "start",
           "gap": 12,
           "padding": [
-            12,
-            16,
             12,
             16
           ],
@@ -846,13 +615,13 @@
               "name": "Thumbnail",
               "width": 80,
               "height": 80,
-              "fill": [
-                {
-                  "type": "solid",
-                  "color": "#dddddd"
-                }
-              ],
-              "cornerRadius": 3
+              "fill": "#dddddd",
+              "cornerRadius": [
+                3,
+                3,
+                3,
+                3
+              ]
             },
             {
               "id": "entry-body",
@@ -870,16 +639,11 @@
                   "name": "HaEntryTitle",
                   "width": 540,
                   "height": 22,
-                  "content": "Show HN: I built a real-time collaborative editor",
+                  "text": "Show HN: I built a real-time collaborative editor",
                   "fontSize": 15,
                   "fontWeight": "bold",
                   "lineHeight": 1.4,
-                  "fill": [
-                    {
-                      "type": "solid",
-                      "color": "$text-primary"
-                    }
-                  ]
+                  "fill": "$text-primary"
                 },
                 {
                   "id": "entry-domain",
@@ -887,14 +651,9 @@
                   "name": "Domain",
                   "width": 200,
                   "height": 16,
-                  "content": "github.com",
+                  "text": "github.com",
                   "fontSize": 12,
-                  "fill": [
-                    {
-                      "type": "solid",
-                      "color": "$text-muted"
-                    }
-                  ]
+                  "fill": "$text-muted"
                 },
                 {
                   "id": "entry-meta-row",
@@ -912,14 +671,9 @@
                       "name": "Author",
                       "width": 80,
                       "height": 16,
-                      "content": "builder42",
+                      "text": "builder42",
                       "fontSize": 12,
-                      "fill": [
-                        {
-                          "type": "solid",
-                          "color": "$text-muted"
-                        }
-                      ]
+                      "fill": "$text-muted"
                     },
                     {
                       "id": "meta-time",
@@ -927,14 +681,9 @@
                       "name": "Time",
                       "width": 60,
                       "height": 16,
-                      "content": "5時間前",
+                      "text": "5時間前",
                       "fontSize": 12,
-                      "fill": [
-                        {
-                          "type": "solid",
-                          "color": "$text-muted"
-                        }
-                      ]
+                      "fill": "$text-muted"
                     },
                     {
                       "id": "meta-comments",
@@ -942,14 +691,9 @@
                       "name": "Comments",
                       "width": 80,
                       "height": 16,
-                      "content": "67 comments",
+                      "text": "67 comments",
                       "fontSize": 12,
-                      "fill": [
-                        {
-                          "type": "solid",
-                          "color": "$hatena-blue"
-                        }
-                      ]
+                      "fill": "$hatena-blue"
                     }
                   ]
                 }
@@ -964,13 +708,13 @@
               "layout": "horizontal",
               "alignItems": "center",
               "justifyContent": "center",
-              "fill": [
-                {
-                  "type": "solid",
-                  "color": "#ffe0e0"
-                }
+              "fill": "#ffe0e0",
+              "cornerRadius": [
+                3,
+                3,
+                3,
+                3
               ],
-              "cornerRadius": 3,
               "children": [
                 {
                   "id": "bookmark-count-text",
@@ -978,20 +722,17 @@
                   "name": "Count",
                   "width": 56,
                   "height": 14,
-                  "content": "89 users",
+                  "text": "89 users",
                   "fontSize": 11,
                   "fontWeight": "bold",
                   "textAlign": "center",
-                  "fill": [
-                    {
-                      "type": "solid",
-                      "color": "#ff6666"
-                    }
-                  ]
+                  "fill": "#ff6666"
                 }
               ]
             }
-          ]
+          ],
+          "x": 0,
+          "y": 0
         },
         {
           "id": "card-3",
@@ -999,28 +740,15 @@
           "name": "Entry Card 3",
           "width": 740,
           "height": 100,
-          "fill": [
-            {
-              "type": "solid",
-              "color": "$bg-primary"
-            }
-          ],
+          "fill": "$bg-primary",
           "stroke": {
-            "fills": [
-              {
-                "type": "solid",
-                "color": "$border"
-              }
-            ],
-            "thickness": 1,
-            "align": "inside"
+            "fill": "$border",
+            "thickness": 1
           },
           "layout": "horizontal",
           "alignItems": "start",
           "gap": 12,
           "padding": [
-            12,
-            16,
             12,
             16
           ],
@@ -1031,13 +759,13 @@
               "name": "Thumbnail",
               "width": 80,
               "height": 80,
-              "fill": [
-                {
-                  "type": "solid",
-                  "color": "#dddddd"
-                }
-              ],
-              "cornerRadius": 3
+              "fill": "#dddddd",
+              "cornerRadius": [
+                3,
+                3,
+                3,
+                3
+              ]
             },
             {
               "id": "entry-body",
@@ -1055,16 +783,11 @@
                   "name": "HaEntryTitle",
                   "width": 540,
                   "height": 22,
-                  "content": "Understanding CPU Cache Lines and Memory Performance",
+                  "text": "Understanding CPU Cache Lines and Memory Performance",
                   "fontSize": 15,
                   "fontWeight": "bold",
                   "lineHeight": 1.4,
-                  "fill": [
-                    {
-                      "type": "solid",
-                      "color": "$text-primary"
-                    }
-                  ]
+                  "fill": "$text-primary"
                 },
                 {
                   "id": "entry-domain",
@@ -1072,14 +795,9 @@
                   "name": "Domain",
                   "width": 200,
                   "height": 16,
-                  "content": "blog.example.com",
+                  "text": "blog.example.com",
                   "fontSize": 12,
-                  "fill": [
-                    {
-                      "type": "solid",
-                      "color": "$text-muted"
-                    }
-                  ]
+                  "fill": "$text-muted"
                 },
                 {
                   "id": "entry-meta-row",
@@ -1097,14 +815,9 @@
                       "name": "Author",
                       "width": 80,
                       "height": 16,
-                      "content": "cpuguru",
+                      "text": "cpuguru",
                       "fontSize": 12,
-                      "fill": [
-                        {
-                          "type": "solid",
-                          "color": "$text-muted"
-                        }
-                      ]
+                      "fill": "$text-muted"
                     },
                     {
                       "id": "meta-time",
@@ -1112,14 +825,9 @@
                       "name": "Time",
                       "width": 60,
                       "height": 16,
-                      "content": "8時間前",
+                      "text": "8時間前",
                       "fontSize": 12,
-                      "fill": [
-                        {
-                          "type": "solid",
-                          "color": "$text-muted"
-                        }
-                      ]
+                      "fill": "$text-muted"
                     },
                     {
                       "id": "meta-comments",
@@ -1127,14 +835,9 @@
                       "name": "Comments",
                       "width": 80,
                       "height": 16,
-                      "content": "23 comments",
+                      "text": "23 comments",
                       "fontSize": 12,
-                      "fill": [
-                        {
-                          "type": "solid",
-                          "color": "$hatena-blue"
-                        }
-                      ]
+                      "fill": "$hatena-blue"
                     }
                   ]
                 }
@@ -1149,13 +852,13 @@
               "layout": "horizontal",
               "alignItems": "center",
               "justifyContent": "center",
-              "fill": [
-                {
-                  "type": "solid",
-                  "color": "#fff2e0"
-                }
+              "fill": "#fff2e0",
+              "cornerRadius": [
+                3,
+                3,
+                3,
+                3
               ],
-              "cornerRadius": 3,
               "children": [
                 {
                   "id": "bookmark-count-text",
@@ -1163,20 +866,17 @@
                   "name": "Count",
                   "width": 56,
                   "height": 14,
-                  "content": "31 users",
+                  "text": "31 users",
                   "fontSize": 11,
                   "fontWeight": "bold",
                   "textAlign": "center",
-                  "fill": [
-                    {
-                      "type": "solid",
-                      "color": "#ff9900"
-                    }
-                  ]
+                  "fill": "#ff9900"
                 }
               ]
             }
-          ]
+          ],
+          "x": 0,
+          "y": 0
         }
       ],
       "x": 0,
@@ -1190,15 +890,10 @@
       "y": 1908,
       "width": 600,
       "height": 30,
-      "content": "── src/components/ha/HaEntryCard/HaEntryCard.pen",
+      "text": "── src/components/ha/HaEntryCard/HaEntryCard.pen",
       "fontSize": 14,
       "fontWeight": "bold",
-      "fill": [
-        {
-          "type": "solid",
-          "color": "#666666"
-        }
-      ]
+      "fill": "#666666"
     },
     {
       "id": "entry-card",
@@ -1206,28 +901,15 @@
       "name": "HaEntryCard",
       "width": 740,
       "height": 100,
-      "fill": [
-        {
-          "type": "solid",
-          "color": "#ffffff"
-        }
-      ],
+      "fill": "#ffffff",
       "stroke": {
-        "fills": [
-          {
-            "type": "solid",
-            "color": "#e8e8e8"
-          }
-        ],
-        "thickness": 1,
-        "align": "inside"
+        "fill": "#e8e8e8",
+        "thickness": 1
       },
       "layout": "horizontal",
       "alignItems": "start",
       "gap": 12,
       "padding": [
-        12,
-        16,
         12,
         16
       ],
@@ -1238,13 +920,13 @@
           "name": "Thumbnail",
           "width": 80,
           "height": 80,
-          "fill": [
-            {
-              "type": "solid",
-              "color": "#dddddd"
-            }
-          ],
-          "cornerRadius": 3
+          "fill": "#dddddd",
+          "cornerRadius": [
+            3,
+            3,
+            3,
+            3
+          ]
         },
         {
           "id": "entry-body",
@@ -1262,16 +944,11 @@
               "name": "HaEntryTitle",
               "width": 540,
               "height": 22,
-              "content": "記事タイトルがここに表示されます - Hacker News",
+              "text": "記事タイトルがここに表示されます - Hacker News",
               "fontSize": 15,
               "fontWeight": "bold",
               "lineHeight": 1.4,
-              "fill": [
-                {
-                  "type": "solid",
-                  "color": "#333333"
-                }
-              ]
+              "fill": "#333333"
             },
             {
               "id": "entry-domain",
@@ -1279,14 +956,9 @@
               "name": "Domain",
               "width": 200,
               "height": 16,
-              "content": "example.com",
+              "text": "example.com",
               "fontSize": 12,
-              "fill": [
-                {
-                  "type": "solid",
-                  "color": "#999999"
-                }
-              ]
+              "fill": "#999999"
             },
             {
               "id": "entry-meta-row",
@@ -1304,14 +976,9 @@
                   "name": "Author",
                   "width": 80,
                   "height": 16,
-                  "content": "username",
+                  "text": "username",
                   "fontSize": 12,
-                  "fill": [
-                    {
-                      "type": "solid",
-                      "color": "#999999"
-                    }
-                  ]
+                  "fill": "#999999"
                 },
                 {
                   "id": "meta-time",
@@ -1319,14 +986,9 @@
                   "name": "Time",
                   "width": 60,
                   "height": 16,
-                  "content": "3時間前",
+                  "text": "3時間前",
                   "fontSize": 12,
-                  "fill": [
-                    {
-                      "type": "solid",
-                      "color": "#999999"
-                    }
-                  ]
+                  "fill": "#999999"
                 },
                 {
                   "id": "meta-comments",
@@ -1334,14 +996,9 @@
                   "name": "Comments",
                   "width": 80,
                   "height": 16,
-                  "content": "45 comments",
+                  "text": "45 comments",
                   "fontSize": 12,
-                  "fill": [
-                    {
-                      "type": "solid",
-                      "color": "#1d7ab3"
-                    }
-                  ]
+                  "fill": "#1d7ab3"
                 }
               ]
             }
@@ -1356,13 +1013,13 @@
           "layout": "horizontal",
           "alignItems": "center",
           "justifyContent": "center",
-          "fill": [
-            {
-              "type": "solid",
-              "color": "#ff6666"
-            }
+          "fill": "#ff6666",
+          "cornerRadius": [
+            3,
+            3,
+            3,
+            3
           ],
-          "cornerRadius": 3,
           "children": [
             {
               "id": "bookmark-count-text",
@@ -1370,16 +1027,11 @@
               "name": "Count",
               "width": 56,
               "height": 14,
-              "content": "128 users",
+              "text": "128 users",
               "fontSize": 11,
               "fontWeight": "bold",
               "textAlign": "center",
-              "fill": [
-                {
-                  "type": "solid",
-                  "color": "#ffffff"
-                }
-              ]
+              "fill": "#ffffff"
             }
           ]
         }
@@ -1395,15 +1047,10 @@
       "y": 2114,
       "width": 600,
       "height": 30,
-      "content": "── src/components/ha/HaBookmarkCount/HaBookmarkCount.pen",
+      "text": "── src/components/ha/HaBookmarkCount/HaBookmarkCount.pen",
       "fontSize": 14,
       "fontWeight": "bold",
-      "fill": [
-        {
-          "type": "solid",
-          "color": "#666666"
-        }
-      ]
+      "fill": "#666666"
     },
     {
       "id": "badge-cold",
@@ -1414,16 +1061,14 @@
       "layout": "horizontal",
       "alignItems": "center",
       "justifyContent": "center",
-      "fill": [
-        {
-          "type": "solid",
-          "color": "#f0f0f0"
-        }
+      "fill": "#f0f0f0",
+      "cornerRadius": [
+        3,
+        3,
+        3,
+        3
       ],
-      "cornerRadius": 3,
       "padding": [
-        2,
-        6,
         2,
         6
       ],
@@ -1434,16 +1079,11 @@
           "name": "Count",
           "width": 40,
           "height": 14,
-          "content": "5 users",
+          "text": "5 users",
           "fontSize": 11,
           "fontWeight": "bold",
           "textAlign": "center",
-          "fill": [
-            {
-              "type": "solid",
-              "color": "#666666"
-            }
-          ]
+          "fill": "#666666"
         }
       ],
       "x": 0,
@@ -1458,16 +1098,14 @@
       "layout": "horizontal",
       "alignItems": "center",
       "justifyContent": "center",
-      "fill": [
-        {
-          "type": "solid",
-          "color": "#fff2e0"
-        }
+      "fill": "#fff2e0",
+      "cornerRadius": [
+        3,
+        3,
+        3,
+        3
       ],
-      "cornerRadius": 3,
       "padding": [
-        2,
-        6,
         2,
         6
       ],
@@ -1478,16 +1116,11 @@
           "name": "Count",
           "width": 46,
           "height": 14,
-          "content": "25 users",
+          "text": "25 users",
           "fontSize": 11,
           "fontWeight": "bold",
           "textAlign": "center",
-          "fill": [
-            {
-              "type": "solid",
-              "color": "#ff9900"
-            }
-          ]
+          "fill": "#ff9900"
         }
       ],
       "x": 0,
@@ -1502,16 +1135,14 @@
       "layout": "horizontal",
       "alignItems": "center",
       "justifyContent": "center",
-      "fill": [
-        {
-          "type": "solid",
-          "color": "#ffe0e0"
-        }
+      "fill": "#ffe0e0",
+      "cornerRadius": [
+        3,
+        3,
+        3,
+        3
       ],
-      "cornerRadius": 3,
       "padding": [
-        2,
-        6,
         2,
         6
       ],
@@ -1522,16 +1153,11 @@
           "name": "Count",
           "width": 50,
           "height": 14,
-          "content": "75 users",
+          "text": "75 users",
           "fontSize": 11,
           "fontWeight": "bold",
           "textAlign": "center",
-          "fill": [
-            {
-              "type": "solid",
-              "color": "#ff6666"
-            }
-          ]
+          "fill": "#ff6666"
         }
       ],
       "x": 0,
@@ -1546,16 +1172,14 @@
       "layout": "horizontal",
       "alignItems": "center",
       "justifyContent": "center",
-      "fill": [
-        {
-          "type": "solid",
-          "color": "#ff6666"
-        }
+      "fill": "#ff6666",
+      "cornerRadius": [
+        3,
+        3,
+        3,
+        3
       ],
-      "cornerRadius": 3,
       "padding": [
-        2,
-        6,
         2,
         6
       ],
@@ -1566,16 +1190,11 @@
           "name": "Count",
           "width": 56,
           "height": 14,
-          "content": "256 users",
+          "text": "256 users",
           "fontSize": 11,
           "fontWeight": "bold",
           "textAlign": "center",
-          "fill": [
-            {
-              "type": "solid",
-              "color": "#ffffff"
-            }
-          ]
+          "fill": "#ffffff"
         }
       ],
       "x": 0,
@@ -1590,16 +1209,14 @@
       "layout": "horizontal",
       "alignItems": "center",
       "justifyContent": "center",
-      "fill": [
-        {
-          "type": "solid",
-          "color": "#ff3333"
-        }
+      "fill": "#ff3333",
+      "cornerRadius": [
+        3,
+        3,
+        3,
+        3
       ],
-      "cornerRadius": 3,
       "padding": [
-        2,
-        6,
         2,
         6
       ],
@@ -1610,16 +1227,11 @@
           "name": "Count",
           "width": 60,
           "height": 14,
-          "content": "1024 users",
+          "text": "1024 users",
           "fontSize": 11,
           "fontWeight": "bold",
           "textAlign": "center",
-          "fill": [
-            {
-              "type": "solid",
-              "color": "#ffffff"
-            }
-          ]
+          "fill": "#ffffff"
         }
       ],
       "x": 0,
@@ -1633,15 +1245,10 @@
       "y": 2394,
       "width": 600,
       "height": 30,
-      "content": "── src/components/ha/HaFooter/HaFooter.pen",
+      "text": "── src/components/ha/HaFooter/HaFooter.pen",
       "fontSize": 14,
       "fontWeight": "bold",
-      "fill": [
-        {
-          "type": "solid",
-          "color": "#666666"
-        }
-      ]
+      "fill": "#666666"
     },
     {
       "id": "footer",
@@ -1649,21 +1256,10 @@
       "name": "HaFooter",
       "width": 1440,
       "height": 50,
-      "fill": [
-        {
-          "type": "solid",
-          "color": "#ffffff"
-        }
-      ],
+      "fill": "#ffffff",
       "stroke": {
-        "fills": [
-          {
-            "type": "solid",
-            "color": "#e8e8e8"
-          }
-        ],
-        "thickness": 1,
-        "align": "inside"
+        "fill": "#e8e8e8",
+        "thickness": 1
       },
       "layout": "horizontal",
       "alignItems": "center",
@@ -1680,8 +1276,6 @@
           "justifyContent": "space_between",
           "padding": [
             0,
-            16,
-            0,
             16
           ],
           "children": [
@@ -1691,14 +1285,9 @@
               "name": "Copyright",
               "width": 300,
               "height": 16,
-              "content": "HN Hatena UI - Powered by Hacker News API",
+              "text": "HN Hatena UI - Powered by Hacker News API",
               "fontSize": 12,
-              "fill": [
-                {
-                  "type": "solid",
-                  "color": "#999999"
-                }
-              ]
+              "fill": "#999999"
             },
             {
               "id": "footer-links",
@@ -1715,14 +1304,9 @@
                   "name": "About",
                   "width": 50,
                   "height": 16,
-                  "content": "About",
+                  "text": "About",
                   "fontSize": 12,
-                  "fill": [
-                    {
-                      "type": "solid",
-                      "color": "#1d7ab3"
-                    }
-                  ]
+                  "fill": "#1d7ab3"
                 },
                 {
                   "id": "footer-link-github",
@@ -1730,14 +1314,9 @@
                   "name": "GitHub",
                   "width": 50,
                   "height": 16,
-                  "content": "GitHub",
+                  "text": "GitHub",
                   "fontSize": 12,
-                  "fill": [
-                    {
-                      "type": "solid",
-                      "color": "#1d7ab3"
-                    }
-                  ]
+                  "fill": "#1d7ab3"
                 },
                 {
                   "id": "footer-link-hn",
@@ -1745,14 +1324,9 @@
                   "name": "Hacker News",
                   "width": 80,
                   "height": 16,
-                  "content": "Hacker News",
+                  "text": "Hacker News",
                   "fontSize": 12,
-                  "fill": [
-                    {
-                      "type": "solid",
-                      "color": "#1d7ab3"
-                    }
-                  ]
+                  "fill": "#1d7ab3"
                 }
               ]
             }

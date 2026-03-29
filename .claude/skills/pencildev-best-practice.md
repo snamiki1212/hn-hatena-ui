@@ -63,7 +63,7 @@ Frame に `layout` を設定すると flexbox レイアウトになる。
 | `justifyContent` | `"start"` / `"center"` / `"end"` / `"space_between"` / `"space_around"` / `"space_evenly"` | 主軸方向の配置 |
 | `alignItems` | `"start"` / `"center"` / `"end"` / `"baseline"` / `"stretch"` | 交差軸方向の配置 |
 | `gap` | number | 子要素間のスペース |
-| `padding` | `{ top, right, bottom, left }` | 内側の余白 |
+| `padding` | `[top, right, bottom, left]` or `[tb, rl]` or `[all]` | 内側の余白 |
 | `sizingBehavior` | `"fill_container"` | 子が親の空きを埋める (flex-grow: 1) |
 | `clip` | boolean | overflow: hidden |
 
@@ -76,7 +76,7 @@ Frame に `layout` を設定すると flexbox レイアウトになる。
 | `layout: "horizontal"` | `flex flex-row` |
 | `layout: "vertical"` | `flex flex-col` |
 | `gap: 16` | `gap-4` |
-| `padding: { top: 16, right: 24, bottom: 16, left: 24 }` | `py-4 px-6` |
+| `padding: [16, 24]` | `py-4 px-6` |
 | `alignItems: "center"` | `items-center` |
 | `justifyContent: "space_between"` | `justify-between` |
 | `sizingBehavior: "fill_container"` | `flex-1` |
@@ -85,32 +85,24 @@ Frame に `layout` を設定すると flexbox レイアウトになる。
 
 ## Fill (塗り)
 
-配列で複数指定可能。順番に重ねて描画される。
+文字列で指定。複数塗りが必要な場合は配列。
 
 ### Solid Color
 
 ```json
-"fill": [{ "type": "solid", "color": "#1d7ab3" }]
+"fill": "#1d7ab3"
 ```
 
 ### 変数参照
 
 ```json
-"fill": [{ "type": "solid", "color": "$hatena-blue" }]
+"fill": "$hatena-blue"
 ```
 
-### Gradient
+### 複数 Fill (配列)
 
 ```json
-"fill": [{
-  "type": "gradient",
-  "gradientType": "linear",
-  "rotation": 90,
-  "colors": [
-    { "color": "#ffffff", "pos": 0 },
-    { "color": "#f5f5f5", "pos": 1 }
-  ]
-}]
+"fill": ["#ffffff", "$overlay-color"]
 ```
 
 ### ブレンドモード
@@ -123,9 +115,8 @@ Frame に `layout` を設定すると flexbox レイアウトになる。
 
 ```json
 "stroke": {
-  "fills": [{ "type": "solid", "color": "$border" }],
-  "thickness": 1,
-  "align": "inside"
+  "fill": "$border",
+  "thickness": 1
 }
 ```
 
@@ -173,7 +164,7 @@ Frame に `layout` を設定すると flexbox レイアウトになる。
 
 | プロパティ | 型 | 説明 |
 |---|---|---|
-| `content` | StringOrVariable / TextStyle[] | テキスト内容。配列でリッチテキスト |
+| `text` | StringOrVariable / TextStyle[] | テキスト内容。配列でリッチテキスト |
 | `fontFamily` | StringOrVariable | フォントファミリー |
 | `fontSize` | NumberOrVariable | フォントサイズ (px) |
 | `fontWeight` | StringOrVariable | `"bold"` 等 |

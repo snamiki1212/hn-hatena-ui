@@ -1,34 +1,118 @@
 {
-  "version": "1.0",
+  "version": "2.9",
   "variables": {
-    "hatena-blue": { "type": "color", "value": "#1d7ab3" },
-    "hatena-blue-hover": { "type": "color", "value": "#166a9e" },
-    "bg-primary": { "type": "color", "value": "#ffffff" },
-    "bg-secondary": { "type": "color", "value": "#f5f5f5" },
-    "border": { "type": "color", "value": "#e8e8e8" },
-    "text-primary": { "type": "color", "value": "#333333" },
-    "text-secondary": { "type": "color", "value": "#666666" },
-    "text-muted": { "type": "color", "value": "#999999" },
-    "bookmark-cold": { "type": "color", "value": "#f0f0f0" },
-    "bookmark-warm": { "type": "color", "value": "#ff9900" },
-    "bookmark-hot": { "type": "color", "value": "#ff6666" },
-    "bookmark-fire": { "type": "color", "value": "#ff3333" },
-    "font-xs": { "type": "number", "value": 11 },
-    "font-sm": { "type": "number", "value": 12 },
-    "font-base": { "type": "number", "value": 14 },
-    "font-md": { "type": "number", "value": 15 },
-    "font-lg": { "type": "number", "value": 18 },
-    "spacing-xs": { "type": "number", "value": 4 },
-    "spacing-sm": { "type": "number", "value": 8 },
-    "spacing-md": { "type": "number", "value": 12 },
-    "spacing-lg": { "type": "number", "value": 16 },
-    "spacing-xl": { "type": "number", "value": 24 },
-    "radius-sm": { "type": "number", "value": 3 },
-    "radius-md": { "type": "number", "value": 6 },
-    "header-height": { "type": "number", "value": 50 },
-    "tab-height": { "type": "number", "value": 40 },
-    "max-width": { "type": "number", "value": 1100 },
-    "thumbnail-size": { "type": "number", "value": 80 }
+    "hatena-blue": {
+      "type": "color",
+      "value": "#1d7ab3"
+    },
+    "hatena-blue-hover": {
+      "type": "color",
+      "value": "#166a9e"
+    },
+    "bg-primary": {
+      "type": "color",
+      "value": "#ffffff"
+    },
+    "bg-secondary": {
+      "type": "color",
+      "value": "#f5f5f5"
+    },
+    "border": {
+      "type": "color",
+      "value": "#e8e8e8"
+    },
+    "text-primary": {
+      "type": "color",
+      "value": "#333333"
+    },
+    "text-secondary": {
+      "type": "color",
+      "value": "#666666"
+    },
+    "text-muted": {
+      "type": "color",
+      "value": "#999999"
+    },
+    "bookmark-cold": {
+      "type": "color",
+      "value": "#f0f0f0"
+    },
+    "bookmark-warm": {
+      "type": "color",
+      "value": "#ff9900"
+    },
+    "bookmark-hot": {
+      "type": "color",
+      "value": "#ff6666"
+    },
+    "bookmark-fire": {
+      "type": "color",
+      "value": "#ff3333"
+    },
+    "font-xs": {
+      "type": "number",
+      "value": 11
+    },
+    "font-sm": {
+      "type": "number",
+      "value": 12
+    },
+    "font-base": {
+      "type": "number",
+      "value": 14
+    },
+    "font-md": {
+      "type": "number",
+      "value": 15
+    },
+    "font-lg": {
+      "type": "number",
+      "value": 18
+    },
+    "spacing-xs": {
+      "type": "number",
+      "value": 4
+    },
+    "spacing-sm": {
+      "type": "number",
+      "value": 8
+    },
+    "spacing-md": {
+      "type": "number",
+      "value": 12
+    },
+    "spacing-lg": {
+      "type": "number",
+      "value": 16
+    },
+    "spacing-xl": {
+      "type": "number",
+      "value": 24
+    },
+    "radius-sm": {
+      "type": "number",
+      "value": 3
+    },
+    "radius-md": {
+      "type": "number",
+      "value": 6
+    },
+    "header-height": {
+      "type": "number",
+      "value": 50
+    },
+    "tab-height": {
+      "type": "number",
+      "value": 40
+    },
+    "max-width": {
+      "type": "number",
+      "value": 1100
+    },
+    "thumbnail-size": {
+      "type": "number",
+      "value": 80
+    }
   },
   "children": []
 }

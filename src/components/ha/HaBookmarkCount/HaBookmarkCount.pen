@@ -1,6 +1,8 @@
 {
-  "version": "1.0",
-  "imports": ["../../../styles/tokens.pen"],
+  "version": "2.9",
+  "imports": {
+    "../../../styles/tokens.pen": "../../../styles/tokens.pen"
+  },
   "children": [
     {
       "id": "badge-cold",
@@ -12,9 +14,17 @@
       "layout": "horizontal",
       "alignItems": "center",
       "justifyContent": "center",
-      "fill": [{ "type": "solid", "color": "$bookmark-cold" }],
-      "cornerRadius": 3,
-      "padding": { "top": 2, "right": 6, "bottom": 2, "left": 6 },
+      "fill": "$bookmark-cold",
+      "cornerRadius": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "padding": [
+        2,
+        6
+      ],
       "children": [
         {
           "id": "badge-cold-text",
@@ -22,13 +32,15 @@
           "name": "Count",
           "width": 40,
           "height": 14,
-          "content": "5 users",
+          "text": "5 users",
           "fontSize": 11,
           "fontWeight": "bold",
           "textAlign": "center",
-          "fill": [{ "type": "solid", "color": "$text-secondary" }]
+          "fill": "$text-secondary"
         }
-      ]
+      ],
+      "x": 0,
+      "y": 0
     },
     {
       "id": "badge-warm",
@@ -40,9 +52,17 @@
       "layout": "horizontal",
       "alignItems": "center",
       "justifyContent": "center",
-      "fill": [{ "type": "solid", "color": "#fff2e0" }],
-      "cornerRadius": 3,
-      "padding": { "top": 2, "right": 6, "bottom": 2, "left": 6 },
+      "fill": "#fff2e0",
+      "cornerRadius": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "padding": [
+        2,
+        6
+      ],
       "children": [
         {
           "id": "badge-warm-text",
@@ -50,13 +70,15 @@
           "name": "Count",
           "width": 46,
           "height": 14,
-          "content": "25 users",
+          "text": "25 users",
           "fontSize": 11,
           "fontWeight": "bold",
           "textAlign": "center",
-          "fill": [{ "type": "solid", "color": "$bookmark-warm" }]
+          "fill": "$bookmark-warm"
         }
-      ]
+      ],
+      "x": 0,
+      "y": 62
     },
     {
       "id": "badge-hot",
@@ -68,9 +90,17 @@
       "layout": "horizontal",
       "alignItems": "center",
       "justifyContent": "center",
-      "fill": [{ "type": "solid", "color": "#ffe0e0" }],
-      "cornerRadius": 3,
-      "padding": { "top": 2, "right": 6, "bottom": 2, "left": 6 },
+      "fill": "#ffe0e0",
+      "cornerRadius": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "padding": [
+        2,
+        6
+      ],
       "children": [
         {
           "id": "badge-hot-text",
@@ -78,13 +108,15 @@
           "name": "Count",
           "width": 50,
           "height": 14,
-          "content": "75 users",
+          "text": "75 users",
           "fontSize": 11,
           "fontWeight": "bold",
           "textAlign": "center",
-          "fill": [{ "type": "solid", "color": "$bookmark-hot" }]
+          "fill": "$bookmark-hot"
         }
-      ]
+      ],
+      "x": 0,
+      "y": 124
     },
     {
       "id": "badge-fire",
@@ -96,9 +128,17 @@
       "layout": "horizontal",
       "alignItems": "center",
       "justifyContent": "center",
-      "fill": [{ "type": "solid", "color": "$bookmark-hot" }],
-      "cornerRadius": 3,
-      "padding": { "top": 2, "right": 6, "bottom": 2, "left": 6 },
+      "fill": "$bookmark-hot",
+      "cornerRadius": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "padding": [
+        2,
+        6
+      ],
       "children": [
         {
           "id": "badge-fire-text",
@@ -106,13 +146,15 @@
           "name": "Count",
           "width": 56,
           "height": 14,
-          "content": "256 users",
+          "text": "256 users",
           "fontSize": 11,
           "fontWeight": "bold",
           "textAlign": "center",
-          "fill": [{ "type": "solid", "color": "#ffffff" }]
+          "fill": "#ffffff"
         }
-      ]
+      ],
+      "x": 0,
+      "y": 186
     },
     {
       "id": "badge-blaze",
@@ -124,9 +166,17 @@
       "layout": "horizontal",
       "alignItems": "center",
       "justifyContent": "center",
-      "fill": [{ "type": "solid", "color": "$bookmark-fire" }],
-      "cornerRadius": 3,
-      "padding": { "top": 2, "right": 6, "bottom": 2, "left": 6 },
+      "fill": "$bookmark-fire",
+      "cornerRadius": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "padding": [
+        2,
+        6
+      ],
       "children": [
         {
           "id": "badge-blaze-text",
@@ -134,13 +184,15 @@
           "name": "Count",
           "width": 60,
           "height": 14,
-          "content": "1024 users",
+          "text": "1024 users",
           "fontSize": 11,
           "fontWeight": "bold",
           "textAlign": "center",
-          "fill": [{ "type": "solid", "color": "#ffffff" }]
+          "fill": "#ffffff"
         }
-      ]
+      ],
+      "x": 0,
+      "y": 248
     }
   ]
 }
