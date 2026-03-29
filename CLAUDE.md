@@ -51,6 +51,21 @@ ADRが必要な例:
 
 ADR置き場: `adr/YYYY-MM-DDTHHMMSS_{slug}/ADR.md`
 
+ADRのフロントマター（必須）:
+
+```yaml
+---
+status: Proposed | Accepted | Deprecated | Superseded
+proposed-at: YYYY-MM-DD    # status: Proposed のとき必須
+accepted-at: YYYY-MM-DD    # status: Accepted のとき必須
+deprecated-at: YYYY-MM-DD  # status: Deprecated のとき必須
+superseded-at: YYYY-MM-DD  # status: Superseded のとき必須
+---
+```
+
+- `date` は使わない。必ず `{status}-at` 形式のフィールドを使う
+- フィールド名は kebab-case (`proposed-at`, `accepted-at` 等)
+
 ## Commands
 
 - `npm run dev` - 開発サーバー起動

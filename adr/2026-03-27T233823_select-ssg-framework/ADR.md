@@ -1,8 +1,9 @@
+---
+status: Accepted
+accepted-at: 2026-03-27
+---
+
 # ADR-001: SSGフレームワークの選定
-
-## Status
-
-**Accepted** — Astro を採用
 
 ## Context
 

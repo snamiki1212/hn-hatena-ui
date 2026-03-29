@@ -1,8 +1,9 @@
+---
+status: Accepted
+accepted-at: 2026-03-28
+---
+
 # ADR-002: UIコンポーネント開発ワークフロー
-
-## Status
-
-**Accepted**
 
 ## Context
 

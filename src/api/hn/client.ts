@@ -1,5 +1,6 @@
 import type { HnItem, HnStory, HnComment, HnUser } from "./types";
 import { MOCK_STORIES, MOCK_STORY_IDS } from "./mock";
+import { translateToJa } from "../translate";
 
 const BASE_URL = "https://hacker-news.firebaseio.com/v0";
 

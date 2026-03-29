@@ -20,6 +20,7 @@ export interface HnStory {
   by: string;
   time: number;
   title: string;
+  titleJa?: string;
   url?: string;
   score: number;
   descendants: number;
