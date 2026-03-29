@@ -1,6 +1,7 @@
 ---
-status: Proposed
+status: Accepted
 proposed-at: 2026-03-30
+accepted-at: 2026-03-30
 ---
 
 # ADR-004: 翻訳結果のキャッシュ
