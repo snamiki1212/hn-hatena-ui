@@ -1,0 +1,33 @@
+{
+  "body": {
+    "fontFamily": "Helvetica, Arial, Roboto, \"Hiragino Fixed\", \"Hiragino Sans\", sans-serif",
+    "fontSize": "16px",
+    "color": "rgb(37, 40, 43)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "lineHeight": "24px"
+  },
+  "header": {
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "height": "12117.8px",
+    "borderBottom": "0px none rgb(37, 40, 43)",
+    "padding": "0px"
+  },
+  "entryCard": {
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "padding": "0px",
+    "margin": "0px",
+    "border": "0px none rgb(37, 40, 43)",
+    "borderBottom": "0px none rgb(37, 40, 43)"
+  },
+  "entryTitle": {
+    "color": "rgb(0, 0, 238)",
+    "fontSize": "32px",
+    "fontWeight": "700",
+    "lineHeight": "48px",
+    "textDecoration": "underline"
+  },
+  "link": {
+    "color": "rgb(0, 0, 238)",
+    "textDecoration": "none"
+  }
+}
