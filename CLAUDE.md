@@ -49,7 +49,7 @@ ADRが必要な例:
 
 小さな修正（バグ修正、軽微なスタイル変更等）はADR不要。
 
-ADR置き場: `docs/adr/{3桁連番}-{kebab-case-title}.md`
+ADR置き場: `adr/YYYY-MM-DDTHHMMSS_{slug}/ADR.md`
 
 ## Commands
 
