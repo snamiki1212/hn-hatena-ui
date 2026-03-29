@@ -1,7 +1,7 @@
 # Design Reference: はてなブックマーク (Hatena Bookmark)
 
 参照元: `https://b.hatena.ne.jp/`
-最終抽出: 2026-03-29 07:18:52 UTC
+最終抽出: 2026-03-29 07:44:53 UTC
 ソース: https://web.archive.org/ (via b.hatena.ne.jp)
 
 > このドキュメントは、はてなブックマークのUIデザインを参考にした設計資料です。
@@ -60,17 +60,23 @@
 ## 3. カテゴリタブ (Category Tabs)
 
 ### カテゴリ一覧 (サイトから検出)
-| カテゴリ | 対応HNマッピング |
+| カテゴリ | リンク |
 |---|---|
-| 総合 | topstories |
-| テクノロジー | topstories (tech filter) |
-| エンタメ | - |
-| アニメとゲーム | - |
-| おもしろ | - |
-| 暮らし | - |
-| 政治と経済 | - |
-| 学び | - |
-| 世の中 | - |
+| 世の中 | `` |
+| テクノロジー | `` |
+| エンタメ | `` |
+| 暮らし | `` |
+| 人気エントリーをすべて読む | `` |
+| 期間 | `` |
+| 週間 | `` |
+| 月間 | `` |
+| エンジニアブログの新着エントリーをもっと読む | `` |
+| はてなブログ - 注目記事の新着エントリーをもっと読む | `` |
+| もっと読む | `` |
+| 学び | `` |
+| 企業メディアの新着エントリーをもっと読む | `` |
+| 週刊はてなブログの新着エントリーをもっと読む | `` |
+| 政治と経済 | `` |
 
 > 本プロジェクトでは HN API のカテゴリ (top/new/best) に読み替える
 
@@ -119,6 +125,25 @@
 - メタ情報:
   - 色: `#999999`
   - フォントサイズ: `12px`
+
+### 検出されたエントリー構造 (サンプル)
+```json
+{
+  "tag": "LI",
+  "classes": [
+    "js-navi-category-item",
+    "cat-it",
+    "is-active"
+  ],
+  "title": "テクノロジー",
+  "href": "/hotentry/it",
+  "bookmarkCount": "",
+  "childTags": [
+    "DIV",
+    "DIV"
+  ]
+}
+```
 
 ---
 
@@ -193,7 +218,18 @@
 | bookmark-fire | `#ff3333` | 超人気 |
 
 ### Extracted (サイトから自動抽出、出現頻度順)
-_抽出データなし。`npm run extract-design` を実行してください。_
+| 色 | 出現数 |
+|---|---|
+| `#fff` | 583 |
+| `rgba(70,82,94,.8)` | 414 |
+| `#009ad0` | 372 |
+| `#ececec` | 276 |
+| `#55606a` | 189 |
+| `#f6f7f8` | 183 |
+| `#25282b` | 177 |
+| `#333` | 154 |
+| `#ccc` | 149 |
+| `#374148` | 126 |
 
 ---
 
@@ -204,6 +240,21 @@ _抽出データなし。`npm run extract-design` を実行してください。
 font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
 ```
 
+### サイトから検出されたフォント
+- `sans-serif`
+- `monospace,serif`
+- `inherit`
+- `Hiragino Fixed`
+- `Helvetica,Arial,Roboto,Hiragino Fixed,Hiragino Sans,sans-serif`
+- `Arial,sans-serif`
+- `monaco,Helvetica,Arial,Roboto,sans-serif`
+- `Courier,monospace`
+- `Helvetica,Arial`
+- `Helvetica Neue,Helvetica,Arial,Hiragino Kaku Gothic Pro,Meiryo,MS PGothic,sans-serif`
+- `arial,sans-serif`
+- `Lucida Grande, Helvetica, Arial, sans-serif`
+- `'Iconochive-Regular'`
+- `'Iconochive-Regular'!important`
 
 ### サイズ一覧
 | 要素 | size | weight | line-height |
@@ -215,7 +266,19 @@ font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku 
 | セクション見出し | `14px` | `bold` | `1.4` |
 | ブクマ数バッジ | `11px` | `bold` | `1.0` |
 
-
+### サイトから検出されたサイズ (出現頻度順)
+| サイズ | 出現数 |
+|---|---|
+| `12px` | 398 |
+| `14px` | 380 |
+| `13px` | 324 |
+| `11px` | 123 |
+| `16px` | 114 |
+| `15px` | 54 |
+| `10px` | 39 |
+| `18px` | 39 |
+| `20px` | 33 |
+| `0` | 18 |
 
 ---
 
@@ -264,31 +327,43 @@ font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku 
 ### body
 | プロパティ | 値 |
 |---|---|
-| fontFamily | `"Hiragino Sans", sans-serif` |
-| fontSize | `14px` |
-| color | `rgb(51, 51, 51)` |
-| backgroundColor | `rgb(245, 245, 245)` |
-| lineHeight | `22.4px` |
+| fontFamily | `Helvetica, Arial, Roboto, "Hiragino Fixed", "Hiragino Sans", sans-serif` |
+| fontSize | `16px` |
+| color | `rgb(37, 40, 43)` |
+| backgroundColor | `rgba(0, 0, 0, 0)` |
+| lineHeight | `24px` |
 
 ### header
 | プロパティ | 値 |
 |---|---|
-| backgroundColor | `rgb(255, 255, 255)` |
-| height | `50px` |
-| borderBottom | `1px solid rgb(232, 232, 232)` |
-| padding | `0px 16px` |
+| backgroundColor | `rgba(0, 0, 0, 0)` |
+| height | `12138.8px` |
+| borderBottom | `0px none rgb(37, 40, 43)` |
+| padding | `0px` |
 
 ### entryCard
-_データなし_
+| プロパティ | 値 |
+|---|---|
+| backgroundColor | `rgba(0, 0, 0, 0)` |
+| padding | `0px` |
+| margin | `0px` |
+| border | `0px none rgb(37, 40, 43)` |
+| borderBottom | `0px none rgb(37, 40, 43)` |
 
 ### entryTitle
-_データなし_
+| プロパティ | 値 |
+|---|---|
+| color | `rgb(0, 0, 238)` |
+| fontSize | `32px` |
+| fontWeight | `700` |
+| lineHeight | `48px` |
+| textDecoration | `underline` |
 
 ### link
 | プロパティ | 値 |
 |---|---|
-| color | `rgb(29, 122, 179)` |
+| color | `rgb(0, 0, 238)` |
 | textDecoration | `none` |
 
-
+> 他のページの実測値: computed-top.json
 
