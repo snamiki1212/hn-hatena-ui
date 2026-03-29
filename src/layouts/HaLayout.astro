@@ -16,9 +16,104 @@ const { title = "hn-hatena" } = Astro.props;
   </head>
   <body>
     <!-- TODO: HaHeader -->
-    <main>
+    <header class="ha-header">
+      <div class="ha-header__inner">
+        <a href="/hn-hatena-ui/" class="ha-header__logo">HN はてな</a>
+        <nav class="ha-header__nav">
+          <a href="/hn-hatena-ui/">トップ</a>
+        </nav>
+      </div>
+    </header>
+    <main class="ha-main">
       <slot />
     </main>
     <!-- TODO: HaFooter -->
+    <footer class="ha-footer">
+      <div class="ha-footer__inner">
+        <span>Powered by Hacker News API</span>
+      </div>
+    </footer>
   </body>
 </html>
+
+<style is:global>
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
+    font-size: 14px;
+    color: #333;
+    background: #f5f5f5;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  a {
+    color: #0068c9;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .ha-header {
+    background: #0f4c81;
+    color: #fff;
+    padding: 0 16px;
+  }
+
+  .ha-header__inner {
+    max-width: 960px;
+    margin: 0 auto;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .ha-header__logo {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+  }
+
+  .ha-header__logo:hover {
+    text-decoration: none;
+    opacity: 0.85;
+  }
+
+  .ha-header__nav a {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+  }
+
+  .ha-header__nav a:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .ha-main {
+    flex: 1;
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 16px;
+  }
+
+  .ha-footer {
+    background: #0f4c81;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 12px 16px;
+    font-size: 12px;
+    text-align: center;
+  }
+</style>
