@@ -94,12 +94,12 @@
           "height": 760,
           "layout": "horizontal",
           "gap": 24,
-          "padding": {
-            "top": 24,
-            "right": 0,
-            "bottom": 24,
-            "left": 0
-          },
+          "padding": [
+            24,
+            0,
+            24,
+            0
+          ],
           "children": [
             {
               "id": "main-content",
@@ -180,12 +180,12 @@
                       "color": "#f5f5f5"
                     }
                   ],
-                  "padding": {
-                    "top": 8,
-                    "right": 12,
-                    "bottom": 8,
-                    "left": 12
-                  },
+                  "padding": [
+                    8,
+                    12,
+                    8,
+                    12
+                  ],
                   "children": [
                     {
                       "id": "sidebar-heading-text",
@@ -306,12 +306,12 @@
               "layout": "horizontal",
               "alignItems": "center",
               "justifyContent": "space_between",
-              "padding": {
-                "top": 0,
-                "right": 16,
-                "bottom": 0,
-                "left": 16
-              },
+              "padding": [
+                0,
+                16,
+                0,
+                16
+              ],
               "children": [
                 {
                   "id": "logo-area",
@@ -380,12 +380,12 @@
                   "cornerRadius": 4,
                   "layout": "horizontal",
                   "alignItems": "center",
-                  "padding": {
-                    "top": 0,
-                    "right": 12,
-                    "bottom": 0,
-                    "left": 12
-                  },
+                  "padding": [
+                    0,
+                    12,
+                    0,
+                    12
+                  ],
                   "children": [
                     {
                       "id": "search-placeholder",
@@ -470,12 +470,12 @@
               "layout": "horizontal",
               "alignItems": "center",
               "gap": 16,
-              "padding": {
-                "top": 0,
-                "right": 16,
-                "bottom": 0,
-                "left": 16
-              },
+              "padding": [
+                0,
+                16,
+                0,
+                16
+              ],
               "children": [
                 {
                   "id": "tab-top",
@@ -648,12 +648,12 @@
           "layout": "horizontal",
           "alignItems": "start",
           "gap": 12,
-          "padding": {
-            "top": 12,
-            "right": 16,
-            "bottom": 12,
-            "left": 16
-          },
+          "padding": [
+            12,
+            16,
+            12,
+            16
+          ],
           "children": [
             {
               "id": "thumbnail",
@@ -833,12 +833,12 @@
           "layout": "horizontal",
           "alignItems": "start",
           "gap": 12,
-          "padding": {
-            "top": 12,
-            "right": 16,
-            "bottom": 12,
-            "left": 16
-          },
+          "padding": [
+            12,
+            16,
+            12,
+            16
+          ],
           "children": [
             {
               "id": "thumbnail",
@@ -1018,12 +1018,12 @@
           "layout": "horizontal",
           "alignItems": "start",
           "gap": 12,
-          "padding": {
-            "top": 12,
-            "right": 16,
-            "bottom": 12,
-            "left": 16
-          },
+          "padding": [
+            12,
+            16,
+            12,
+            16
+          ],
           "children": [
             {
               "id": "thumbnail",
@@ -1225,12 +1225,12 @@
       "layout": "horizontal",
       "alignItems": "start",
       "gap": 12,
-      "padding": {
-        "top": 12,
-        "right": 16,
-        "bottom": 12,
-        "left": 16
-      },
+      "padding": [
+        12,
+        16,
+        12,
+        16
+      ],
       "children": [
         {
           "id": "thumbnail",
@@ -1421,12 +1421,12 @@
         }
       ],
       "cornerRadius": 3,
-      "padding": {
-        "top": 2,
-        "right": 6,
-        "bottom": 2,
-        "left": 6
-      },
+      "padding": [
+        2,
+        6,
+        2,
+        6
+      ],
       "children": [
         {
           "id": "badge-cold-text",
@@ -1465,12 +1465,12 @@
         }
       ],
       "cornerRadius": 3,
-      "padding": {
-        "top": 2,
-        "right": 6,
-        "bottom": 2,
-        "left": 6
-      },
+      "padding": [
+        2,
+        6,
+        2,
+        6
+      ],
       "children": [
         {
           "id": "badge-warm-text",
@@ -1509,12 +1509,12 @@
         }
       ],
       "cornerRadius": 3,
-      "padding": {
-        "top": 2,
-        "right": 6,
-        "bottom": 2,
-        "left": 6
-      },
+      "padding": [
+        2,
+        6,
+        2,
+        6
+      ],
       "children": [
         {
           "id": "badge-hot-text",
@@ -1553,12 +1553,12 @@
         }
       ],
       "cornerRadius": 3,
-      "padding": {
-        "top": 2,
-        "right": 6,
-        "bottom": 2,
-        "left": 6
-      },
+      "padding": [
+        2,
+        6,
+        2,
+        6
+      ],
       "children": [
         {
           "id": "badge-fire-text",
@@ -1597,12 +1597,12 @@
         }
       ],
       "cornerRadius": 3,
-      "padding": {
-        "top": 2,
-        "right": 6,
-        "bottom": 2,
-        "left": 6
-      },
+      "padding": [
+        2,
+        6,
+        2,
+        6
+      ],
       "children": [
         {
           "id": "badge-blaze-text",
@@ -1678,12 +1678,12 @@
           "layout": "horizontal",
           "alignItems": "center",
           "justifyContent": "space_between",
-          "padding": {
-            "top": 0,
-            "right": 16,
-            "bottom": 0,
-            "left": 16
-          },
+          "padding": [
+            0,
+            16,
+            0,
+            16
+          ],
           "children": [
             {
               "id": "footer-copyright",

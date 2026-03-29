@@ -74,6 +74,26 @@ function resolveVars(node, vars) {
 }
 
 // ---------------------------------------------------------------------------
+// 3b. Convert padding objects to arrays [top, right, bottom, left]
+// ---------------------------------------------------------------------------
+function normalizePadding(node) {
+  if (Array.isArray(node)) {
+    node.forEach(normalizePadding);
+    return node;
+  }
+  if (node && typeof node === "object") {
+    if (node.padding && typeof node.padding === "object" && !Array.isArray(node.padding)) {
+      const p = node.padding;
+      node.padding = [p.top ?? 0, p.right ?? 0, p.bottom ?? 0, p.left ?? 0];
+    }
+    if (node.children) {
+      normalizePadding(node.children);
+    }
+  }
+  return node;
+}
+
+// ---------------------------------------------------------------------------
 // 4. Build reusable component registry (id → node)
 // ---------------------------------------------------------------------------
 function collectReusables(children, registry) {
@@ -204,6 +224,8 @@ function main() {
     let children = resolveVars(comp.data.children, vars);
     // Expand refs
     children = expandRefs(children, registry);
+    // Normalize padding objects → arrays
+    normalizePadding(children);
 
     // Position children
     for (const child of children) {
