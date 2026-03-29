@@ -1,0 +1,1766 @@
+{
+  "version": "1.0",
+  "name": "HN Hatena UI - Design Preview",
+  "width": 1440,
+  "height": 2550,
+  "fill": [
+    {
+      "type": "solid",
+      "color": "#f8f8f8"
+    }
+  ],
+  "children": [
+    {
+      "id": "label-src-layouts-HaLayout-pen",
+      "type": "text",
+      "name": "src/layouts/HaLayout.pen",
+      "x": 0,
+      "y": 0,
+      "width": 600,
+      "height": 30,
+      "content": "── src/layouts/HaLayout.pen",
+      "fontSize": 14,
+      "fontWeight": "bold",
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#666666"
+        }
+      ]
+    },
+    {
+      "id": "layout-root",
+      "type": "frame",
+      "name": "HaLayout",
+      "width": 1440,
+      "height": 900,
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#f5f5f5"
+        }
+      ],
+      "layout": "vertical",
+      "alignItems": "center",
+      "children": [
+        {
+          "id": "header-slot",
+          "type": "frame",
+          "name": "Header Slot",
+          "width": 1440,
+          "height": 90,
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#ffffff"
+            }
+          ],
+          "stroke": {
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#e8e8e8"
+              }
+            ],
+            "thickness": 1,
+            "align": "inside"
+          },
+          "layout": "vertical",
+          "children": [
+            {
+              "id": "header-placeholder",
+              "type": "text",
+              "name": "Header",
+              "x": 16,
+              "y": 16,
+              "width": 200,
+              "height": 20,
+              "content": "← HaHeader component",
+              "fontSize": 14,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#999999"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "body",
+          "type": "frame",
+          "name": "Body",
+          "width": 1100,
+          "height": 760,
+          "layout": "horizontal",
+          "gap": 24,
+          "padding": {
+            "top": 24,
+            "right": 0,
+            "bottom": 24,
+            "left": 0
+          },
+          "children": [
+            {
+              "id": "main-content",
+              "type": "frame",
+              "name": "Main Content (70%)",
+              "width": 740,
+              "height": 712,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#ffffff"
+                }
+              ],
+              "stroke": {
+                "fills": [
+                  {
+                    "type": "solid",
+                    "color": "#e8e8e8"
+                  }
+                ],
+                "thickness": 1,
+                "align": "inside"
+              },
+              "layout": "vertical",
+              "children": [
+                {
+                  "id": "main-placeholder",
+                  "type": "text",
+                  "name": "Content",
+                  "x": 16,
+                  "y": 16,
+                  "width": 300,
+                  "height": 20,
+                  "content": "← HaEntryList (slot)",
+                  "fontSize": 14,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#999999"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "sidebar",
+              "type": "frame",
+              "name": "Sidebar (30%)",
+              "width": 336,
+              "height": 400,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#ffffff"
+                }
+              ],
+              "stroke": {
+                "fills": [
+                  {
+                    "type": "solid",
+                    "color": "#e8e8e8"
+                  }
+                ],
+                "thickness": 1,
+                "align": "inside"
+              },
+              "layout": "vertical",
+              "children": [
+                {
+                  "id": "sidebar-heading",
+                  "type": "frame",
+                  "name": "Sidebar Section Heading",
+                  "width": 336,
+                  "height": 36,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#f5f5f5"
+                    }
+                  ],
+                  "padding": {
+                    "top": 8,
+                    "right": 12,
+                    "bottom": 8,
+                    "left": 12
+                  },
+                  "children": [
+                    {
+                      "id": "sidebar-heading-text",
+                      "type": "text",
+                      "name": "Heading Text",
+                      "width": 200,
+                      "height": 20,
+                      "content": "人気エントリー",
+                      "fontSize": 14,
+                      "fontWeight": "bold",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#333333"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "footer-slot",
+          "type": "frame",
+          "name": "Footer Slot",
+          "width": 1440,
+          "height": 50,
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#ffffff"
+            }
+          ],
+          "stroke": {
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#e8e8e8"
+              }
+            ],
+            "thickness": 1,
+            "align": "inside"
+          },
+          "children": [
+            {
+              "id": "footer-placeholder",
+              "type": "text",
+              "name": "Footer",
+              "x": 16,
+              "y": 16,
+              "width": 200,
+              "height": 20,
+              "content": "← HaFooter component",
+              "fontSize": 14,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#999999"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "x": 0,
+      "y": 30
+    },
+    {
+      "id": "label-src-components-ha-HaHeader-HaHeader-pen",
+      "type": "text",
+      "name": "src/components/ha/HaHeader/HaHeader.pen",
+      "x": 0,
+      "y": 1006,
+      "width": 600,
+      "height": 30,
+      "content": "── src/components/ha/HaHeader/HaHeader.pen",
+      "fontSize": 14,
+      "fontWeight": "bold",
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#666666"
+        }
+      ]
+    },
+    {
+      "id": "header",
+      "type": "frame",
+      "name": "HaHeader",
+      "width": 1440,
+      "height": 90,
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#ffffff"
+        }
+      ],
+      "layout": "vertical",
+      "children": [
+        {
+          "id": "header-top",
+          "type": "frame",
+          "name": "Header Top Bar",
+          "width": 1440,
+          "height": 50,
+          "layout": "horizontal",
+          "alignItems": "center",
+          "justifyContent": "center",
+          "children": [
+            {
+              "id": "header-inner",
+              "type": "frame",
+              "name": "Header Inner (max-width)",
+              "width": 1100,
+              "height": 50,
+              "layout": "horizontal",
+              "alignItems": "center",
+              "justifyContent": "space_between",
+              "padding": {
+                "top": 0,
+                "right": 16,
+                "bottom": 0,
+                "left": 16
+              },
+              "children": [
+                {
+                  "id": "logo-area",
+                  "type": "frame",
+                  "name": "Logo Area",
+                  "width": 120,
+                  "height": 30,
+                  "layout": "horizontal",
+                  "alignItems": "center",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "id": "logo-icon",
+                      "type": "rectangle",
+                      "name": "B! Icon",
+                      "width": 28,
+                      "height": 28,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#1d7ab3"
+                        }
+                      ],
+                      "cornerRadius": 4
+                    },
+                    {
+                      "id": "logo-text",
+                      "type": "text",
+                      "name": "Logo Text",
+                      "width": 80,
+                      "height": 20,
+                      "content": "HN Hatena",
+                      "fontSize": 16,
+                      "fontWeight": "bold",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#1d7ab3"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "search-bar",
+                  "type": "frame",
+                  "name": "HaSearchBar",
+                  "width": 500,
+                  "height": 32,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#ffffff"
+                    }
+                  ],
+                  "stroke": {
+                    "fills": [
+                      {
+                        "type": "solid",
+                        "color": "#e8e8e8"
+                      }
+                    ],
+                    "thickness": 1,
+                    "align": "inside"
+                  },
+                  "cornerRadius": 4,
+                  "layout": "horizontal",
+                  "alignItems": "center",
+                  "padding": {
+                    "top": 0,
+                    "right": 12,
+                    "bottom": 0,
+                    "left": 12
+                  },
+                  "children": [
+                    {
+                      "id": "search-placeholder",
+                      "type": "text",
+                      "name": "Search Placeholder",
+                      "width": 200,
+                      "height": 16,
+                      "content": "Search stories...",
+                      "fontSize": 13,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#999999"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "user-actions",
+                  "type": "frame",
+                  "name": "User Actions",
+                  "width": 100,
+                  "height": 30,
+                  "layout": "horizontal",
+                  "alignItems": "center",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "id": "login-link",
+                      "type": "text",
+                      "name": "Login",
+                      "width": 60,
+                      "height": 16,
+                      "content": "ログイン",
+                      "fontSize": 12,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#1d7ab3"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "header-tabs",
+          "type": "frame",
+          "name": "Category Tabs Bar",
+          "width": 1440,
+          "height": 40,
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#ffffff"
+            }
+          ],
+          "stroke": {
+            "fills": [
+              {
+                "type": "solid",
+                "color": "#e8e8e8"
+              }
+            ],
+            "thickness": 1,
+            "align": "inside"
+          },
+          "layout": "horizontal",
+          "alignItems": "center",
+          "justifyContent": "center",
+          "children": [
+            {
+              "id": "tabs-inner",
+              "type": "frame",
+              "name": "Tabs Inner",
+              "width": 1100,
+              "height": 40,
+              "layout": "horizontal",
+              "alignItems": "center",
+              "gap": 16,
+              "padding": {
+                "top": 0,
+                "right": 16,
+                "bottom": 0,
+                "left": 16
+              },
+              "children": [
+                {
+                  "id": "tab-top",
+                  "type": "frame",
+                  "name": "Tab - Top (active)",
+                  "width": 48,
+                  "height": 40,
+                  "layout": "vertical",
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "stroke": {
+                    "fills": [
+                      {
+                        "type": "solid",
+                        "color": "#1d7ab3"
+                      }
+                    ],
+                    "thickness": 2,
+                    "align": "inside"
+                  },
+                  "children": [
+                    {
+                      "id": "tab-top-text",
+                      "type": "text",
+                      "name": "Top",
+                      "width": 48,
+                      "height": 16,
+                      "content": "Top",
+                      "fontSize": 13,
+                      "fontWeight": "bold",
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#1d7ab3"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "tab-new",
+                  "type": "frame",
+                  "name": "Tab - New",
+                  "width": 48,
+                  "height": 40,
+                  "layout": "vertical",
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "id": "tab-new-text",
+                      "type": "text",
+                      "name": "New",
+                      "width": 48,
+                      "height": 16,
+                      "content": "New",
+                      "fontSize": 13,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#666666"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "tab-best",
+                  "type": "frame",
+                  "name": "Tab - Best",
+                  "width": 48,
+                  "height": 40,
+                  "layout": "vertical",
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "id": "tab-best-text",
+                      "type": "text",
+                      "name": "Best",
+                      "width": 48,
+                      "height": 16,
+                      "content": "Best",
+                      "fontSize": 13,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#666666"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "x": 0,
+      "y": 1036
+    },
+    {
+      "id": "label-src-components-ha-HaEntryList-HaEntryList-pen",
+      "type": "text",
+      "name": "src/components/ha/HaEntryList/HaEntryList.pen",
+      "x": 0,
+      "y": 1202,
+      "width": 600,
+      "height": 30,
+      "content": "── src/components/ha/HaEntryList/HaEntryList.pen",
+      "fontSize": 14,
+      "fontWeight": "bold",
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#666666"
+        }
+      ]
+    },
+    {
+      "id": "entry-list",
+      "type": "frame",
+      "name": "HaEntryList",
+      "width": 740,
+      "height": 600,
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#ffffff"
+        }
+      ],
+      "stroke": {
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#e8e8e8"
+          }
+        ],
+        "thickness": 1,
+        "align": "inside"
+      },
+      "layout": "vertical",
+      "gap": 0,
+      "children": [
+        {
+          "id": "card-1",
+          "type": "frame",
+          "name": "Entry Card 1",
+          "width": 740,
+          "height": 100,
+          "fill": [
+            {
+              "type": "solid",
+              "color": "$bg-primary"
+            }
+          ],
+          "stroke": {
+            "fills": [
+              {
+                "type": "solid",
+                "color": "$border"
+              }
+            ],
+            "thickness": 1,
+            "align": "inside"
+          },
+          "layout": "horizontal",
+          "alignItems": "start",
+          "gap": 12,
+          "padding": {
+            "top": 12,
+            "right": 16,
+            "bottom": 12,
+            "left": 16
+          },
+          "children": [
+            {
+              "id": "thumbnail",
+              "type": "rectangle",
+              "name": "Thumbnail",
+              "width": 80,
+              "height": 80,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#dddddd"
+                }
+              ],
+              "cornerRadius": 3
+            },
+            {
+              "id": "entry-body",
+              "type": "frame",
+              "name": "Entry Body",
+              "width": 540,
+              "height": 76,
+              "layout": "vertical",
+              "gap": 4,
+              "sizingBehavior": "fill_container",
+              "children": [
+                {
+                  "id": "entry-title",
+                  "type": "text",
+                  "name": "HaEntryTitle",
+                  "width": 540,
+                  "height": 22,
+                  "content": "TypeScript 5.7 Released with New Performance Features",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "lineHeight": 1.4,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "$text-primary"
+                    }
+                  ]
+                },
+                {
+                  "id": "entry-domain",
+                  "type": "text",
+                  "name": "Domain",
+                  "width": 200,
+                  "height": 16,
+                  "content": "devblogs.microsoft.com",
+                  "fontSize": 12,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "$text-muted"
+                    }
+                  ]
+                },
+                {
+                  "id": "entry-meta-row",
+                  "type": "frame",
+                  "name": "HaEntryMeta",
+                  "width": 540,
+                  "height": 16,
+                  "layout": "horizontal",
+                  "alignItems": "center",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "id": "meta-author",
+                      "type": "text",
+                      "name": "Author",
+                      "width": 80,
+                      "height": 16,
+                      "content": "msdev",
+                      "fontSize": 12,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "$text-muted"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "meta-time",
+                      "type": "text",
+                      "name": "Time",
+                      "width": 60,
+                      "height": 16,
+                      "content": "2時間前",
+                      "fontSize": 12,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "$text-muted"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "meta-comments",
+                      "type": "text",
+                      "name": "Comments",
+                      "width": 80,
+                      "height": 16,
+                      "content": "128 comments",
+                      "fontSize": 12,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "$hatena-blue"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "bookmark-count",
+              "type": "frame",
+              "name": "HaBookmarkCount Slot",
+              "width": 64,
+              "height": 24,
+              "layout": "horizontal",
+              "alignItems": "center",
+              "justifyContent": "center",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "$bookmark-hot"
+                }
+              ],
+              "cornerRadius": 3,
+              "children": [
+                {
+                  "id": "bookmark-count-text",
+                  "type": "text",
+                  "name": "Count",
+                  "width": 56,
+                  "height": 14,
+                  "content": "256 users",
+                  "fontSize": 11,
+                  "fontWeight": "bold",
+                  "textAlign": "center",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#ffffff"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "card-2",
+          "type": "frame",
+          "name": "Entry Card 2",
+          "width": 740,
+          "height": 100,
+          "fill": [
+            {
+              "type": "solid",
+              "color": "$bg-primary"
+            }
+          ],
+          "stroke": {
+            "fills": [
+              {
+                "type": "solid",
+                "color": "$border"
+              }
+            ],
+            "thickness": 1,
+            "align": "inside"
+          },
+          "layout": "horizontal",
+          "alignItems": "start",
+          "gap": 12,
+          "padding": {
+            "top": 12,
+            "right": 16,
+            "bottom": 12,
+            "left": 16
+          },
+          "children": [
+            {
+              "id": "thumbnail",
+              "type": "rectangle",
+              "name": "Thumbnail",
+              "width": 80,
+              "height": 80,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#dddddd"
+                }
+              ],
+              "cornerRadius": 3
+            },
+            {
+              "id": "entry-body",
+              "type": "frame",
+              "name": "Entry Body",
+              "width": 540,
+              "height": 76,
+              "layout": "vertical",
+              "gap": 4,
+              "sizingBehavior": "fill_container",
+              "children": [
+                {
+                  "id": "entry-title",
+                  "type": "text",
+                  "name": "HaEntryTitle",
+                  "width": 540,
+                  "height": 22,
+                  "content": "Show HN: I built a real-time collaborative editor",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "lineHeight": 1.4,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "$text-primary"
+                    }
+                  ]
+                },
+                {
+                  "id": "entry-domain",
+                  "type": "text",
+                  "name": "Domain",
+                  "width": 200,
+                  "height": 16,
+                  "content": "github.com",
+                  "fontSize": 12,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "$text-muted"
+                    }
+                  ]
+                },
+                {
+                  "id": "entry-meta-row",
+                  "type": "frame",
+                  "name": "HaEntryMeta",
+                  "width": 540,
+                  "height": 16,
+                  "layout": "horizontal",
+                  "alignItems": "center",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "id": "meta-author",
+                      "type": "text",
+                      "name": "Author",
+                      "width": 80,
+                      "height": 16,
+                      "content": "builder42",
+                      "fontSize": 12,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "$text-muted"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "meta-time",
+                      "type": "text",
+                      "name": "Time",
+                      "width": 60,
+                      "height": 16,
+                      "content": "5時間前",
+                      "fontSize": 12,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "$text-muted"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "meta-comments",
+                      "type": "text",
+                      "name": "Comments",
+                      "width": 80,
+                      "height": 16,
+                      "content": "67 comments",
+                      "fontSize": 12,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "$hatena-blue"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "bookmark-count",
+              "type": "frame",
+              "name": "HaBookmarkCount Slot",
+              "width": 64,
+              "height": 24,
+              "layout": "horizontal",
+              "alignItems": "center",
+              "justifyContent": "center",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#ffe0e0"
+                }
+              ],
+              "cornerRadius": 3,
+              "children": [
+                {
+                  "id": "bookmark-count-text",
+                  "type": "text",
+                  "name": "Count",
+                  "width": 56,
+                  "height": 14,
+                  "content": "89 users",
+                  "fontSize": 11,
+                  "fontWeight": "bold",
+                  "textAlign": "center",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#ff6666"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "card-3",
+          "type": "frame",
+          "name": "Entry Card 3",
+          "width": 740,
+          "height": 100,
+          "fill": [
+            {
+              "type": "solid",
+              "color": "$bg-primary"
+            }
+          ],
+          "stroke": {
+            "fills": [
+              {
+                "type": "solid",
+                "color": "$border"
+              }
+            ],
+            "thickness": 1,
+            "align": "inside"
+          },
+          "layout": "horizontal",
+          "alignItems": "start",
+          "gap": 12,
+          "padding": {
+            "top": 12,
+            "right": 16,
+            "bottom": 12,
+            "left": 16
+          },
+          "children": [
+            {
+              "id": "thumbnail",
+              "type": "rectangle",
+              "name": "Thumbnail",
+              "width": 80,
+              "height": 80,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#dddddd"
+                }
+              ],
+              "cornerRadius": 3
+            },
+            {
+              "id": "entry-body",
+              "type": "frame",
+              "name": "Entry Body",
+              "width": 540,
+              "height": 76,
+              "layout": "vertical",
+              "gap": 4,
+              "sizingBehavior": "fill_container",
+              "children": [
+                {
+                  "id": "entry-title",
+                  "type": "text",
+                  "name": "HaEntryTitle",
+                  "width": 540,
+                  "height": 22,
+                  "content": "Understanding CPU Cache Lines and Memory Performance",
+                  "fontSize": 15,
+                  "fontWeight": "bold",
+                  "lineHeight": 1.4,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "$text-primary"
+                    }
+                  ]
+                },
+                {
+                  "id": "entry-domain",
+                  "type": "text",
+                  "name": "Domain",
+                  "width": 200,
+                  "height": 16,
+                  "content": "blog.example.com",
+                  "fontSize": 12,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "$text-muted"
+                    }
+                  ]
+                },
+                {
+                  "id": "entry-meta-row",
+                  "type": "frame",
+                  "name": "HaEntryMeta",
+                  "width": 540,
+                  "height": 16,
+                  "layout": "horizontal",
+                  "alignItems": "center",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "id": "meta-author",
+                      "type": "text",
+                      "name": "Author",
+                      "width": 80,
+                      "height": 16,
+                      "content": "cpuguru",
+                      "fontSize": 12,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "$text-muted"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "meta-time",
+                      "type": "text",
+                      "name": "Time",
+                      "width": 60,
+                      "height": 16,
+                      "content": "8時間前",
+                      "fontSize": 12,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "$text-muted"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "meta-comments",
+                      "type": "text",
+                      "name": "Comments",
+                      "width": 80,
+                      "height": 16,
+                      "content": "23 comments",
+                      "fontSize": 12,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "$hatena-blue"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "bookmark-count",
+              "type": "frame",
+              "name": "HaBookmarkCount Slot",
+              "width": 64,
+              "height": 24,
+              "layout": "horizontal",
+              "alignItems": "center",
+              "justifyContent": "center",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#fff2e0"
+                }
+              ],
+              "cornerRadius": 3,
+              "children": [
+                {
+                  "id": "bookmark-count-text",
+                  "type": "text",
+                  "name": "Count",
+                  "width": 56,
+                  "height": 14,
+                  "content": "31 users",
+                  "fontSize": 11,
+                  "fontWeight": "bold",
+                  "textAlign": "center",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#ff9900"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "x": 0,
+      "y": 1232
+    },
+    {
+      "id": "label-src-components-ha-HaEntryCard-HaEntryCard-pen",
+      "type": "text",
+      "name": "src/components/ha/HaEntryCard/HaEntryCard.pen",
+      "x": 0,
+      "y": 1908,
+      "width": 600,
+      "height": 30,
+      "content": "── src/components/ha/HaEntryCard/HaEntryCard.pen",
+      "fontSize": 14,
+      "fontWeight": "bold",
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#666666"
+        }
+      ]
+    },
+    {
+      "id": "entry-card",
+      "type": "frame",
+      "name": "HaEntryCard",
+      "width": 740,
+      "height": 100,
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#ffffff"
+        }
+      ],
+      "stroke": {
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#e8e8e8"
+          }
+        ],
+        "thickness": 1,
+        "align": "inside"
+      },
+      "layout": "horizontal",
+      "alignItems": "start",
+      "gap": 12,
+      "padding": {
+        "top": 12,
+        "right": 16,
+        "bottom": 12,
+        "left": 16
+      },
+      "children": [
+        {
+          "id": "thumbnail",
+          "type": "rectangle",
+          "name": "Thumbnail",
+          "width": 80,
+          "height": 80,
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#dddddd"
+            }
+          ],
+          "cornerRadius": 3
+        },
+        {
+          "id": "entry-body",
+          "type": "frame",
+          "name": "Entry Body",
+          "width": 540,
+          "height": 76,
+          "layout": "vertical",
+          "gap": 4,
+          "sizingBehavior": "fill_container",
+          "children": [
+            {
+              "id": "entry-title",
+              "type": "text",
+              "name": "HaEntryTitle",
+              "width": 540,
+              "height": 22,
+              "content": "記事タイトルがここに表示されます - Hacker News",
+              "fontSize": 15,
+              "fontWeight": "bold",
+              "lineHeight": 1.4,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#333333"
+                }
+              ]
+            },
+            {
+              "id": "entry-domain",
+              "type": "text",
+              "name": "Domain",
+              "width": 200,
+              "height": 16,
+              "content": "example.com",
+              "fontSize": 12,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#999999"
+                }
+              ]
+            },
+            {
+              "id": "entry-meta-row",
+              "type": "frame",
+              "name": "HaEntryMeta",
+              "width": 540,
+              "height": 16,
+              "layout": "horizontal",
+              "alignItems": "center",
+              "gap": 8,
+              "children": [
+                {
+                  "id": "meta-author",
+                  "type": "text",
+                  "name": "Author",
+                  "width": 80,
+                  "height": 16,
+                  "content": "username",
+                  "fontSize": 12,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#999999"
+                    }
+                  ]
+                },
+                {
+                  "id": "meta-time",
+                  "type": "text",
+                  "name": "Time",
+                  "width": 60,
+                  "height": 16,
+                  "content": "3時間前",
+                  "fontSize": 12,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#999999"
+                    }
+                  ]
+                },
+                {
+                  "id": "meta-comments",
+                  "type": "text",
+                  "name": "Comments",
+                  "width": 80,
+                  "height": 16,
+                  "content": "45 comments",
+                  "fontSize": 12,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#1d7ab3"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "bookmark-count",
+          "type": "frame",
+          "name": "HaBookmarkCount Slot",
+          "width": 64,
+          "height": 24,
+          "layout": "horizontal",
+          "alignItems": "center",
+          "justifyContent": "center",
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#ff6666"
+            }
+          ],
+          "cornerRadius": 3,
+          "children": [
+            {
+              "id": "bookmark-count-text",
+              "type": "text",
+              "name": "Count",
+              "width": 56,
+              "height": 14,
+              "content": "128 users",
+              "fontSize": 11,
+              "fontWeight": "bold",
+              "textAlign": "center",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#ffffff"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "x": 0,
+      "y": 1938
+    },
+    {
+      "id": "label-src-components-ha-HaBookmarkCount-HaBookmarkCount-pen",
+      "type": "text",
+      "name": "src/components/ha/HaBookmarkCount/HaBookmarkCount.pen",
+      "x": 0,
+      "y": 2114,
+      "width": 600,
+      "height": 30,
+      "content": "── src/components/ha/HaBookmarkCount/HaBookmarkCount.pen",
+      "fontSize": 14,
+      "fontWeight": "bold",
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#666666"
+        }
+      ]
+    },
+    {
+      "id": "badge-cold",
+      "type": "frame",
+      "name": "HaBookmarkCount (1-9)",
+      "width": 52,
+      "height": 22,
+      "layout": "horizontal",
+      "alignItems": "center",
+      "justifyContent": "center",
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#f0f0f0"
+        }
+      ],
+      "cornerRadius": 3,
+      "padding": {
+        "top": 2,
+        "right": 6,
+        "bottom": 2,
+        "left": 6
+      },
+      "children": [
+        {
+          "id": "badge-cold-text",
+          "type": "text",
+          "name": "Count",
+          "width": 40,
+          "height": 14,
+          "content": "5 users",
+          "fontSize": 11,
+          "fontWeight": "bold",
+          "textAlign": "center",
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#666666"
+            }
+          ]
+        }
+      ],
+      "x": 0,
+      "y": 2144
+    },
+    {
+      "id": "badge-warm",
+      "type": "frame",
+      "name": "HaBookmarkCount (10-49)",
+      "width": 58,
+      "height": 22,
+      "layout": "horizontal",
+      "alignItems": "center",
+      "justifyContent": "center",
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#fff2e0"
+        }
+      ],
+      "cornerRadius": 3,
+      "padding": {
+        "top": 2,
+        "right": 6,
+        "bottom": 2,
+        "left": 6
+      },
+      "children": [
+        {
+          "id": "badge-warm-text",
+          "type": "text",
+          "name": "Count",
+          "width": 46,
+          "height": 14,
+          "content": "25 users",
+          "fontSize": 11,
+          "fontWeight": "bold",
+          "textAlign": "center",
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#ff9900"
+            }
+          ]
+        }
+      ],
+      "x": 0,
+      "y": 2182
+    },
+    {
+      "id": "badge-hot",
+      "type": "frame",
+      "name": "HaBookmarkCount (50-99)",
+      "width": 62,
+      "height": 22,
+      "layout": "horizontal",
+      "alignItems": "center",
+      "justifyContent": "center",
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#ffe0e0"
+        }
+      ],
+      "cornerRadius": 3,
+      "padding": {
+        "top": 2,
+        "right": 6,
+        "bottom": 2,
+        "left": 6
+      },
+      "children": [
+        {
+          "id": "badge-hot-text",
+          "type": "text",
+          "name": "Count",
+          "width": 50,
+          "height": 14,
+          "content": "75 users",
+          "fontSize": 11,
+          "fontWeight": "bold",
+          "textAlign": "center",
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#ff6666"
+            }
+          ]
+        }
+      ],
+      "x": 0,
+      "y": 2220
+    },
+    {
+      "id": "badge-fire",
+      "type": "frame",
+      "name": "HaBookmarkCount (100-499)",
+      "width": 68,
+      "height": 22,
+      "layout": "horizontal",
+      "alignItems": "center",
+      "justifyContent": "center",
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#ff6666"
+        }
+      ],
+      "cornerRadius": 3,
+      "padding": {
+        "top": 2,
+        "right": 6,
+        "bottom": 2,
+        "left": 6
+      },
+      "children": [
+        {
+          "id": "badge-fire-text",
+          "type": "text",
+          "name": "Count",
+          "width": 56,
+          "height": 14,
+          "content": "256 users",
+          "fontSize": 11,
+          "fontWeight": "bold",
+          "textAlign": "center",
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#ffffff"
+            }
+          ]
+        }
+      ],
+      "x": 0,
+      "y": 2258
+    },
+    {
+      "id": "badge-blaze",
+      "type": "frame",
+      "name": "HaBookmarkCount (500+)",
+      "width": 72,
+      "height": 22,
+      "layout": "horizontal",
+      "alignItems": "center",
+      "justifyContent": "center",
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#ff3333"
+        }
+      ],
+      "cornerRadius": 3,
+      "padding": {
+        "top": 2,
+        "right": 6,
+        "bottom": 2,
+        "left": 6
+      },
+      "children": [
+        {
+          "id": "badge-blaze-text",
+          "type": "text",
+          "name": "Count",
+          "width": 60,
+          "height": 14,
+          "content": "1024 users",
+          "fontSize": 11,
+          "fontWeight": "bold",
+          "textAlign": "center",
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#ffffff"
+            }
+          ]
+        }
+      ],
+      "x": 0,
+      "y": 2296
+    },
+    {
+      "id": "label-src-components-ha-HaFooter-HaFooter-pen",
+      "type": "text",
+      "name": "src/components/ha/HaFooter/HaFooter.pen",
+      "x": 0,
+      "y": 2394,
+      "width": 600,
+      "height": 30,
+      "content": "── src/components/ha/HaFooter/HaFooter.pen",
+      "fontSize": 14,
+      "fontWeight": "bold",
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#666666"
+        }
+      ]
+    },
+    {
+      "id": "footer",
+      "type": "frame",
+      "name": "HaFooter",
+      "width": 1440,
+      "height": 50,
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#ffffff"
+        }
+      ],
+      "stroke": {
+        "fills": [
+          {
+            "type": "solid",
+            "color": "#e8e8e8"
+          }
+        ],
+        "thickness": 1,
+        "align": "inside"
+      },
+      "layout": "horizontal",
+      "alignItems": "center",
+      "justifyContent": "center",
+      "children": [
+        {
+          "id": "footer-inner",
+          "type": "frame",
+          "name": "Footer Inner",
+          "width": 1100,
+          "height": 50,
+          "layout": "horizontal",
+          "alignItems": "center",
+          "justifyContent": "space_between",
+          "padding": {
+            "top": 0,
+            "right": 16,
+            "bottom": 0,
+            "left": 16
+          },
+          "children": [
+            {
+              "id": "footer-copyright",
+              "type": "text",
+              "name": "Copyright",
+              "width": 300,
+              "height": 16,
+              "content": "HN Hatena UI - Powered by Hacker News API",
+              "fontSize": 12,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#999999"
+                }
+              ]
+            },
+            {
+              "id": "footer-links",
+              "type": "frame",
+              "name": "Footer Links",
+              "width": 200,
+              "height": 16,
+              "layout": "horizontal",
+              "gap": 16,
+              "children": [
+                {
+                  "id": "footer-link-about",
+                  "type": "text",
+                  "name": "About",
+                  "width": 50,
+                  "height": 16,
+                  "content": "About",
+                  "fontSize": 12,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#1d7ab3"
+                    }
+                  ]
+                },
+                {
+                  "id": "footer-link-github",
+                  "type": "text",
+                  "name": "GitHub",
+                  "width": 50,
+                  "height": 16,
+                  "content": "GitHub",
+                  "fontSize": 12,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#1d7ab3"
+                    }
+                  ]
+                },
+                {
+                  "id": "footer-link-hn",
+                  "type": "text",
+                  "name": "Hacker News",
+                  "width": 80,
+                  "height": 16,
+                  "content": "Hacker News",
+                  "fontSize": 12,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#1d7ab3"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "x": 0,
+      "y": 2424
+    }
+  ]
+}

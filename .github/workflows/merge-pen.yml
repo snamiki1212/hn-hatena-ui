@@ -1,0 +1,33 @@
+name: Merge Pen Files
+
+on:
+  push:
+    paths:
+      - "src/**/*.pen"
+      - "scripts/merge-pen.mjs"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Merge .pen files
+        run: node scripts/merge-pen.mjs
+
+      - name: Commit design-preview.pen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dist/design-preview.pen
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "chore: rebuild design-preview.pen from .pen files"
+          git push

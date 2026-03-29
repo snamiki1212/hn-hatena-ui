@@ -17,7 +17,8 @@
     "extract-design:full": "node scripts/extract-hatena-design.mjs --screenshot",
     "extract-design:archive:full": "node scripts/extract-hatena-design.mjs --archive --screenshot",
     "update-design-doc": "node scripts/update-design-doc.mjs",
-    "validate-design": "node scripts/validate.mjs"
+    "validate-design": "node scripts/validate.mjs",
+    "merge-pen": "node scripts/merge-pen.mjs"
   },
   "repository": {
     "type": "git",
