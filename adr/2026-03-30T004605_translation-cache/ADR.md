@@ -82,11 +82,10 @@ src/api/translate.ts              ← キャッシュ読み書きロジックを
 
 ```
 ビルド開始
-  └─ translation-cache.json 読み込み
+  └─ translation-cache.json 読み込み（モジュールロード時に一度だけ）
       └─ 各ストーリーの翻訳時
           ├─ キャッシュヒット → キャッシュ値を返す（API呼び出しなし）
-          └─ キャッシュミス  → MyMemory API呼び出し → 結果をキャッシュに追記
-  └─ translation-cache.json 書き込み（新規翻訳分のみ追記）
+          └─ キャッシュミス  → MyMemory API呼び出し → 結果をキャッシュに追記 → ファイル書き込み
 ```
 
 GitHub Actions でのキャッシュ更新:
@@ -98,7 +97,7 @@ GitHub Actions でのキャッシュ更新:
     git config user.name "github-actions[bot]"
     git config user.email "github-actions[bot]@users.noreply.github.com"
     git add src/data/translation-cache.json
-    git diff --cached --quiet || git commit -m "chore: update translation cache"
+    git diff --cached --quiet || git commit -m "chore: update translation cache [skip ci]"
     git push
 ```
 
@@ -110,6 +109,25 @@ GitHub Actions でのキャッシュ更新:
   "Ask HN: How to learn Rust?": "Ask HN: Rustの学習方法は？"
 }
 ```
+
+## Implementation
+
+実装日: 2026-03-30
+
+### 変更ファイル
+
+| ファイル | 変更内容 |
+|---------|---------|
+| `src/data/translation-cache.json` | 新規作成（空の `{}` で初期化） |
+| `src/api/translate.ts` | モジュールレベルでキャッシュをロード。翻訳時にヒットチェック → ミス時のみAPI呼び出し → 逐次ファイル書き込み |
+| `.github/workflows/deploy.yml` | `permissions.contents: write` に変更。ビルド後にキャッシュをコミット・プッシュするstep追加 |
+
+### 実装上の判断
+
+- **モジュールレベルロード**: `const cache = loadCache()` をモジュールトップレベルに置き、ビルドプロセス内で一度だけファイルを読む
+- **翻訳ごとに逐次書き込み**: キャッシュミスのたびに `saveCache()` を呼ぶ。まとめて最後に書くと途中でビルドが失敗した場合に翻訳結果が失われるため
+- **`[skip ci]` タグ**: キャッシュ更新コミットが再度CIをトリガーして無限ループになるのを防ぐ
+- **`import.meta.url` でパス解決**: ESMモジュールのため `__dirname` が使えず、`fileURLToPath(import.meta.url)` で絶対パスを取得
 
 ## Consequences
 
