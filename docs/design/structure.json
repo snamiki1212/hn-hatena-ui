@@ -1,1 +1,1453 @@
-{}
+{
+  "top": {
+    "header": {
+      "tag": "HEADER",
+      "classes": [],
+      "children": [
+        {
+          "tag": "DIV",
+          "classes": [
+            "global-header-inner",
+            "js-global-header-inner"
+          ],
+          "text": "はてなブックマーク\n    \n      \n      閉じる\n      \n        \n        \n      \n      \n        はてなブックマークって？\n        "
+        }
+      ]
+    },
+    "categories": [
+      {
+        "text": "世の中",
+        "href": ""
+      },
+      {
+        "text": "テクノロジー",
+        "href": ""
+      },
+      {
+        "text": "エンタメ",
+        "href": ""
+      },
+      {
+        "text": "暮らし",
+        "href": ""
+      },
+      {
+        "text": "人気エントリーをすべて読む",
+        "href": ""
+      },
+      {
+        "text": "期間",
+        "href": ""
+      },
+      {
+        "text": "週間",
+        "href": ""
+      },
+      {
+        "text": "月間",
+        "href": ""
+      },
+      {
+        "text": "エンジニアブログの新着エントリーをもっと読む",
+        "href": ""
+      },
+      {
+        "text": "はてなブログ - 注目記事の新着エントリーをもっと読む",
+        "href": ""
+      },
+      {
+        "text": "もっと読む",
+        "href": ""
+      },
+      {
+        "text": "学び",
+        "href": ""
+      },
+      {
+        "text": "企業メディアの新着エントリーをもっと読む",
+        "href": ""
+      },
+      {
+        "text": "週刊はてなブログの新着エントリーをもっと読む",
+        "href": ""
+      },
+      {
+        "text": "政治と経済",
+        "href": ""
+      },
+      {
+        "text": "おもしろ",
+        "href": ""
+      },
+      {
+        "text": "アニメとゲーム",
+        "href": ""
+      },
+      {
+        "text": "AI・機械学習の新着エントリーをもっと読む",
+        "href": ""
+      },
+      {
+        "text": "総合",
+        "href": ""
+      },
+      {
+        "text": "一般",
+        "href": ""
+      }
+    ],
+    "entries": [
+      {
+        "tag": "LI",
+        "classes": [
+          "js-navi-category-item",
+          "cat-it"
+        ],
+        "title": "テクノロジー",
+        "href": "/hotentry/it",
+        "bookmarkCount": "",
+        "childTags": [
+          "DIV",
+          "DIV"
+        ]
+      },
+      {
+        "tag": "LI",
+        "classes": [
+          "js-navi-category-item",
+          "cat-game"
+        ],
+        "title": "アニメとゲーム",
+        "href": "/hotentry/game",
+        "bookmarkCount": "",
+        "childTags": [
+          "DIV",
+          "DIV"
+        ]
+      },
+      {
+        "tag": "DIV",
+        "classes": [
+          "entrylist-wrapper"
+        ],
+        "title": "いじめについて | 亀有 メンタル クリニック　葛飾区　の心療内科　精神科　です",
+        "href": "https://www.ka-mental.jp/ijime.html",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "SECTION",
+          "DIV",
+          "SECTION",
+          "SECTION",
+          "SECTION",
+          "SECTION",
+          "SECTION",
+          "SECTION",
+          "SECTION",
+          "DIV",
+          "SECTION",
+          "SECTION",
+          "SECTION",
+          "SECTION",
+          "SECTION",
+          "SECTION",
+          "SECTION",
+          "SECTION",
+          "SECTION",
+          "SECTION",
+          "SECTION",
+          "SECTION",
+          "SECTION",
+          "SECTION",
+          "SECTION"
+        ]
+      },
+      {
+        "tag": "SECTION",
+        "classes": [
+          "entrylist-unit"
+        ],
+        "title": "いじめについて | 亀有 メンタル クリニック　葛飾区　の心療内科　精神科　です",
+        "href": "https://www.ka-mental.jp/ijime.html",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "DIV",
+          "UL",
+          "P"
+        ]
+      },
+      {
+        "tag": "DIV",
+        "classes": [
+          "entrylist-header"
+        ],
+        "title": "いじめについて | 亀有 メンタル クリニック　葛飾区　の心療内科　精神科　です",
+        "href": "https://www.ka-mental.jp/ijime.html",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "UL",
+          "DIV",
+          "DIV"
+        ]
+      },
+      {
+        "tag": "UL",
+        "classes": [
+          "entrylist-header-main"
+        ],
+        "title": "いじめについて | 亀有 メンタル クリニック　葛飾区　の心療内科　精神科　です",
+        "href": "https://www.ka-mental.jp/ijime.html",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "LI"
+        ]
+      },
+      {
+        "tag": "LI",
+        "classes": [
+          "cat-social",
+          "js-keyboard-selectable-item"
+        ],
+        "title": "いじめについて | 亀有 メンタル クリニック　葛飾区　の心療内科　精神科　です",
+        "href": "https://www.ka-mental.jp/ijime.html",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "DIV"
+        ]
+      },
+      {
+        "tag": "DIV",
+        "classes": [
+          "entrylist-contents"
+        ],
+        "title": "いじめについて | 亀有 メンタル クリニック　葛飾区　の心療内科　精神科　です",
+        "href": "https://www.ka-mental.jp/ijime.html",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "DIV",
+          "DIV"
+        ]
+      },
+      {
+        "tag": "DIV",
+        "classes": [
+          "entrylist-contents-main"
+        ],
+        "title": "いじめについて | 亀有 メンタル クリニック　葛飾区　の心療内科　精神科　です",
+        "href": "https://www.ka-mental.jp/ijime.html",
+        "bookmarkCount": "395 users\n      \n  \n",
+        "childTags": [
+          "H3",
+          "SPAN",
+          "P",
+          "DIV",
+          "UL",
+          "UL",
+          "DIV"
+        ]
+      },
+      {
+        "tag": "H3",
+        "classes": [
+          "entrylist-contents-title"
+        ],
+        "title": "いじめについて | 亀有 メンタル クリニック　葛飾区　の心療内科　精神科　です",
+        "href": "https://www.ka-mental.jp/ijime.html",
+        "bookmarkCount": "",
+        "childTags": [
+          "A"
+        ]
+      },
+      {
+        "tag": "SPAN",
+        "classes": [
+          "entrylist-contents-users"
+        ],
+        "title": "395 users",
+        "href": "/entry/s/www.ka-mental.jp/ijime.html",
+        "bookmarkCount": "",
+        "childTags": [
+          "A"
+        ]
+      },
+      {
+        "tag": "P",
+        "classes": [
+          "entrylist-contents-domain"
+        ],
+        "title": "www.ka-mental.jp",
+        "href": "/site/www.ka-mental.jp/",
+        "bookmarkCount": "",
+        "childTags": [
+          "A"
+        ]
+      },
+      {
+        "tag": "UL",
+        "classes": [
+          "entrylist-item",
+          "js-hotentries",
+          "is-nativeads-loading"
+        ],
+        "title": "ChatGPTが長いチャットで重くなったときに使っている「引き継ぎプロンプト」 - Qiita",
+        "href": "https://qiita.com/SatoRyota_zvc/items/c392f0804987593dc179",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI"
+        ]
+      },
+      {
+        "tag": "LI",
+        "classes": [
+          "cat-it",
+          "js-keyboard-selectable-item"
+        ],
+        "title": "ChatGPTが長いチャットで重くなったときに使っている「引き継ぎプロンプト」 - Qiita",
+        "href": "https://qiita.com/SatoRyota_zvc/items/c392f0804987593dc179",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "DIV"
+        ]
+      },
+      {
+        "tag": "DIV",
+        "classes": [
+          "entrylist-contents"
+        ],
+        "title": "ChatGPTが長いチャットで重くなったときに使っている「引き継ぎプロンプト」 - Qiita",
+        "href": "https://qiita.com/SatoRyota_zvc/items/c392f0804987593dc179",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "DIV",
+          "DIV"
+        ]
+      },
+      {
+        "tag": "DIV",
+        "classes": [
+          "entrylist-contents-main"
+        ],
+        "title": "ChatGPTが長いチャットで重くなったときに使っている「引き継ぎプロンプト」 - Qiita",
+        "href": "https://qiita.com/SatoRyota_zvc/items/c392f0804987593dc179",
+        "bookmarkCount": "947 users\n      \n  \n",
+        "childTags": [
+          "H3",
+          "SPAN",
+          "P",
+          "DIV",
+          "UL",
+          "UL",
+          "DIV"
+        ]
+      },
+      {
+        "tag": "H3",
+        "classes": [
+          "entrylist-contents-title"
+        ],
+        "title": "ChatGPTが長いチャットで重くなったときに使っている「引き継ぎプロンプト」 - Qiita",
+        "href": "https://qiita.com/SatoRyota_zvc/items/c392f0804987593dc179",
+        "bookmarkCount": "",
+        "childTags": [
+          "A"
+        ]
+      },
+      {
+        "tag": "SPAN",
+        "classes": [
+          "entrylist-contents-users"
+        ],
+        "title": "947 users",
+        "href": "/entry/s/qiita.com/SatoRyota_zvc/items/c392f0804987593dc179",
+        "bookmarkCount": "",
+        "childTags": [
+          "A"
+        ]
+      },
+      {
+        "tag": "P",
+        "classes": [
+          "entrylist-contents-domain"
+        ],
+        "title": "qiita.com",
+        "href": "/site/qiita.com/",
+        "bookmarkCount": "",
+        "childTags": [
+          "A"
+        ]
+      },
+      {
+        "tag": "UL",
+        "classes": [
+          "entrylist-contents-meta"
+        ],
+        "title": "テクノロジー",
+        "href": "/entrylist/it",
+        "bookmarkCount": "",
+        "childTags": [
+          "LI",
+          "LI"
+        ]
+      }
+    ],
+    "sidebar": null,
+    "footer": {
+      "tag": "DIV",
+      "classes": [
+        "footer"
+      ],
+      "links": [
+        {
+          "text": "はてなブックマーク",
+          "href": "/"
+        },
+        {
+          "text": "総合",
+          "href": "/hotentry/all"
+        },
+        {
+          "text": "一般",
+          "href": "/hotentry/general"
+        },
+        {
+          "text": "世の中",
+          "href": "/hotentry/social"
+        },
+        {
+          "text": "政治と経済",
+          "href": "/hotentry/economics"
+        },
+        {
+          "text": "暮らし",
+          "href": "/hotentry/life"
+        },
+        {
+          "text": "学び",
+          "href": "/hotentry/knowledge"
+        },
+        {
+          "text": "テクノロジー",
+          "href": "/hotentry/it"
+        },
+        {
+          "text": "エンタメ",
+          "href": "/hotentry/entertainment"
+        },
+        {
+          "text": "アニメとゲーム",
+          "href": "/hotentry/game"
+        },
+        {
+          "text": "おもしろ",
+          "href": "/hotentry/fun"
+        },
+        {
+          "text": "アプリ・拡張機能",
+          "href": "/guide/tools"
+        },
+        {
+          "text": "開発ブログ",
+          "href": "https://bookmark.hatenastaff.com/"
+        },
+        {
+          "text": "ヘルプ",
+          "href": "/help/"
+        },
+        {
+          "text": "お問い合わせ",
+          "href": "https://hatena.zendesk.com/hc/ja/categories/900000153166"
+        },
+        {
+          "text": "ガイドライン",
+          "href": "/guide/guideline"
+        },
+        {
+          "text": "利用規約",
+          "href": "https://policies.hatena.ne.jp/rule"
+        },
+        {
+          "text": "プライバシーポリシー",
+          "href": "https://policies.hatena.ne.jp/privacypolicy-ja"
+        },
+        {
+          "text": "利用者情報の外部送信について",
+          "href": "https://policies.hatena.ne.jp/cookie-policy"
+        },
+        {
+          "text": "ガイドライン",
+          "href": "/guide/guideline"
+        }
+      ]
+    }
+  },
+  "hotentry-it": {
+    "header": {
+      "tag": "HEADER",
+      "classes": [],
+      "children": [
+        {
+          "tag": "DIV",
+          "classes": [
+            "global-header-inner",
+            "js-global-header-inner"
+          ],
+          "text": "はてなブックマーク\n    \n      \n      閉じる\n      \n        \n        \n      \n      \n        はてなブックマークって？\n        "
+        }
+      ]
+    },
+    "categories": [
+      {
+        "text": "テクノロジー",
+        "href": ""
+      },
+      {
+        "text": "過去の人気エントリー",
+        "href": ""
+      },
+      {
+        "text": "テクノロジーの新着エントリー",
+        "href": ""
+      },
+      {
+        "text": "世の中",
+        "href": ""
+      },
+      {
+        "text": "はてなブログ（テクノロジー）の人気エントリーをもっと読む",
+        "href": ""
+      },
+      {
+        "text": "総合",
+        "href": ""
+      },
+      {
+        "text": "一般",
+        "href": ""
+      },
+      {
+        "text": "政治と経済",
+        "href": ""
+      },
+      {
+        "text": "暮らし",
+        "href": ""
+      },
+      {
+        "text": "学び",
+        "href": ""
+      },
+      {
+        "text": "エンタメ",
+        "href": ""
+      },
+      {
+        "text": "アニメとゲーム",
+        "href": ""
+      },
+      {
+        "text": "おもしろ",
+        "href": ""
+      }
+    ],
+    "entries": [
+      {
+        "tag": "LI",
+        "classes": [
+          "js-navi-category-item",
+          "cat-it",
+          "is-active"
+        ],
+        "title": "テクノロジー",
+        "href": "/web/20260326055955/https://b.hatena.ne.jp/hotentry/it",
+        "bookmarkCount": "",
+        "childTags": [
+          "DIV",
+          "DIV"
+        ]
+      },
+      {
+        "tag": "LI",
+        "classes": [
+          "js-navi-category-item",
+          "cat-game"
+        ],
+        "title": "アニメとゲーム",
+        "href": "/web/20260326055955/https://b.hatena.ne.jp/hotentry/game",
+        "bookmarkCount": "",
+        "childTags": [
+          "DIV",
+          "DIV"
+        ]
+      },
+      {
+        "tag": "DIV",
+        "classes": [
+          "entrylist-wrapper"
+        ],
+        "title": "【緊急】月間9500万DLのLiteLLMが乗っ取られた。インストールしただけでSSH鍵・AWS認証・仮想通貨が全部盗まれる - Qiita",
+        "href": "http://web.archive.org/web/20260326055955/https://qiita.com/emi_ndk/items/2332ff5c93e63ab736ad",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "DIV"
+        ]
+      },
+      {
+        "tag": "DIV",
+        "classes": [
+          "entrylist-wrapper"
+        ],
+        "title": "【緊急】月間9500万DLのLiteLLMが乗っ取られた。インストールしただけでSSH鍵・AWS認証・仮想通貨が全部盗まれる - Qiita",
+        "href": "http://web.archive.org/web/20260326055955/https://qiita.com/emi_ndk/items/2332ff5c93e63ab736ad",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "DIV",
+          "DIV",
+          "DIV"
+        ]
+      },
+      {
+        "tag": "DIV",
+        "classes": [
+          "entrylist-main"
+        ],
+        "title": "【緊急】月間9500万DLのLiteLLMが乗っ取られた。インストールしただけでSSH鍵・AWS認証・仮想通貨が全部盗まれる - Qiita",
+        "href": "http://web.archive.org/web/20260326055955/https://qiita.com/emi_ndk/items/2332ff5c93e63ab736ad",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "SECTION",
+          "DIV",
+          "DIV",
+          "P"
+        ]
+      },
+      {
+        "tag": "SECTION",
+        "classes": [
+          "entrylist-unit"
+        ],
+        "title": "【緊急】月間9500万DLのLiteLLMが乗っ取られた。インストールしただけでSSH鍵・AWS認証・仮想通貨が全部盗まれる - Qiita",
+        "href": "http://web.archive.org/web/20260326055955/https://qiita.com/emi_ndk/items/2332ff5c93e63ab736ad",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "DIV",
+          "UL",
+          "P"
+        ]
+      },
+      {
+        "tag": "DIV",
+        "classes": [
+          "entrylist-header"
+        ],
+        "title": "【緊急】月間9500万DLのLiteLLMが乗っ取られた。インストールしただけでSSH鍵・AWS認証・仮想通貨が全部盗まれる - Qiita",
+        "href": "http://web.archive.org/web/20260326055955/https://qiita.com/emi_ndk/items/2332ff5c93e63ab736ad",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "UL",
+          "DIV",
+          "DIV"
+        ]
+      },
+      {
+        "tag": "UL",
+        "classes": [
+          "entrylist-header-main"
+        ],
+        "title": "【緊急】月間9500万DLのLiteLLMが乗っ取られた。インストールしただけでSSH鍵・AWS認証・仮想通貨が全部盗まれる - Qiita",
+        "href": "http://web.archive.org/web/20260326055955/https://qiita.com/emi_ndk/items/2332ff5c93e63ab736ad",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "LI"
+        ]
+      },
+      {
+        "tag": "LI",
+        "classes": [
+          "cat-it",
+          "entrylist-image-entry",
+          "js-keyboard-selectable-item"
+        ],
+        "title": "【緊急】月間9500万DLのLiteLLMが乗っ取られた。インストールしただけでSSH鍵・AWS認証・仮想通貨が全部盗まれる - Qiita",
+        "href": "http://web.archive.org/web/20260326055955/https://qiita.com/emi_ndk/items/2332ff5c93e63ab736ad",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "DIV"
+        ]
+      },
+      {
+        "tag": "DIV",
+        "classes": [
+          "entrylist-contents"
+        ],
+        "title": "【緊急】月間9500万DLのLiteLLMが乗っ取られた。インストールしただけでSSH鍵・AWS認証・仮想通貨が全部盗まれる - Qiita",
+        "href": "http://web.archive.org/web/20260326055955/https://qiita.com/emi_ndk/items/2332ff5c93e63ab736ad",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "DIV",
+          "DIV"
+        ]
+      },
+      {
+        "tag": "DIV",
+        "classes": [
+          "entrylist-contents-main"
+        ],
+        "title": "【緊急】月間9500万DLのLiteLLMが乗っ取られた。インストールしただけでSSH鍵・AWS認証・仮想通貨が全部盗まれる - Qiita",
+        "href": "http://web.archive.org/web/20260326055955/https://qiita.com/emi_ndk/items/2332ff5c93e63ab736ad",
+        "bookmarkCount": "212 users\n      \n  \n",
+        "childTags": [
+          "H3",
+          "SPAN",
+          "P",
+          "DIV",
+          "UL",
+          "UL",
+          "DIV"
+        ]
+      },
+      {
+        "tag": "H3",
+        "classes": [
+          "entrylist-contents-title"
+        ],
+        "title": "【緊急】月間9500万DLのLiteLLMが乗っ取られた。インストールしただけでSSH鍵・AWS認証・仮想通貨が全部盗まれる - Qiita",
+        "href": "http://web.archive.org/web/20260326055955/https://qiita.com/emi_ndk/items/2332ff5c93e63ab736ad",
+        "bookmarkCount": "",
+        "childTags": [
+          "A"
+        ]
+      },
+      {
+        "tag": "SPAN",
+        "classes": [
+          "entrylist-contents-users"
+        ],
+        "title": "212 users",
+        "href": "/web/20260326055955/https://b.hatena.ne.jp/entry/s/qiita.com/emi_ndk/items/2332ff5c93e63ab736ad",
+        "bookmarkCount": "",
+        "childTags": [
+          "A"
+        ]
+      },
+      {
+        "tag": "P",
+        "classes": [
+          "entrylist-contents-domain"
+        ],
+        "title": "qiita.com/emi_ndk",
+        "href": "/web/20260326055955/https://b.hatena.ne.jp/site/qiita.com/emi_ndk",
+        "bookmarkCount": "",
+        "childTags": [
+          "A"
+        ]
+      },
+      {
+        "tag": "DIV",
+        "classes": [
+          "entrylist-contents-body"
+        ],
+        "title": "Deleted articles cannot be recovered. Draft of this article would be also deleted. Are you sure you ",
+        "href": "/web/20260326055955/https://b.hatena.ne.jp/entry/s/qiita.com/emi_ndk/items/2332ff5c93e63ab736ad",
+        "bookmarkCount": "",
+        "childTags": [
+          "A"
+        ]
+      },
+      {
+        "tag": "UL",
+        "classes": [
+          "entrylist-contents-meta"
+        ],
+        "title": "テクノロジー",
+        "href": "/web/20260326055955/https://b.hatena.ne.jp/hotentry/it",
+        "bookmarkCount": "",
+        "childTags": [
+          "LI",
+          "LI"
+        ]
+      },
+      {
+        "tag": "LI",
+        "classes": [
+          "entrylist-contents-category"
+        ],
+        "title": "テクノロジー",
+        "href": "/web/20260326055955/https://b.hatena.ne.jp/hotentry/it",
+        "bookmarkCount": "",
+        "childTags": [
+          "A"
+        ]
+      },
+      {
+        "tag": "UL",
+        "classes": [
+          "entrylist-contents-tags"
+        ],
+        "title": "セキュリティ",
+        "href": "/web/20260326055955/https://b.hatena.ne.jp/q/%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3",
+        "bookmarkCount": "",
+        "childTags": [
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI"
+        ]
+      },
+      {
+        "tag": "UL",
+        "classes": [
+          "entrylist-item",
+          "js-hotentries",
+          "is-nativeads-loading"
+        ],
+        "title": "【Claude Code】Agentに入れるべきSkills 20選｜skills.sh活用ガイド - Qiita",
+        "href": "http://web.archive.org/web/20260326055955/https://qiita.com/yamamoto0/items/17817dc09a78078fa132?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI"
+        ]
+      },
+      {
+        "tag": "LI",
+        "classes": [
+          "cat-it",
+          "entrylist-image-entry",
+          "js-keyboard-selectable-item"
+        ],
+        "title": "【Claude Code】Agentに入れるべきSkills 20選｜skills.sh活用ガイド - Qiita",
+        "href": "http://web.archive.org/web/20260326055955/https://qiita.com/yamamoto0/items/17817dc09a78078fa132?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "DIV"
+        ]
+      }
+    ],
+    "sidebar": null,
+    "footer": {
+      "tag": "DIV",
+      "classes": [
+        "footer"
+      ],
+      "links": [
+        {
+          "text": "はてなブックマーク",
+          "href": "/web/20260326055955/https://b.hatena.ne.jp/"
+        },
+        {
+          "text": "総合",
+          "href": "/web/20260326055955/https://b.hatena.ne.jp/hotentry/all"
+        },
+        {
+          "text": "一般",
+          "href": "/web/20260326055955/https://b.hatena.ne.jp/hotentry/general"
+        },
+        {
+          "text": "世の中",
+          "href": "/web/20260326055955/https://b.hatena.ne.jp/hotentry/social"
+        },
+        {
+          "text": "政治と経済",
+          "href": "/web/20260326055955/https://b.hatena.ne.jp/hotentry/economics"
+        },
+        {
+          "text": "暮らし",
+          "href": "/web/20260326055955/https://b.hatena.ne.jp/hotentry/life"
+        },
+        {
+          "text": "学び",
+          "href": "/web/20260326055955/https://b.hatena.ne.jp/hotentry/knowledge"
+        },
+        {
+          "text": "テクノロジー",
+          "href": "/web/20260326055955/https://b.hatena.ne.jp/hotentry/it"
+        },
+        {
+          "text": "エンタメ",
+          "href": "/web/20260326055955/https://b.hatena.ne.jp/hotentry/entertainment"
+        },
+        {
+          "text": "アニメとゲーム",
+          "href": "/web/20260326055955/https://b.hatena.ne.jp/hotentry/game"
+        },
+        {
+          "text": "おもしろ",
+          "href": "/web/20260326055955/https://b.hatena.ne.jp/hotentry/fun"
+        },
+        {
+          "text": "アプリ・拡張機能",
+          "href": "/web/20260326055955/https://b.hatena.ne.jp/guide/tools"
+        },
+        {
+          "text": "開発ブログ",
+          "href": "http://web.archive.org/web/20260326055955/https://bookmark.hatenastaff.com/"
+        },
+        {
+          "text": "ヘルプ",
+          "href": "/web/20260326055955/https://b.hatena.ne.jp/help/"
+        },
+        {
+          "text": "お問い合わせ",
+          "href": "http://web.archive.org/web/20260326055955/https://hatena.zendesk.com/hc/ja/categories/900000153166"
+        },
+        {
+          "text": "ガイドライン",
+          "href": "/web/20260326055955/https://b.hatena.ne.jp/guide/guideline"
+        },
+        {
+          "text": "利用規約",
+          "href": "http://web.archive.org/web/20260326055955/https://policies.hatena.ne.jp/rule"
+        },
+        {
+          "text": "プライバシーポリシー",
+          "href": "http://web.archive.org/web/20260326055955/https://policies.hatena.ne.jp/privacypolicy-ja"
+        },
+        {
+          "text": "利用者情報の外部送信について",
+          "href": "http://web.archive.org/web/20260326055955/https://policies.hatena.ne.jp/cookie-policy"
+        },
+        {
+          "text": "ガイドライン",
+          "href": "/web/20260326055955/https://b.hatena.ne.jp/guide/guideline"
+        }
+      ]
+    }
+  },
+  "hotentry-all": {
+    "header": {
+      "tag": "HEADER",
+      "classes": [],
+      "children": [
+        {
+          "tag": "DIV",
+          "classes": [
+            "global-header-inner",
+            "js-global-header-inner"
+          ],
+          "text": "はてなブックマーク\n    \n      \n      閉じる\n      \n        \n        \n      \n      \n        はてなブックマークって？\n        "
+        }
+      ]
+    },
+    "categories": [
+      {
+        "text": "世の中",
+        "href": ""
+      },
+      {
+        "text": "テクノロジー",
+        "href": ""
+      },
+      {
+        "text": "エンタメ",
+        "href": ""
+      },
+      {
+        "text": "暮らし",
+        "href": ""
+      },
+      {
+        "text": "おもしろ",
+        "href": ""
+      },
+      {
+        "text": "政治と経済",
+        "href": ""
+      },
+      {
+        "text": "学び",
+        "href": ""
+      },
+      {
+        "text": "アニメとゲーム",
+        "href": ""
+      },
+      {
+        "text": "過去の人気エントリー",
+        "href": ""
+      },
+      {
+        "text": "総合の新着エントリー",
+        "href": ""
+      },
+      {
+        "text": "はてなブログ（総合）の人気エントリーをもっと読む",
+        "href": ""
+      },
+      {
+        "text": "総合",
+        "href": ""
+      },
+      {
+        "text": "一般",
+        "href": ""
+      }
+    ],
+    "entries": [
+      {
+        "tag": "LI",
+        "classes": [
+          "js-navi-category-item",
+          "cat-it"
+        ],
+        "title": "テクノロジー",
+        "href": "/hotentry/it",
+        "bookmarkCount": "",
+        "childTags": [
+          "DIV",
+          "DIV"
+        ]
+      },
+      {
+        "tag": "LI",
+        "classes": [
+          "js-navi-category-item",
+          "cat-game"
+        ],
+        "title": "アニメとゲーム",
+        "href": "/hotentry/game",
+        "bookmarkCount": "",
+        "childTags": [
+          "DIV",
+          "DIV"
+        ]
+      },
+      {
+        "tag": "DIV",
+        "classes": [
+          "entrylist-wrapper"
+        ],
+        "title": "いじめについて | 亀有 メンタル クリニック　葛飾区　の心療内科　精神科　です",
+        "href": "https://www.ka-mental.jp/ijime.html",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "DIV"
+        ]
+      },
+      {
+        "tag": "DIV",
+        "classes": [
+          "entrylist-wrapper"
+        ],
+        "title": "いじめについて | 亀有 メンタル クリニック　葛飾区　の心療内科　精神科　です",
+        "href": "https://www.ka-mental.jp/ijime.html",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "DIV",
+          "DIV",
+          "DIV"
+        ]
+      },
+      {
+        "tag": "DIV",
+        "classes": [
+          "entrylist-main"
+        ],
+        "title": "いじめについて | 亀有 メンタル クリニック　葛飾区　の心療内科　精神科　です",
+        "href": "https://www.ka-mental.jp/ijime.html",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "SECTION",
+          "DIV",
+          "DIV",
+          "P"
+        ]
+      },
+      {
+        "tag": "SECTION",
+        "classes": [
+          "entrylist-unit"
+        ],
+        "title": "いじめについて | 亀有 メンタル クリニック　葛飾区　の心療内科　精神科　です",
+        "href": "https://www.ka-mental.jp/ijime.html",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "DIV",
+          "UL",
+          "P"
+        ]
+      },
+      {
+        "tag": "DIV",
+        "classes": [
+          "entrylist-header"
+        ],
+        "title": "いじめについて | 亀有 メンタル クリニック　葛飾区　の心療内科　精神科　です",
+        "href": "https://www.ka-mental.jp/ijime.html",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "UL",
+          "DIV",
+          "DIV"
+        ]
+      },
+      {
+        "tag": "UL",
+        "classes": [
+          "entrylist-header-main"
+        ],
+        "title": "いじめについて | 亀有 メンタル クリニック　葛飾区　の心療内科　精神科　です",
+        "href": "https://www.ka-mental.jp/ijime.html",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "LI"
+        ]
+      },
+      {
+        "tag": "LI",
+        "classes": [
+          "cat-social",
+          "js-keyboard-selectable-item"
+        ],
+        "title": "いじめについて | 亀有 メンタル クリニック　葛飾区　の心療内科　精神科　です",
+        "href": "https://www.ka-mental.jp/ijime.html",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "DIV"
+        ]
+      },
+      {
+        "tag": "DIV",
+        "classes": [
+          "entrylist-contents"
+        ],
+        "title": "いじめについて | 亀有 メンタル クリニック　葛飾区　の心療内科　精神科　です",
+        "href": "https://www.ka-mental.jp/ijime.html",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "DIV",
+          "DIV"
+        ]
+      },
+      {
+        "tag": "DIV",
+        "classes": [
+          "entrylist-contents-main"
+        ],
+        "title": "いじめについて | 亀有 メンタル クリニック　葛飾区　の心療内科　精神科　です",
+        "href": "https://www.ka-mental.jp/ijime.html",
+        "bookmarkCount": "396 users\n      \n  \n",
+        "childTags": [
+          "H3",
+          "SPAN",
+          "P",
+          "DIV",
+          "UL",
+          "UL",
+          "DIV"
+        ]
+      },
+      {
+        "tag": "H3",
+        "classes": [
+          "entrylist-contents-title"
+        ],
+        "title": "いじめについて | 亀有 メンタル クリニック　葛飾区　の心療内科　精神科　です",
+        "href": "https://www.ka-mental.jp/ijime.html",
+        "bookmarkCount": "",
+        "childTags": [
+          "A"
+        ]
+      },
+      {
+        "tag": "SPAN",
+        "classes": [
+          "entrylist-contents-users"
+        ],
+        "title": "396 users",
+        "href": "/entry/s/www.ka-mental.jp/ijime.html",
+        "bookmarkCount": "",
+        "childTags": [
+          "A"
+        ]
+      },
+      {
+        "tag": "P",
+        "classes": [
+          "entrylist-contents-domain"
+        ],
+        "title": "www.ka-mental.jp",
+        "href": "/site/www.ka-mental.jp/",
+        "bookmarkCount": "",
+        "childTags": [
+          "A"
+        ]
+      },
+      {
+        "tag": "UL",
+        "classes": [
+          "entrylist-item",
+          "js-hotentries",
+          "is-nativeads-loading"
+        ],
+        "title": "ChatGPTが長いチャットで重くなったときに使っている「引き継ぎプロンプト」 - Qiita",
+        "href": "https://qiita.com/SatoRyota_zvc/items/c392f0804987593dc179",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI",
+          "LI"
+        ]
+      },
+      {
+        "tag": "LI",
+        "classes": [
+          "cat-it",
+          "js-keyboard-selectable-item"
+        ],
+        "title": "ChatGPTが長いチャットで重くなったときに使っている「引き継ぎプロンプト」 - Qiita",
+        "href": "https://qiita.com/SatoRyota_zvc/items/c392f0804987593dc179",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "DIV"
+        ]
+      },
+      {
+        "tag": "DIV",
+        "classes": [
+          "entrylist-contents"
+        ],
+        "title": "ChatGPTが長いチャットで重くなったときに使っている「引き継ぎプロンプト」 - Qiita",
+        "href": "https://qiita.com/SatoRyota_zvc/items/c392f0804987593dc179",
+        "bookmarkCount": "あとで読む\n      \n    あとで",
+        "childTags": [
+          "DIV",
+          "DIV"
+        ]
+      },
+      {
+        "tag": "DIV",
+        "classes": [
+          "entrylist-contents-main"
+        ],
+        "title": "ChatGPTが長いチャットで重くなったときに使っている「引き継ぎプロンプト」 - Qiita",
+        "href": "https://qiita.com/SatoRyota_zvc/items/c392f0804987593dc179",
+        "bookmarkCount": "948 users\n      \n  \n",
+        "childTags": [
+          "H3",
+          "SPAN",
+          "P",
+          "DIV",
+          "UL",
+          "UL",
+          "DIV"
+        ]
+      },
+      {
+        "tag": "H3",
+        "classes": [
+          "entrylist-contents-title"
+        ],
+        "title": "ChatGPTが長いチャットで重くなったときに使っている「引き継ぎプロンプト」 - Qiita",
+        "href": "https://qiita.com/SatoRyota_zvc/items/c392f0804987593dc179",
+        "bookmarkCount": "",
+        "childTags": [
+          "A"
+        ]
+      },
+      {
+        "tag": "SPAN",
+        "classes": [
+          "entrylist-contents-users"
+        ],
+        "title": "948 users",
+        "href": "/entry/s/qiita.com/SatoRyota_zvc/items/c392f0804987593dc179",
+        "bookmarkCount": "",
+        "childTags": [
+          "A"
+        ]
+      }
+    ],
+    "sidebar": null,
+    "footer": {
+      "tag": "DIV",
+      "classes": [
+        "footer"
+      ],
+      "links": [
+        {
+          "text": "はてなブックマーク",
+          "href": "/"
+        },
+        {
+          "text": "総合",
+          "href": "/hotentry/all"
+        },
+        {
+          "text": "一般",
+          "href": "/hotentry/general"
+        },
+        {
+          "text": "世の中",
+          "href": "/hotentry/social"
+        },
+        {
+          "text": "政治と経済",
+          "href": "/hotentry/economics"
+        },
+        {
+          "text": "暮らし",
+          "href": "/hotentry/life"
+        },
+        {
+          "text": "学び",
+          "href": "/hotentry/knowledge"
+        },
+        {
+          "text": "テクノロジー",
+          "href": "/hotentry/it"
+        },
+        {
+          "text": "エンタメ",
+          "href": "/hotentry/entertainment"
+        },
+        {
+          "text": "アニメとゲーム",
+          "href": "/hotentry/game"
+        },
+        {
+          "text": "おもしろ",
+          "href": "/hotentry/fun"
+        },
+        {
+          "text": "アプリ・拡張機能",
+          "href": "/guide/tools"
+        },
+        {
+          "text": "開発ブログ",
+          "href": "https://bookmark.hatenastaff.com/"
+        },
+        {
+          "text": "ヘルプ",
+          "href": "/help/"
+        },
+        {
+          "text": "お問い合わせ",
+          "href": "https://hatena.zendesk.com/hc/ja/categories/900000153166"
+        },
+        {
+          "text": "ガイドライン",
+          "href": "/guide/guideline"
+        },
+        {
+          "text": "利用規約",
+          "href": "https://policies.hatena.ne.jp/rule"
+        },
+        {
+          "text": "プライバシーポリシー",
+          "href": "https://policies.hatena.ne.jp/privacypolicy-ja"
+        },
+        {
+          "text": "利用者情報の外部送信について",
+          "href": "https://policies.hatena.ne.jp/cookie-policy"
+        },
+        {
+          "text": "ガイドライン",
+          "href": "/guide/guideline"
+        }
+      ]
+    }
+  }
+}
