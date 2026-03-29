@@ -361,7 +361,7 @@ ${comp.entryTitle ? `| プロパティ | 値 |\n|---|---|\n` + Object.entries(co
 ### link
 ${comp.link ? `| プロパティ | 値 |\n|---|---|\n` + Object.entries(comp.link).map(([k, v]) => `| ${k} | \`${v}\` |`).join("\n") : "_データなし_"}
 
-${Object.keys(computed).length > 1 ? `> 他のページの実測値: ${Object.keys(computed).filter(k => k !== (comp === computed["hotentry-it"] ? "hotentry-it" : "top")).map(k => \`computed-\${k}.json\`).join(", ")}` : ""}
+${Object.keys(computed).length > 1 ? "> 他のページの実測値: " + Object.keys(computed).filter(k => k !== (comp === computed["hotentry-it"] ? "hotentry-it" : "top")).map(k => "computed-" + k + ".json").join(", ") : ""}
 `
     : ""
 }
