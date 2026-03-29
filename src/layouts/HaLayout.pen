@@ -1,0 +1,135 @@
+{
+  "version": "1.0",
+  "imports": ["../styles/tokens.pen"],
+  "children": [
+    {
+      "id": "layout-root",
+      "type": "frame",
+      "name": "HaLayout",
+      "width": 1440,
+      "height": 900,
+      "fill": [{ "type": "solid", "color": "$bg-secondary" }],
+      "layout": "vertical",
+      "alignItems": "center",
+      "children": [
+        {
+          "id": "header-slot",
+          "type": "frame",
+          "name": "Header Slot",
+          "width": 1440,
+          "height": 90,
+          "fill": [{ "type": "solid", "color": "$bg-primary" }],
+          "stroke": { "fills": [{ "type": "solid", "color": "$border" }], "thickness": 1, "align": "inside" },
+          "layout": "vertical",
+          "children": [
+            {
+              "id": "header-placeholder",
+              "type": "text",
+              "name": "Header",
+              "x": 16,
+              "y": 16,
+              "width": 200,
+              "height": 20,
+              "content": "← HaHeader component",
+              "fontSize": 14,
+              "fill": [{ "type": "solid", "color": "$text-muted" }]
+            }
+          ]
+        },
+        {
+          "id": "body",
+          "type": "frame",
+          "name": "Body",
+          "width": 1100,
+          "height": 760,
+          "layout": "horizontal",
+          "gap": 24,
+          "padding": { "top": 24, "right": 0, "bottom": 24, "left": 0 },
+          "children": [
+            {
+              "id": "main-content",
+              "type": "frame",
+              "name": "Main Content (70%)",
+              "width": 740,
+              "height": 712,
+              "fill": [{ "type": "solid", "color": "$bg-primary" }],
+              "stroke": { "fills": [{ "type": "solid", "color": "$border" }], "thickness": 1, "align": "inside" },
+              "layout": "vertical",
+              "children": [
+                {
+                  "id": "main-placeholder",
+                  "type": "text",
+                  "name": "Content",
+                  "x": 16,
+                  "y": 16,
+                  "width": 300,
+                  "height": 20,
+                  "content": "← HaEntryList (slot)",
+                  "fontSize": 14,
+                  "fill": [{ "type": "solid", "color": "$text-muted" }]
+                }
+              ]
+            },
+            {
+              "id": "sidebar",
+              "type": "frame",
+              "name": "Sidebar (30%)",
+              "width": 336,
+              "height": 400,
+              "fill": [{ "type": "solid", "color": "$bg-primary" }],
+              "stroke": { "fills": [{ "type": "solid", "color": "$border" }], "thickness": 1, "align": "inside" },
+              "layout": "vertical",
+              "children": [
+                {
+                  "id": "sidebar-heading",
+                  "type": "frame",
+                  "name": "Sidebar Section Heading",
+                  "width": 336,
+                  "height": 36,
+                  "fill": [{ "type": "solid", "color": "$bg-secondary" }],
+                  "padding": { "top": 8, "right": 12, "bottom": 8, "left": 12 },
+                  "children": [
+                    {
+                      "id": "sidebar-heading-text",
+                      "type": "text",
+                      "name": "Heading Text",
+                      "width": 200,
+                      "height": 20,
+                      "content": "人気エントリー",
+                      "fontSize": 14,
+                      "fontWeight": "bold",
+                      "fill": [{ "type": "solid", "color": "$text-primary" }]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "footer-slot",
+          "type": "frame",
+          "name": "Footer Slot",
+          "width": 1440,
+          "height": 50,
+          "fill": [{ "type": "solid", "color": "$bg-primary" }],
+          "stroke": { "fills": [{ "type": "solid", "color": "$border" }], "thickness": 1, "align": "inside" },
+          "children": [
+            {
+              "id": "footer-placeholder",
+              "type": "text",
+              "name": "Footer",
+              "x": 16,
+              "y": 16,
+              "width": 200,
+              "height": 20,
+              "content": "← HaFooter component",
+              "fontSize": 14,
+              "fill": [{ "type": "solid", "color": "$text-muted" }]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

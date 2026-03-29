@@ -1,0 +1,85 @@
+{
+  "version": "1.0",
+  "imports": ["../../../styles/tokens.pen"],
+  "children": [
+    {
+      "id": "footer",
+      "type": "frame",
+      "name": "HaFooter",
+      "reusable": true,
+      "width": 1440,
+      "height": 50,
+      "fill": [{ "type": "solid", "color": "$bg-primary" }],
+      "stroke": { "fills": [{ "type": "solid", "color": "$border" }], "thickness": 1, "align": "inside" },
+      "layout": "horizontal",
+      "alignItems": "center",
+      "justifyContent": "center",
+      "children": [
+        {
+          "id": "footer-inner",
+          "type": "frame",
+          "name": "Footer Inner",
+          "width": 1100,
+          "height": 50,
+          "layout": "horizontal",
+          "alignItems": "center",
+          "justifyContent": "space_between",
+          "padding": { "top": 0, "right": 16, "bottom": 0, "left": 16 },
+          "children": [
+            {
+              "id": "footer-copyright",
+              "type": "text",
+              "name": "Copyright",
+              "width": 300,
+              "height": 16,
+              "content": "HN Hatena UI - Powered by Hacker News API",
+              "fontSize": 12,
+              "fill": [{ "type": "solid", "color": "$text-muted" }]
+            },
+            {
+              "id": "footer-links",
+              "type": "frame",
+              "name": "Footer Links",
+              "width": 200,
+              "height": 16,
+              "layout": "horizontal",
+              "gap": 16,
+              "children": [
+                {
+                  "id": "footer-link-about",
+                  "type": "text",
+                  "name": "About",
+                  "width": 50,
+                  "height": 16,
+                  "content": "About",
+                  "fontSize": 12,
+                  "fill": [{ "type": "solid", "color": "$hatena-blue" }]
+                },
+                {
+                  "id": "footer-link-github",
+                  "type": "text",
+                  "name": "GitHub",
+                  "width": 50,
+                  "height": 16,
+                  "content": "GitHub",
+                  "fontSize": 12,
+                  "fill": [{ "type": "solid", "color": "$hatena-blue" }]
+                },
+                {
+                  "id": "footer-link-hn",
+                  "type": "text",
+                  "name": "Hacker News",
+                  "width": 80,
+                  "height": 16,
+                  "content": "Hacker News",
+                  "fontSize": 12,
+                  "fill": [{ "type": "solid", "color": "$hatena-blue" }]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

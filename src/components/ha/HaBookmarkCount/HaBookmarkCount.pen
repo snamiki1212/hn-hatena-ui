@@ -1,0 +1,146 @@
+{
+  "version": "1.0",
+  "imports": ["../../../styles/tokens.pen"],
+  "children": [
+    {
+      "id": "badge-cold",
+      "type": "frame",
+      "name": "HaBookmarkCount (1-9)",
+      "reusable": true,
+      "width": 52,
+      "height": 22,
+      "layout": "horizontal",
+      "alignItems": "center",
+      "justifyContent": "center",
+      "fill": [{ "type": "solid", "color": "$bookmark-cold" }],
+      "cornerRadius": 3,
+      "padding": { "top": 2, "right": 6, "bottom": 2, "left": 6 },
+      "children": [
+        {
+          "id": "badge-cold-text",
+          "type": "text",
+          "name": "Count",
+          "width": 40,
+          "height": 14,
+          "content": "5 users",
+          "fontSize": 11,
+          "fontWeight": "bold",
+          "textAlign": "center",
+          "fill": [{ "type": "solid", "color": "$text-secondary" }]
+        }
+      ]
+    },
+    {
+      "id": "badge-warm",
+      "type": "frame",
+      "name": "HaBookmarkCount (10-49)",
+      "reusable": true,
+      "width": 58,
+      "height": 22,
+      "layout": "horizontal",
+      "alignItems": "center",
+      "justifyContent": "center",
+      "fill": [{ "type": "solid", "color": "#fff2e0" }],
+      "cornerRadius": 3,
+      "padding": { "top": 2, "right": 6, "bottom": 2, "left": 6 },
+      "children": [
+        {
+          "id": "badge-warm-text",
+          "type": "text",
+          "name": "Count",
+          "width": 46,
+          "height": 14,
+          "content": "25 users",
+          "fontSize": 11,
+          "fontWeight": "bold",
+          "textAlign": "center",
+          "fill": [{ "type": "solid", "color": "$bookmark-warm" }]
+        }
+      ]
+    },
+    {
+      "id": "badge-hot",
+      "type": "frame",
+      "name": "HaBookmarkCount (50-99)",
+      "reusable": true,
+      "width": 62,
+      "height": 22,
+      "layout": "horizontal",
+      "alignItems": "center",
+      "justifyContent": "center",
+      "fill": [{ "type": "solid", "color": "#ffe0e0" }],
+      "cornerRadius": 3,
+      "padding": { "top": 2, "right": 6, "bottom": 2, "left": 6 },
+      "children": [
+        {
+          "id": "badge-hot-text",
+          "type": "text",
+          "name": "Count",
+          "width": 50,
+          "height": 14,
+          "content": "75 users",
+          "fontSize": 11,
+          "fontWeight": "bold",
+          "textAlign": "center",
+          "fill": [{ "type": "solid", "color": "$bookmark-hot" }]
+        }
+      ]
+    },
+    {
+      "id": "badge-fire",
+      "type": "frame",
+      "name": "HaBookmarkCount (100-499)",
+      "reusable": true,
+      "width": 68,
+      "height": 22,
+      "layout": "horizontal",
+      "alignItems": "center",
+      "justifyContent": "center",
+      "fill": [{ "type": "solid", "color": "$bookmark-hot" }],
+      "cornerRadius": 3,
+      "padding": { "top": 2, "right": 6, "bottom": 2, "left": 6 },
+      "children": [
+        {
+          "id": "badge-fire-text",
+          "type": "text",
+          "name": "Count",
+          "width": 56,
+          "height": 14,
+          "content": "256 users",
+          "fontSize": 11,
+          "fontWeight": "bold",
+          "textAlign": "center",
+          "fill": [{ "type": "solid", "color": "#ffffff" }]
+        }
+      ]
+    },
+    {
+      "id": "badge-blaze",
+      "type": "frame",
+      "name": "HaBookmarkCount (500+)",
+      "reusable": true,
+      "width": 72,
+      "height": 22,
+      "layout": "horizontal",
+      "alignItems": "center",
+      "justifyContent": "center",
+      "fill": [{ "type": "solid", "color": "$bookmark-fire" }],
+      "cornerRadius": 3,
+      "padding": { "top": 2, "right": 6, "bottom": 2, "left": 6 },
+      "children": [
+        {
+          "id": "badge-blaze-text",
+          "type": "text",
+          "name": "Count",
+          "width": 60,
+          "height": 14,
+          "content": "1024 users",
+          "fontSize": 11,
+          "fontWeight": "bold",
+          "textAlign": "center",
+          "fill": [{ "type": "solid", "color": "#ffffff" }]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "version": "1.0",
+  "imports": ["../../../styles/tokens.pen", "../HaEntryCard/HaEntryCard.pen"],
+  "children": [
+    {
+      "id": "entry-list",
+      "type": "frame",
+      "name": "HaEntryList",
+      "reusable": true,
+      "width": 740,
+      "height": 600,
+      "fill": [{ "type": "solid", "color": "$bg-primary" }],
+      "stroke": { "fills": [{ "type": "solid", "color": "$border" }], "thickness": 1, "align": "inside" },
+      "layout": "vertical",
+      "gap": 0,
+      "children": [
+        {
+          "id": "card-1",
+          "type": "ref",
+          "name": "Entry Card 1",
+          "refId": "entry-card",
+          "overrides": {
+            "entry-title": { "content": "TypeScript 5.7 Released with New Performance Features" },
+            "entry-domain": { "content": "devblogs.microsoft.com" },
+            "meta-author": { "content": "msdev" },
+            "meta-time": { "content": "2時間前" },
+            "meta-comments": { "content": "128 comments" },
+            "bookmark-count-text": { "content": "256 users" }
+          }
+        },
+        {
+          "id": "card-2",
+          "type": "ref",
+          "name": "Entry Card 2",
+          "refId": "entry-card",
+          "overrides": {
+            "entry-title": { "content": "Show HN: I built a real-time collaborative editor" },
+            "entry-domain": { "content": "github.com" },
+            "meta-author": { "content": "builder42" },
+            "meta-time": { "content": "5時間前" },
+            "meta-comments": { "content": "67 comments" },
+            "bookmark-count": { "fill": [{ "type": "solid", "color": "#ffe0e0" }] },
+            "bookmark-count-text": { "content": "89 users", "fill": [{ "type": "solid", "color": "#ff6666" }] }
+          }
+        },
+        {
+          "id": "card-3",
+          "type": "ref",
+          "name": "Entry Card 3",
+          "refId": "entry-card",
+          "overrides": {
+            "entry-title": { "content": "Understanding CPU Cache Lines and Memory Performance" },
+            "entry-domain": { "content": "blog.example.com" },
+            "meta-author": { "content": "cpuguru" },
+            "meta-time": { "content": "8時間前" },
+            "meta-comments": { "content": "23 comments" },
+            "bookmark-count": { "fill": [{ "type": "solid", "color": "#fff2e0" }] },
+            "bookmark-count-text": { "content": "31 users", "fill": [{ "type": "solid", "color": "#ff9900" }] }
+          }
+        }
+      ]
+    }
+  ]
+}

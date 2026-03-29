@@ -1,0 +1,219 @@
+{
+  "version": "1.0",
+  "imports": ["../../../styles/tokens.pen"],
+  "children": [
+    {
+      "id": "header",
+      "type": "frame",
+      "name": "HaHeader",
+      "width": 1440,
+      "height": 90,
+      "fill": [{ "type": "solid", "color": "$bg-primary" }],
+      "layout": "vertical",
+      "children": [
+        {
+          "id": "header-top",
+          "type": "frame",
+          "name": "Header Top Bar",
+          "width": 1440,
+          "height": 50,
+          "layout": "horizontal",
+          "alignItems": "center",
+          "justifyContent": "center",
+          "children": [
+            {
+              "id": "header-inner",
+              "type": "frame",
+              "name": "Header Inner (max-width)",
+              "width": 1100,
+              "height": 50,
+              "layout": "horizontal",
+              "alignItems": "center",
+              "justifyContent": "space_between",
+              "padding": { "top": 0, "right": 16, "bottom": 0, "left": 16 },
+              "children": [
+                {
+                  "id": "logo-area",
+                  "type": "frame",
+                  "name": "Logo Area",
+                  "width": 120,
+                  "height": 30,
+                  "layout": "horizontal",
+                  "alignItems": "center",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "id": "logo-icon",
+                      "type": "rectangle",
+                      "name": "B! Icon",
+                      "width": 28,
+                      "height": 28,
+                      "fill": [{ "type": "solid", "color": "$hatena-blue" }],
+                      "cornerRadius": 4
+                    },
+                    {
+                      "id": "logo-text",
+                      "type": "text",
+                      "name": "Logo Text",
+                      "width": 80,
+                      "height": 20,
+                      "content": "HN Hatena",
+                      "fontSize": 16,
+                      "fontWeight": "bold",
+                      "fill": [{ "type": "solid", "color": "$hatena-blue" }]
+                    }
+                  ]
+                },
+                {
+                  "id": "search-bar",
+                  "type": "frame",
+                  "name": "HaSearchBar",
+                  "width": 500,
+                  "height": 32,
+                  "fill": [{ "type": "solid", "color": "$bg-primary" }],
+                  "stroke": { "fills": [{ "type": "solid", "color": "$border" }], "thickness": 1, "align": "inside" },
+                  "cornerRadius": 4,
+                  "layout": "horizontal",
+                  "alignItems": "center",
+                  "padding": { "top": 0, "right": 12, "bottom": 0, "left": 12 },
+                  "children": [
+                    {
+                      "id": "search-placeholder",
+                      "type": "text",
+                      "name": "Search Placeholder",
+                      "width": 200,
+                      "height": 16,
+                      "content": "Search stories...",
+                      "fontSize": 13,
+                      "fill": [{ "type": "solid", "color": "$text-muted" }]
+                    }
+                  ]
+                },
+                {
+                  "id": "user-actions",
+                  "type": "frame",
+                  "name": "User Actions",
+                  "width": 100,
+                  "height": 30,
+                  "layout": "horizontal",
+                  "alignItems": "center",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "id": "login-link",
+                      "type": "text",
+                      "name": "Login",
+                      "width": 60,
+                      "height": 16,
+                      "content": "ログイン",
+                      "fontSize": 12,
+                      "fill": [{ "type": "solid", "color": "$hatena-blue" }]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "header-tabs",
+          "type": "frame",
+          "name": "Category Tabs Bar",
+          "width": 1440,
+          "height": 40,
+          "fill": [{ "type": "solid", "color": "$bg-primary" }],
+          "stroke": { "fills": [{ "type": "solid", "color": "$border" }], "thickness": 1, "align": "inside" },
+          "layout": "horizontal",
+          "alignItems": "center",
+          "justifyContent": "center",
+          "children": [
+            {
+              "id": "tabs-inner",
+              "type": "frame",
+              "name": "Tabs Inner",
+              "width": 1100,
+              "height": 40,
+              "layout": "horizontal",
+              "alignItems": "center",
+              "gap": 16,
+              "padding": { "top": 0, "right": 16, "bottom": 0, "left": 16 },
+              "children": [
+                {
+                  "id": "tab-top",
+                  "type": "frame",
+                  "name": "Tab - Top (active)",
+                  "width": 48,
+                  "height": 40,
+                  "layout": "vertical",
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "stroke": { "fills": [{ "type": "solid", "color": "$hatena-blue" }], "thickness": 2, "align": "inside" },
+                  "children": [
+                    {
+                      "id": "tab-top-text",
+                      "type": "text",
+                      "name": "Top",
+                      "width": 48,
+                      "height": 16,
+                      "content": "Top",
+                      "fontSize": 13,
+                      "fontWeight": "bold",
+                      "textAlign": "center",
+                      "fill": [{ "type": "solid", "color": "$hatena-blue" }]
+                    }
+                  ]
+                },
+                {
+                  "id": "tab-new",
+                  "type": "frame",
+                  "name": "Tab - New",
+                  "width": 48,
+                  "height": 40,
+                  "layout": "vertical",
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "id": "tab-new-text",
+                      "type": "text",
+                      "name": "New",
+                      "width": 48,
+                      "height": 16,
+                      "content": "New",
+                      "fontSize": 13,
+                      "textAlign": "center",
+                      "fill": [{ "type": "solid", "color": "$text-secondary" }]
+                    }
+                  ]
+                },
+                {
+                  "id": "tab-best",
+                  "type": "frame",
+                  "name": "Tab - Best",
+                  "width": 48,
+                  "height": 40,
+                  "layout": "vertical",
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "id": "tab-best-text",
+                      "type": "text",
+                      "name": "Best",
+                      "width": 48,
+                      "height": 16,
+                      "content": "Best",
+                      "fontSize": 13,
+                      "textAlign": "center",
+                      "fill": [{ "type": "solid", "color": "$text-secondary" }]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

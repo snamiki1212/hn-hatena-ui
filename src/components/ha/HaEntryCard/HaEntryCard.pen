@@ -1,0 +1,133 @@
+{
+  "version": "1.0",
+  "imports": ["../../../styles/tokens.pen"],
+  "children": [
+    {
+      "id": "entry-card",
+      "type": "frame",
+      "name": "HaEntryCard",
+      "reusable": true,
+      "width": 740,
+      "height": 100,
+      "fill": [{ "type": "solid", "color": "$bg-primary" }],
+      "stroke": { "fills": [{ "type": "solid", "color": "$border" }], "thickness": 1, "align": "inside" },
+      "layout": "horizontal",
+      "alignItems": "start",
+      "gap": 12,
+      "padding": { "top": 12, "right": 16, "bottom": 12, "left": 16 },
+      "children": [
+        {
+          "id": "thumbnail",
+          "type": "rectangle",
+          "name": "Thumbnail",
+          "width": 80,
+          "height": 80,
+          "fill": [{ "type": "solid", "color": "#dddddd" }],
+          "cornerRadius": 3
+        },
+        {
+          "id": "entry-body",
+          "type": "frame",
+          "name": "Entry Body",
+          "width": 540,
+          "height": 76,
+          "layout": "vertical",
+          "gap": 4,
+          "sizingBehavior": "fill_container",
+          "children": [
+            {
+              "id": "entry-title",
+              "type": "text",
+              "name": "HaEntryTitle",
+              "width": 540,
+              "height": 22,
+              "content": "記事タイトルがここに表示されます - Hacker News",
+              "fontSize": 15,
+              "fontWeight": "bold",
+              "lineHeight": 1.4,
+              "fill": [{ "type": "solid", "color": "$text-primary" }]
+            },
+            {
+              "id": "entry-domain",
+              "type": "text",
+              "name": "Domain",
+              "width": 200,
+              "height": 16,
+              "content": "example.com",
+              "fontSize": 12,
+              "fill": [{ "type": "solid", "color": "$text-muted" }]
+            },
+            {
+              "id": "entry-meta-row",
+              "type": "frame",
+              "name": "HaEntryMeta",
+              "width": 540,
+              "height": 16,
+              "layout": "horizontal",
+              "alignItems": "center",
+              "gap": 8,
+              "children": [
+                {
+                  "id": "meta-author",
+                  "type": "text",
+                  "name": "Author",
+                  "width": 80,
+                  "height": 16,
+                  "content": "username",
+                  "fontSize": 12,
+                  "fill": [{ "type": "solid", "color": "$text-muted" }]
+                },
+                {
+                  "id": "meta-time",
+                  "type": "text",
+                  "name": "Time",
+                  "width": 60,
+                  "height": 16,
+                  "content": "3時間前",
+                  "fontSize": 12,
+                  "fill": [{ "type": "solid", "color": "$text-muted" }]
+                },
+                {
+                  "id": "meta-comments",
+                  "type": "text",
+                  "name": "Comments",
+                  "width": 80,
+                  "height": 16,
+                  "content": "45 comments",
+                  "fontSize": 12,
+                  "fill": [{ "type": "solid", "color": "$hatena-blue" }]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "bookmark-count",
+          "type": "frame",
+          "name": "HaBookmarkCount Slot",
+          "width": 64,
+          "height": 24,
+          "layout": "horizontal",
+          "alignItems": "center",
+          "justifyContent": "center",
+          "fill": [{ "type": "solid", "color": "$bookmark-hot" }],
+          "cornerRadius": 3,
+          "children": [
+            {
+              "id": "bookmark-count-text",
+              "type": "text",
+              "name": "Count",
+              "width": 56,
+              "height": 14,
+              "content": "128 users",
+              "fontSize": 11,
+              "fontWeight": "bold",
+              "textAlign": "center",
+              "fill": [{ "type": "solid", "color": "#ffffff" }]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
