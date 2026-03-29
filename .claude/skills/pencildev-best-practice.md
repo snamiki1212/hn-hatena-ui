@@ -1,3 +1,13 @@
+---
+title: Pencil.dev Best Practice
+description: Pencil.dev (.pen) ファイルの作成・編集時に参照するナレッジベース。フォーマット仕様、レイアウト、変数、コンポーネント設計、MCP連携のベストプラクティス。
+match:
+  - "**/*.pen"
+  - "pencil"
+  - "デザイン"
+  - ".pen"
+---
+
 # Pencil.dev Best Practice Guide
 
 このスキルは Pencil.dev (.pen) ファイルの作成・編集時に参照するナレッジベースです。
